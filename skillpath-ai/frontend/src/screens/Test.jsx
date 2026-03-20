@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { useAppStore } from '../store/useAppStore';
 import { submitTest } from '../lib/api';
 import toast from 'react-hot-toast';
-import { motion } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
 import { RadialBarChart, RadialBar, PolarAngleAxis, ResponsiveContainer } from 'recharts';
 import { Zap, ArrowRight, ArrowLeft, CheckCircle2 } from 'lucide-react';
 

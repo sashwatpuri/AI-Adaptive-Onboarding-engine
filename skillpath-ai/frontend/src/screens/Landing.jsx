@@ -1,6 +1,5 @@
-import { useState, useCallback } from 'react';
+import { useState, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { useDropzone } from 'react-dropzone';
 import { useAppStore } from '../store/useAppStore';
 import { uploadDocuments, extractSkills, generateRoadmap } from '../lib/api';
 import toast from 'react-hot-toast';
@@ -16,25 +15,23 @@ export default function Landing() {
   const [jdText, setJdText] = useState("");
   const [isJdTextMode, setIsJdTextMode] = useState(false);
 
-  const onDropResume = useCallback((acceptedFiles) => {
-    setResumeFile(acceptedFiles[0]);
-  }, []);
+  const resumeRef = useRef(null);
+  const jdRef = useRef(null);
 
-  const onDropJd = useCallback((acceptedFiles) => {
-    setJdFile(acceptedFiles[0]);
-  }, []);
+  const handleResumeClick = () => resumeRef.current?.click();
+  const handleJdClick = () => jdRef.current?.click();
 
-  const { getRootProps: getResumeProps, getInputProps: getResumeInput } = useDropzone({
-    onDrop: onDropResume,
-    accept: { 'application/pdf': ['.pdf'] },
-    maxFiles: 1
-  });
+  const handleResumeChange = (e) => {
+    if (e.target.files && e.target.files.length > 0) {
+      setResumeFile(e.target.files[0]);
+    }
+  };
 
-  const { getRootProps: getJdProps, getInputProps: getJdInput } = useDropzone({
-    onDrop: onDropJd,
-    accept: { 'application/pdf': ['.pdf'] },
-    maxFiles: 1
-  });
+  const handleJdChange = (e) => {
+    if (e.target.files && e.target.files.length > 0) {
+      setJdFile(e.target.files[0]);
+    }
+  };
 
   const handleDemo = async (type) => {
     try {
@@ -80,7 +77,7 @@ export default function Landing() {
     }
   };
 
-  const canStart = resumeFile && (jdFile || (isJdTextMode && jdText.length > 50));
+  const canStart = resumeFile && (jdFile || (isJdTextMode && jdText.length > 5));
 
   return (
     <div className="max-w-4xl mx-auto py-12 px-6">
@@ -97,12 +94,12 @@ export default function Landing() {
       </motion.div>
 
       <div className="grid md:grid-cols-2 gap-6 mb-12">
-        <div {...getResumeProps()} className="group border-2 border-dashed border-white/10 bg-surface-container-low rounded-3xl p-8 hover:border-[#34b5fa]/50 hover:bg-[#34b5fa]/5 transition-all cursor-pointer flex flex-col items-center justify-center text-center min-h-[250px]">
-          <input {...getResumeInput()} />
+        <div onClick={handleResumeClick} className="group border-2 border-dashed border-white/10 bg-surface-container-low rounded-3xl p-8 hover:border-[#34b5fa]/50 hover:bg-[#34b5fa]/5 transition-all cursor-pointer flex flex-col items-center justify-center text-center min-h-[250px]">
+          <input type="file" accept=".pdf,.docx" className="hidden" ref={resumeRef} onChange={handleResumeChange} />
           <div className="w-16 h-16 rounded-2xl bg-surface-container-high text-[#34b5fa] flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
             <FileText size={32} />
           </div>
-          <h3 className="font-headline font-bold text-xl mb-2 text-on-surface">Upload Resume (PDF)</h3>
+          <h3 className="font-headline font-bold text-xl mb-2 text-on-surface">Upload Resume (PDF, DOCX)</h3>
           {resumeFile ? (
             <div className="bg-[#34b5fa]/10 text-[#34b5fa] px-4 py-2 rounded-lg text-sm font-medium truncate max-w-[200px] border border-[#34b5fa]/20">
               {resumeFile.name}
@@ -115,12 +112,12 @@ export default function Landing() {
         <div className="border-2 border-dashed border-white/10 bg-surface-container-low rounded-3xl relative flex flex-col overflow-hidden transition-all hover:border-[#ba9eff]/50">
           {!isJdTextMode ? (
             <>
-              <div {...getJdProps()} className="group flex-1 hover:bg-[#ba9eff]/5 transition-all cursor-pointer flex flex-col items-center justify-center text-center p-8 min-h-[200px]">
-                <input {...getJdInput()} />
+              <div onClick={handleJdClick} className="group flex-1 hover:bg-[#ba9eff]/5 transition-all cursor-pointer flex flex-col items-center justify-center text-center p-8 min-h-[200px]">
+                <input type="file" accept=".pdf,.docx" className="hidden" ref={jdRef} onChange={handleJdChange} />
                 <div className="w-16 h-16 rounded-2xl bg-surface-container-high text-[#ba9eff] flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
                   <FileText size={32} />
                 </div>
-                <h3 className="font-headline font-bold text-xl mb-2 text-on-surface">Upload JD (PDF)</h3>
+                <h3 className="font-headline font-bold text-xl mb-2 text-on-surface">Upload JD (PDF, DOCX)</h3>
                 {jdFile ? (
                    <div className="bg-[#ba9eff]/10 text-[#ba9eff] px-4 py-2 rounded-lg text-sm font-medium truncate max-w-[200px] border border-[#ba9eff]/20">
                      {jdFile.name}
@@ -161,11 +158,17 @@ export default function Landing() {
 
       <div className="flex flex-col items-center mb-16">
         <button
-          onClick={handleStart} disabled={!canStart}
+          onClick={() => {
+            if (canStart) {
+              handleStart();
+            } else {
+              toast.error("Please provide both a Resume and a Target Job Description to start.");
+            }
+          }}
           className={`flex items-center space-x-3 px-12 py-4 rounded-2xl font-headline font-bold text-lg transition-all ${
             canStart 
             ? 'bg-gradient-to-r from-primary to-primary-dim text-white shadow-[0_0_30px_rgba(186,158,255,0.4)] hover:scale-105 active:scale-95'
-            : 'bg-surface-container-high text-on-surface-variant opacity-50 cursor-not-allowed'
+            : 'bg-surface-container-high text-on-surface-variant cursor-pointer hover:bg-surface-container-highest hover:text-on-surface'
           }`}
         >
           <span>Analyze Gap Map & Build Roadmap</span>

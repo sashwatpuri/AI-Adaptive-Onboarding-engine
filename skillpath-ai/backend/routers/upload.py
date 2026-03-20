@@ -15,12 +15,12 @@ async def upload_documents(
     start_time = time.time()
     try:
         resume_bytes = await resume.read()
-        parsed_resume = parse_pdf(resume_bytes)
+        parsed_resume = parse_pdf(resume_bytes, resume.filename)
 
         parsed_jd = ""
         if jd:
             jd_bytes = await jd.read()
-            parsed_jd = parse_pdf(jd_bytes)
+            parsed_jd = parse_pdf(jd_bytes, jd.filename)
         elif jd_text:
             parsed_jd = jd_text
         else:

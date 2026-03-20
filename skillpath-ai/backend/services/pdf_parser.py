@@ -3,8 +3,14 @@ import pdfplumber
 from io import BytesIO
 from config import config
 
-def parse_pdf(file_bytes: bytes) -> str:
-    # Primary: PyMuPDF
+def parse_pdf(file_bytes: bytes, filename: str = "") -> str:
+    if filename.lower().endswith('.docx'):
+        from docx import Document
+        doc = Document(BytesIO(file_bytes))
+        text = "\n".join(paragraph.text for paragraph in doc.paragraphs)
+        return clean_text(text)
+
+    # Primary for PDF: PyMuPDF
     try:
         doc = fitz.open(stream=file_bytes, filetype="pdf")
         text = ""
@@ -16,7 +22,7 @@ def parse_pdf(file_bytes: bytes) -> str:
     except Exception:
         pass
     
-    # Fallback: pdfplumber
+    # Fallback for PDF: pdfplumber
     with pdfplumber.open(BytesIO(file_bytes)) as pdf:
         text = "\n".join(
             p.extract_text() or "" for p in pdf.pages
