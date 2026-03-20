@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Manrope:wght@700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "surface-container-highest": "#24252b",
+            "on-primary-container": "#2b006e",
+            "on-tertiary-container": "#4a002f",
+            "on-primary-fixed": "#000000",
+            "secondary-dim": "#17a8ec",
+            "surface-container-high": "#1e1f25",
+            "on-secondary-fixed-variant": "#00567c",
+            "error": "#ff6e84",
+            "surface-container": "#18191e",
+            "primary-container": "#ae8dff",
+            "primary-dim": "#8455ef",
+            "on-secondary-fixed": "#003853",
+            "on-secondary": "#003047",
+            "secondary": "#34b5fa",
+            "error-container": "#a70138",
+            "inverse-primary": "#6e3bd7",
+            "tertiary-container": "#f673b7",
+            "on-error-container": "#ffb2b9",
+            "surface-container-lowest": "#000000",
+            "tertiary-fixed-dim": "#f976ba",
+            "inverse-surface": "#faf8fe",
+            "surface-tint": "#ba9eff",
+            "on-secondary-container": "#f3f8ff",
+            "surface": "#0d0e12",
+            "inverse-on-surface": "#54555a",
+            "primary-fixed-dim": "#a27cff",
+            "error-dim": "#d73357",
+            "tertiary-dim": "#f271b5",
+            "surface-dim": "#0d0e12",
+            "surface-variant": "#24252b",
+            "primary": "#ba9eff",
+            "surface-bright": "#2a2c32",
+            "on-surface-variant": "#abaab0",
+            "on-tertiary-fixed": "#360021",
+            "background": "#0d0e12",
+            "on-tertiary-fixed-variant": "#73004b",
+            "tertiary-fixed": "#ff8bc5",
+            "surface-container-low": "#121318",
+            "secondary-fixed": "#a4d8ff",
+            "on-primary": "#39008c",
+            "on-tertiary": "#5f003e",
+            "secondary-fixed-dim": "#81ccff",
+            "outline-variant": "#47484c",
+            "on-error": "#490013",
+            "tertiary": "#ff86c3",
+            "outline": "#75757a",
+            "primary-fixed": "#ae8dff",
+            "on-surface": "#faf8fe",
+            "on-background": "#faf8fe",
+            "on-primary-fixed-variant": "#370086",
+            "secondary-container": "#006591"
+          },
+          fontFamily: {
+            "headline": ["Manrope"],
+            "body": ["Inter"],
+            "label": ["Inter"]
+          },
+          borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+        },
+      },
+    }
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+    }
+    .glass-card {
+      background: rgba(30, 31, 37, 0.7);
+      backdrop-filter: blur(20px);
+      border: 1px solid rgba(250, 248, 254, 0.1);
+    }
+    .skill-chip-hover .tooltip {
+      visibility: hidden;
+      opacity: 0;
+      transition: opacity 0.2s, visibility 0.2s;
+    }
+    .skill-chip-hover:hover .tooltip {
+      visibility: visible;
+      opacity: 1;
+    }
+    .remove-btn:active {
+      transform: scale(0.9);
+    }
+    .skill-chip-active:active {
+      opacity: 0.5;
+      transform: scale(0.98);
+    }
+  </style>
+</head>
+<body class="bg-background text-on-surface font-body selection:bg-primary/30">
+<!-- TopAppBar -->
+<header class="fixed top-0 w-full z-50 border-b border-white/10 bg-surface/70 backdrop-blur-xl shadow-[0_8px_32px_0_rgba(186,158,255,0.05)] flex justify-between items-center px-6 py-3">
+<div class="flex items-center gap-8">
+<span class="text-xl font-black text-transparent bg-clip-text bg-gradient-to-r from-[#ba9eff] to-[#8455ef] font-headline">SkillPath AI</span>
+<nav class="hidden md:flex gap-6 items-center">
+<a class="text-on-surface-variant font-medium hover:text-[#ba9eff] transition-colors duration-200" href="#">Help</a>
+<a class="text-on-surface-variant font-medium hover:text-[#ba9eff] transition-colors duration-200" href="#">Docs</a>
+</nav>
+</div>
+<div class="flex items-center gap-4">
+<button class="p-2 rounded-full hover:bg-surface-container-high transition-colors group">
+<span class="material-symbols-outlined text-on-surface-variant group-hover:text-primary">notifications</span>
+</button>
+<button class="p-2 rounded-full hover:bg-surface-container-high transition-colors group">
+<span class="material-symbols-outlined text-on-surface-variant group-hover:text-primary">settings</span>
+</button>
+<div class="h-8 w-8 rounded-full overflow-hidden border border-outline-variant">
+<img alt="User Avatar" class="w-full h-full object-cover" data-alt="Professional user profile avatar" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB-PDq3AGlzssVMbtrbEcSXJ_x2r-HMeSiZwMNn7RLjR-ofqDP383rfR6IRudXB3-cOtW_z9OULPSHXrLcYHC9WA3q5RAja1YOqQSCCbqWje4JqiZaVMpCiFs6kNx_udbwMDaVGyheEgwWjnWl_wFRpXseYzjjWOL-VmRpTfLVFrKVdAPyzxWuf6QUIZ6Uy4UDiTb_-EIE2ftiilYTDXzhdc-6xYy7sUL6rNTAs--60w0jMLjqBpsDteCncEojQjk0V6O0_6WK64Xk"/>
+</div>
+</div>
+</header>
+<!-- SideNavBar -->
+<aside class="fixed left-0 top-0 h-full w-64 z-40 bg-[#121318] flex flex-col pt-20 pb-6 hidden md:flex">
+<div class="px-6 mb-8 flex items-center gap-3">
+<div class="w-10 h-10 rounded-xl bg-gradient-to-br from-primary to-primary-dim flex items-center justify-center shadow-lg shadow-primary/20">
+<span class="material-symbols-outlined text-on-primary" style="font-variation-settings: 'FILL' 1;">psychology</span>
+</div>
+<div>
+<h2 class="font-manrope font-black text-[#ba9eff] leading-none">SkillPath AI</h2>
+<span class="text-[10px] text-on-surface-variant tracking-[0.2em] uppercase">The Digital Oracle</span>
+</div>
+</div>
+<nav class="flex-1 px-3 space-y-1">
+<a class="flex items-center gap-3 text-on-surface-variant px-4 py-3 hover:bg-surface-container-low hover:text-white transition-all duration-200 hover:translate-x-1" href="#">
+<span class="material-symbols-outlined">dashboard</span>
+<span class="font-inter text-sm tracking-wide">Dashboard</span>
+</a>
+<a class="flex items-center gap-3 bg-surface_container_high/50 text-[#ba9eff] rounded-lg px-4 py-3 border-l-4 border-[#ba9eff] transition-all duration-200" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">psychology</span>
+<span class="font-inter text-sm tracking-wide font-bold">Skills</span>
+</a>
+<a class="flex items-center gap-3 text-on-surface-variant px-4 py-3 hover:bg-surface-container-low hover:text-white transition-all duration-200 hover:translate-x-1" href="#">
+<span class="material-symbols-outlined">timeline</span>
+<span class="font-inter text-sm tracking-wide">Roadmap</span>
+</a>
+<a class="flex items-center gap-3 text-on-surface-variant px-4 py-3 hover:bg-surface-container-low hover:text-white transition-all duration-200 hover:translate-x-1" href="#">
+<span class="material-symbols-outlined">auto_stories</span>
+<span class="font-inter text-sm tracking-wide">Courses</span>
+</a>
+<a class="flex items-center gap-3 text-on-surface-variant px-4 py-3 hover:bg-surface-container-low hover:text-white transition-all duration-200 hover:translate-x-1" href="#">
+<span class="material-symbols-outlined">quiz</span>
+<span class="font-inter text-sm tracking-wide">Assessment</span>
+</a>
+</nav>
+<div class="px-4 mt-auto space-y-4">
+<div class="p-4 rounded-xl bg-gradient-to-br from-surface-container to-surface-container-high border border-white/5">
+<p class="text-xs text-on-surface-variant mb-2">Power up your career path</p>
+<button class="w-full py-2 bg-gradient-to-r from-primary to-primary-dim text-on-primary-container text-xs font-bold rounded-lg hover:opacity-90 transition-opacity">
+          Upgrade to Pro
+        </button>
+</div>
+<div class="space-y-1">
+<a class="flex items-center gap-3 text-on-surface-variant px-4 py-2 text-xs hover:text-white transition-colors" href="#">
+<span class="material-symbols-outlined text-lg">settings</span>
+<span>Settings</span>
+</a>
+<a class="flex items-center gap-3 text-error-dim px-4 py-2 text-xs hover:text-error transition-colors" href="#">
+<span class="material-symbols-outlined text-lg">logout</span>
+<span>Logout</span>
+</a>
+</div>
+</div>
+</aside>
+<!-- Main Canvas -->
+<main class="md:ml-64 pt-24 pb-12 px-6 md:px-10 min-h-screen">
+<div class="max-w-6xl mx-auto">
+<!-- Header Section -->
+<header class="mb-12 flex flex-col md:flex-row md:items-end justify-between gap-6">
+<div class="space-y-2">
+<div class="flex items-center gap-2 text-primary font-bold tracking-widest text-xs uppercase">
+<span class="w-8 h-[2px] bg-primary"></span>
+            Extraction Result
+          </div>
+<h1 class="text-4xl md:text-5xl font-headline font-extrabold text-on-surface leading-tight">Extracted Skills from Your Resume</h1>
+<p class="text-on-surface-variant max-w-xl text-lg">Our AI has parsed your profile to identify your core competencies. Review and refine them to perfect your roadmap.</p>
+</div>
+<button class="flex items-center gap-2 bg-surface-container-high px-6 py-3 rounded-xl border border-white/10 hover:border-primary/50 transition-all group active:scale-95">
+<span class="material-symbols-outlined text-primary group-hover:rotate-90 transition-transform">add</span>
+<span class="font-bold">Add New Skill</span>
+</button>
+</header>
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-10">
+<!-- Left: Categorized Skill Groups -->
+<div class="lg:col-span-2">
+<!-- Technical Skills -->
+<div class="mb-8 first:mt-0">
+<h3 class="text-[10px] font-bold uppercase tracking-[0.2em] text-on-surface-variant mb-3 border-l-2 border-primary/40 pl-3">Technical Skills</h3>
+<div class="flex flex-wrap gap-3">
+<!-- Skill Chip with Tooltip -->
+<div class="relative group skill-chip-hover">
+<div class="flex items-center gap-2 px-4 py-2 bg-surface-container rounded-full border border-white/5 group-hover:border-primary/30 transition-all skill-chip-active cursor-pointer">
+<span class="text-sm font-medium">Python</span>
+<button class="w-4 h-4 flex items-center justify-center rounded-full bg-surface-container-highest text-on-surface-variant text-[10px] opacity-0 group-hover:opacity-100 transition-opacity duration-200 hover:text-error remove-btn">
+<span class="material-symbols-outlined text-[12px]">close</span>
+</button>
+</div>
+<!-- Tooltip -->
+<div class="tooltip absolute bottom-full left-1/2 -translate-x-1/2 mb-2 z-20 w-max bg-surface-container-highest border border-outline-variant/20 rounded-xl px-3 py-2 backdrop-blur-sm shadow-xl shadow-black/30 pointer-events-none">
+<div class="text-primary font-bold text-sm">98% confidence</div>
+<div class="text-on-surface-variant text-xs">8 resume mentions · 5 project contexts</div>
+<div class="absolute -bottom-1 left-1/2 -translate-x-1/2 w-2 h-2 bg-surface-container-highest border-r border-b border-outline-variant/20 rotate-45"></div>
+</div>
+</div>
+<!-- More chips -->
+<div class="relative group skill-chip-hover">
+<div class="flex items-center gap-2 px-4 py-2 bg-surface-container rounded-full border border-white/5 group-hover:border-primary/30 transition-all skill-chip-active cursor-pointer">
+<span class="text-sm font-medium">SQL</span>
+<button class="w-4 h-4 flex items-center justify-center rounded-full bg-surface-container-highest text-on-surface-variant text-[10px] opacity-0 group-hover:opacity-100 transition-opacity duration-200 remove-btn">
+<span class="material-symbols-outlined text-[12px]">close</span>
+</button>
+</div>
+<div class="tooltip absolute bottom-full left-1/2 -translate-x-1/2 mb-2 z-20 w-max bg-surface-container-highest border border-outline-variant/20 rounded-xl px-3 py-2 backdrop-blur-sm shadow-xl shadow-black/30 pointer-events-none">
+<div class="text-primary font-bold text-sm">95% confidence</div>
+<div class="text-on-surface-variant text-xs">6 resume mentions · 3 project contexts</div>
+<div class="absolute -bottom-1 left-1/2 -translate-x-1/2 w-2 h-2 bg-surface-container-highest border-r border-b border-outline-variant/20 rotate-45"></div>
+</div>
+</div>
+<div class="relative group skill-chip-hover">
+<div class="flex items-center gap-2 px-4 py-2 bg-surface-container rounded-full border border-white/5 group-hover:border-primary/30 transition-all skill-chip-active cursor-pointer">
+<span class="text-sm font-medium">Machine Learning</span>
+<button class="w-4 h-4 flex items-center justify-center rounded-full bg-surface-container-highest text-on-surface-variant text-[10px] opacity-0 group-hover:opacity-100 transition-opacity duration-200 remove-btn">
+<span class="material-symbols-outlined text-[12px]">close</span>
+</button>
+</div>
+<div class="tooltip absolute bottom-full left-1/2 -translate-x-1/2 mb-2 z-20 w-max bg-surface-container-highest border border-outline-variant/20 rounded-xl px-3 py-2 backdrop-blur-sm shadow-xl shadow-black/30 pointer-events-none">
+<div class="text-primary font-bold text-sm">82% confidence</div>
+<div class="text-on-surface-variant text-xs">3 resume mentions · 1 project contexts</div>
+<div class="absolute -bottom-1 left-1/2 -translate-x-1/2 w-2 h-2 bg-surface-container-highest border-r border-b border-outline-variant/20 rotate-45"></div>
+</div>
+</div>
+<div class="relative group skill-chip-hover">
+<div class="flex items-center gap-2 px-4 py-2 bg-surface-container rounded-full border border-white/5 group-hover:border-primary/30 transition-all skill-chip-active cursor-pointer">
+<span class="text-sm font-medium">Docker</span>
+<button class="w-4 h-4 flex items-center justify-center rounded-full bg-surface-container-highest text-on-surface-variant text-[10px] opacity-0 group-hover:opacity-100 transition-opacity duration-200 remove-btn">
+<span class="material-symbols-outlined text-[12px]">close</span>
+</button>
+</div>
+<div class="tooltip absolute bottom-full left-1/2 -translate-x-1/2 mb-2 z-20 w-max bg-surface-container-highest border border-outline-variant/20 rounded-xl px-3 py-2 backdrop-blur-sm shadow-xl shadow-black/30 pointer-events-none">
+<div class="text-primary font-bold text-sm">74% confidence</div>
+<div class="text-on-surface-variant text-xs">2 resume mentions · Infrastructure section</div>
+<div class="absolute -bottom-1 left-1/2 -translate-x-1/2 w-2 h-2 bg-surface-container-highest border-r border-b border-outline-variant/20 rotate-45"></div>
+</div>
+</div>
+<!-- Add Skill Chip -->
+<button class="px-4 py-2 rounded-full border border-dashed border-primary/30 bg-transparent text-on-surface-variant text-xs flex items-center gap-1 hover:bg-primary/10 hover:text-primary transition-all active:scale-95">
+<span class="material-symbols-outlined text-sm">add</span>
+            Add skill
+          </button>
+</div>
+</div>
+<!-- Soft Skills -->
+<div class="mt-8">
+<h3 class="text-[10px] font-bold uppercase tracking-[0.2em] text-on-surface-variant mb-3 border-l-2 border-primary/40 pl-3">Soft Skills</h3>
+<div class="flex flex-wrap gap-3">
+<div class="relative group skill-chip-hover">
+<div class="flex items-center gap-2 px-4 py-2 bg-surface-container rounded-full border border-white/5 group-hover:border-primary/30 transition-all skill-chip-active cursor-pointer">
+<span class="text-sm font-medium">Leadership</span>
+<button class="w-4 h-4 flex items-center justify-center rounded-full bg-surface-container-highest text-on-surface-variant text-[10px] opacity-0 group-hover:opacity-100 transition-opacity duration-200 remove-btn">
+<span class="material-symbols-outlined text-[12px]">close</span>
+</button>
+</div>
+<div class="tooltip absolute bottom-full left-1/2 -translate-x-1/2 mb-2 z-20 w-max bg-surface-container-highest border border-outline-variant/20 rounded-xl px-3 py-2 backdrop-blur-sm shadow-xl shadow-black/30 pointer-events-none">
+<div class="text-primary font-bold text-sm">88% confidence</div>
+<div class="text-on-surface-variant text-xs">Lead role titles · 4 management contexts</div>
+<div class="absolute -bottom-1 left-1/2 -translate-x-1/2 w-2 h-2 bg-surface-container-highest border-r border-b border-outline-variant/20 rotate-45"></div>
+</div>
+</div>
+<div class="relative group skill-chip-hover">
+<div class="flex items-center gap-2 px-4 py-2 bg-surface-container rounded-full border border-white/5 group-hover:border-primary/30 transition-all skill-chip-active cursor-pointer">
+<span class="text-sm font-medium">Communication</span>
+<button class="w-4 h-4 flex items-center justify-center rounded-full bg-surface-container-highest text-on-surface-variant text-[10px] opacity-0 group-hover:opacity-100 transition-opacity duration-200 remove-btn">
+<span class="material-symbols-outlined text-[12px]">close</span>
+</button>
+</div>
+<div class="tooltip absolute bottom-full left-1/2 -translate-x-1/2 mb-2 z-20 w-max bg-surface-container-highest border border-outline-variant/20 rounded-xl px-3 py-2 backdrop-blur-sm shadow-xl shadow-black/30 pointer-events-none">
+<div class="text-primary font-bold text-sm">92% confidence</div>
+<div class="text-on-surface-variant text-xs">Presentation mentions · Client interaction context</div>
+<div class="absolute -bottom-1 left-1/2 -translate-x-1/2 w-2 h-2 bg-surface-container-highest border-r border-b border-outline-variant/20 rotate-45"></div>
+</div>
+</div>
+<button class="px-4 py-2 rounded-full border border-dashed border-primary/30 bg-transparent text-on-surface-variant text-xs flex items-center gap-1 hover:bg-primary/10 hover:text-primary transition-all active:scale-95">
+<span class="material-symbols-outlined text-sm">add</span>
+            Add skill
+          </button>
+</div>
+</div>
+<!-- Domain Knowledge -->
+<div class="mt-8">
+<h3 class="text-[10px] font-bold uppercase tracking-[0.2em] text-on-surface-variant mb-3 border-l-2 border-primary/40 pl-3">Domain Knowledge</h3>
+<div class="flex flex-wrap gap-3">
+<div class="relative group skill-chip-hover">
+<div class="flex items-center gap-2 px-4 py-2 bg-surface-container rounded-full border border-white/5 group-hover:border-primary/30 transition-all skill-chip-active cursor-pointer">
+<span class="text-sm font-medium">Fintech</span>
+<button class="w-4 h-4 flex items-center justify-center rounded-full bg-surface-container-highest text-on-surface-variant text-[10px] opacity-0 group-hover:opacity-100 transition-opacity duration-200 remove-btn">
+<span class="material-symbols-outlined text-[12px]">close</span>
+</button>
+</div>
+<div class="tooltip absolute bottom-full left-1/2 -translate-x-1/2 mb-2 z-20 w-max bg-surface-container-highest border border-outline-variant/20 rounded-xl px-3 py-2 backdrop-blur-sm shadow-xl shadow-black/30 pointer-events-none">
+<div class="text-primary font-bold text-sm">95% confidence</div>
+<div class="text-on-surface-variant text-xs">Past 2 company industries · Financial terminology usage</div>
+<div class="absolute -bottom-1 left-1/2 -translate-x-1/2 w-2 h-2 bg-surface-container-highest border-r border-b border-outline-variant/20 rotate-45"></div>
+</div>
+</div>
+<div class="relative group skill-chip-hover">
+<div class="flex items-center gap-2 px-4 py-2 bg-surface-container rounded-full border border-white/5 group-hover:border-primary/30 transition-all skill-chip-active cursor-pointer">
+<span class="text-sm font-medium">Supply Chain</span>
+<button class="w-4 h-4 flex items-center justify-center rounded-full bg-surface-container-highest text-on-surface-variant text-[10px] opacity-0 group-hover:opacity-100 transition-opacity duration-200 remove-btn">
+<span class="material-symbols-outlined text-[12px]">close</span>
+</button>
+</div>
+<div class="tooltip absolute bottom-full left-1/2 -translate-x-1/2 mb-2 z-20 w-max bg-surface-container-highest border border-outline-variant/20 rounded-xl px-3 py-2 backdrop-blur-sm shadow-xl shadow-black/30 pointer-events-none">
+<div class="text-primary font-bold text-sm">65% confidence</div>
+<div class="text-on-surface-variant text-xs">Logistic project mentions · Limited context</div>
+<div class="absolute -bottom-1 left-1/2 -translate-x-1/2 w-2 h-2 bg-surface-container-highest border-r border-b border-outline-variant/20 rotate-45"></div>
+</div>
+</div>
+<button class="px-4 py-2 rounded-full border border-dashed border-primary/30 bg-transparent text-on-surface-variant text-xs flex items-center gap-1 hover:bg-primary/10 hover:text-primary transition-all active:scale-95">
+<span class="material-symbols-outlined text-sm">add</span>
+            Add skill
+          </button>
+</div>
+</div>
+</div>
+<!-- Right Summary Card -->
+<div class="lg:col-span-1">
+<div class="glass-card rounded-3xl p-8 sticky top-28 border border-white/10">
+<div class="space-y-6">
+<div>
+<h2 class="font-headline font-extrabold text-4xl text-primary mb-1">14 skills detected</h2>
+<p class="font-inter text-on-surface-variant text-sm">Across 3 categories · 6 require improvement</p>
+</div>
+<div class="flex flex-wrap gap-2">
+<span class="px-3 py-1 rounded-full bg-primary/10 text-primary text-[10px] font-bold tracking-wider uppercase">8 Technical</span>
+<span class="px-3 py-1 rounded-full bg-secondary/10 text-secondary text-[10px] font-bold tracking-wider uppercase">4 Soft Skills</span>
+<span class="px-3 py-1 rounded-full bg-tertiary/10 text-tertiary text-[10px] font-bold tracking-wider uppercase">2 Domain</span>
+</div>
+<div class="space-y-4 py-4 border-y border-white/5">
+<div class="space-y-2">
+<div class="flex justify-between text-xs font-bold">
+<span class="text-on-surface-variant uppercase tracking-wider">Overall Readiness</span>
+<span class="text-primary">72%</span>
+</div>
+<div class="h-1.5 w-full bg-surface-container-low rounded-full overflow-hidden">
+<div class="h-full bg-primary w-[72%] rounded-full"></div>
+</div>
+</div>
+<p class="text-[11px] text-on-surface-variant leading-relaxed">Based on your target role of "Senior Data Engineer", your current skill set covers 72% of market requirements.</p>
+</div>
+<button class="w-full py-4 bg-gradient-to-r from-primary to-primary-dim text-on-primary-container font-black rounded-xl shadow-[0_8px_24px_rgba(186,158,255,0.2)] hover:scale-[1.02] transition-transform active:scale-95">
+            Continue to Gap Analysis
+          </button>
+<button class="w-full py-3 text-on-surface-variant font-bold text-sm hover:text-on-surface transition-colors">
+            Back to Resume
+          </button>
+</div>
+</div>
+</div>
+</div>
+<!-- Bottom Prompt Section (Redesigned Footer Alternative) -->
+<footer class="mt-16 flex flex-col md:flex-row items-center justify-between p-8 bg-surface-container-low rounded-3xl border border-white/5 gap-6">
+<div class="flex items-center gap-4">
+<div class="w-14 h-14 rounded-full bg-primary/10 flex items-center justify-center">
+<span class="material-symbols-outlined text-primary text-3xl">check_circle</span>
+</div>
+<div>
+<h4 class="font-bold text-lg">All set with your skills?</h4>
+<p class="text-on-surface-variant text-sm text-balance">We'll use these to generate your personalized learning roadmap.</p>
+</div>
+</div>
+<div class="flex gap-4 w-full md:w-auto">
+<button class="flex-1 md:flex-none px-12 py-4 bg-gradient-to-r from-primary to-primary-dim text-on-primary-container font-black rounded-xl shadow-[0_8px_24px_rgba(186,158,255,0.2)] hover:scale-[1.02] transition-transform active:scale-95">
+            Generate Roadmap
+          </button>
+</div>
+</footer>
+</div>
+</main>
+<!-- Mobile Navigation Shell -->
+<nav class="md:hidden fixed bottom-0 left-0 w-full bg-surface/80 backdrop-blur-xl border-t border-white/5 px-6 py-4 flex justify-between items-center z-50">
+<a class="flex flex-col items-center gap-1 text-on-surface-variant hover:text-primary transition-colors" href="#">
+<span class="material-symbols-outlined">dashboard</span>
+<span class="text-[10px] font-bold">Home</span>
+</a>
+<a class="flex flex-col items-center gap-1 text-primary transition-colors" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">psychology</span>
+<span class="text-[10px] font-bold">Skills</span>
+</a>
+<div class="-mt-12 bg-gradient-to-br from-primary to-primary-dim p-3 rounded-2xl shadow-lg shadow-primary/30">
+<span class="material-symbols-outlined text-on-primary text-3xl">add</span>
+</div>
+<a class="flex flex-col items-center gap-1 text-on-surface-variant hover:text-primary transition-colors" href="#">
+<span class="material-symbols-outlined">timeline</span>
+<span class="text-[10px] font-bold">Path</span>
+</a>
+<a class="flex flex-col items-center gap-1 text-on-surface-variant hover:text-primary transition-colors" href="#">
+<span class="material-symbols-outlined">account_circle</span>
+<span class="text-[10px] font-bold">Me</span>
+</a>
+</nav>
+</body></html>

@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>SkillPath AI — Skill Gap Map</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Manrope:wght@700;800&amp;family=JetBrains+Mono:wght@400;500&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .ai-mesh {
+            background-image: radial-gradient(circle at 2px 2px, rgba(186, 158, 255, 0.05) 1px, transparent 0);
+            background-size: 24px 24px;
+        }
+        .glass-panel {
+            background: rgba(30, 31, 37, 0.7);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(250, 248, 254, 0.1);
+        }
+        .gap-arrow-gradient {
+            background: linear-gradient(90deg, transparent, #ba9eff, transparent);
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "tertiary-container": "#fd78bd",
+                        "surface-dim": "#0d0e12",
+                        "surface-variant": "#24252b",
+                        "tertiary-fixed": "#ff8bc4",
+                        "on-primary": "#371975",
+                        "secondary-dim": "#17a8ec",
+                        "surface-bright": "#2a2c32",
+                        "on-secondary-container": "#f3f8ff",
+                        "inverse-surface": "#faf8fe",
+                        "tertiary-fixed-dim": "#f976ba",
+                        "tertiary-dim": "#f370b4",
+                        "secondary-container": "#006591",
+                        "on-secondary-fixed": "#003853",
+                        "error-container": "#a70138",
+                        "on-error-container": "#ffb2b9",
+                        "on-tertiary-fixed-variant": "#73004b",
+                        "error": "#ff6e84",
+                        "surface-container-lowest": "#000000",
+                        "surface": "#0d0e12",
+                        "on-primary-fixed-variant": "#40247e",
+                        "inverse-primary": "#694fa9",
+                        "on-error": "#490013",
+                        "outline": "#75757a",
+                        "surface-container-low": "#121318",
+                        "secondary-fixed": "#a4d8ff",
+                        "background": "#0d0e12",
+                        "on-tertiary": "#670043",
+                        "primary-dim": "#ac91f1",
+                        "primary-fixed": "#ba9eff",
+                        "on-secondary": "#003047",
+                        "on-tertiary-container": "#530035",
+                        "on-primary-fixed": "#1b004a",
+                        "secondary": "#34b5fa",
+                        "error-dim": "#d73357",
+                        "on-surface-variant": "#abaab0",
+                        "on-primary-container": "#2b0569",
+                        "on-surface": "#faf8fe",
+                        "secondary-fixed-dim": "#81ccff",
+                        "primary": "#ba9eff",
+                        "primary-container": "#ac91f1",
+                        "on-background": "#faf8fe",
+                        "on-tertiary-fixed": "#360021",
+                        "on-secondary-fixed-variant": "#00567c",
+                        "surface-tint": "#ba9eff",
+                        "surface-container": "#18191e",
+                        "tertiary": "#ff90c6",
+                        "surface-container-highest": "#24252b",
+                        "inverse-on-surface": "#54555a",
+                        "primary-fixed-dim": "#ac91f1",
+                        "surface-container-high": "#1e1f25",
+                        "outline-variant": "#47484c"
+                    },
+                    fontFamily: {
+                        "headline": ["Manrope"],
+                        "body": ["Inter"],
+                        "label": ["Inter"]
+                    },
+                    borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+</head>
+<body class="bg-background text-on-surface font-body selection:bg-primary/30 antialiased overflow-x-hidden">
+<!-- SideNavBar -->
+<aside class="w-[256px] h-screen fixed left-0 top-0 bg-[#121318] dark:bg-[#121318] font-['Manrope'] antialiased tracking-wide flex flex-col py-6 z-[60]">
+<div class="px-6 mb-10">
+<div class="text-xl font-extrabold bg-gradient-to-br from-[#ba9eff] to-[#8455ef] bg-clip-text text-transparent mb-1">SkillPath AI</div>
+<div class="text-[10px] tracking-[0.2em] text-on-surface-variant font-bold opacity-70">THE DIGITAL ORACLE</div>
+</div>
+<nav class="flex-1 space-y-1">
+<a class="flex items-center gap-3 px-4 py-3 text-[#faf8fe]/60 hover:text-[#faf8fe] transition-all duration-200 hover:bg-[#18191e]" href="#">
+<span class="material-symbols-outlined text-xl">dashboard</span>
+<span class="text-sm font-medium">Dashboard</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-[#faf8fe]/60 hover:text-[#faf8fe] transition-all duration-200 hover:bg-[#18191e]" href="#">
+<span class="material-symbols-outlined text-xl">auto_awesome</span>
+<span class="text-sm font-medium">Learning Path</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 bg-[#24252b] text-[#faf8fe] border-l-[3px] border-[#ba9eff] transition-all duration-200" href="#">
+<span class="material-symbols-outlined text-xl">insights</span>
+<span class="text-sm font-medium">Skill Analysis</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-[#faf8fe]/60 hover:text-[#faf8fe] transition-all duration-200 hover:bg-[#18191e]" href="#">
+<span class="material-symbols-outlined text-xl">school</span>
+<span class="text-sm font-medium">Mentors</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-[#faf8fe]/60 hover:text-[#faf8fe] transition-all duration-200 hover:bg-[#18191e]" href="#">
+<span class="material-symbols-outlined text-xl">settings</span>
+<span class="text-sm font-medium">Settings</span>
+</a>
+</nav>
+<div class="px-4 mt-auto">
+<div class="flex items-center gap-3 p-3 rounded-xl bg-surface-container hover:bg-surface-container-highest transition-colors cursor-pointer group">
+<div class="w-10 h-10 rounded-full bg-primary/20 flex items-center justify-center overflow-hidden border border-primary/10">
+<img alt="User profile" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD4z8S9W4VdkCXyz2kEbYileAIYvArYCeErDDtVcbgk8IlFLcTwE7xGnyBAOpJqJhLPOfeP1fHu_vylQDy4oHtUve1p0YGujB5F14q95qvfvzPSE0MqkcJ8LKqgQZ6AZoe4Gq5aWQPjIob1fS9Dpm-Xrb_hojKC8AcNihG-yY-2cxWA7jwdWGKkUBeOwkVZ1z6Ajy9UH3LOt5xwT5EgYTtsALIXFPP7G5K4nTaOvtUlguTjvre783GmH5mUD8ZwOc5avNh7o_ukh4Q"/>
+</div>
+<div class="flex-1 min-w-0">
+<p class="text-sm font-bold truncate">Alex Chen</p>
+<p class="text-xs text-on-surface-variant truncate">Premium Tier</p>
+</div>
+<span class="material-symbols-outlined text-on-surface-variant group-hover:text-primary transition-colors">more_vert</span>
+</div>
+</div>
+</aside>
+<!-- TopNavBar -->
+<header class="fixed top-0 right-0 w-[calc(100%-256px)] h-16 z-50 bg-[#1e1f25]/70 backdrop-blur-xl border-b border-[#faf8fe]/10 flex justify-between items-center px-8 shadow-2xl shadow-black/40 font-['Inter'] text-sm">
+<div class="flex items-center gap-6 flex-1">
+<div class="relative w-full max-w-md group">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-on-surface-variant group-focus-within:text-primary transition-colors">search</span>
+<input class="w-full bg-surface-container-high border-none rounded-lg pl-10 pr-4 py-2 text-sm focus:ring-1 focus:ring-primary/40 transition-all placeholder:text-on-surface-variant/50" placeholder="Search skills, gaps, or roles..." type="text"/>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<button class="w-10 h-10 flex items-center justify-center rounded-lg hover:bg-surface-container transition-colors text-on-surface-variant hover:text-primary">
+<span class="material-symbols-outlined">bolt</span>
+</button>
+<button class="w-10 h-10 flex items-center justify-center rounded-lg hover:bg-surface-container transition-colors text-on-surface-variant hover:text-primary relative">
+<span class="material-symbols-outlined">notifications</span>
+<span class="absolute top-2.5 right-2.5 w-2 h-2 bg-error rounded-full border-2 border-[#1e1f25]"></span>
+</button>
+<div class="h-6 w-px bg-on-surface-variant/20 mx-2"></div>
+<div class="text-xs font-medium text-on-surface-variant">Target Role: <span class="text-on-surface font-bold">Senior AI Architect</span></div>
+</div>
+</header>
+<!-- Main Content Canvas -->
+<main class="ml-[256px] pt-24 pb-48 px-12 min-h-screen relative">
+<!-- Header Section -->
+<header class="mb-12 flex flex-col md:flex-row md:items-end justify-between gap-6">
+<div class="space-y-2">
+<div class="flex items-center gap-3 text-secondary">
+<span class="material-symbols-outlined font-variation-settings-['FILL'_1]">bolt</span>
+<span class="text-xs font-bold tracking-[0.2em] uppercase">Deep Intelligence Analysis</span>
+</div>
+<h1 class="text-5xl font-extrabold font-headline tracking-tight text-on-surface leading-none">Skill Gap Map</h1>
+<p class="text-on-surface-variant max-w-lg text-lg">Visualizing the delta between your current proficiency and the requirements for <span class="text-primary font-semibold">Senior AI Architect</span>.</p>
+</div>
+<div class="glass-panel p-6 rounded-2xl ai-mesh relative overflow-hidden flex items-center gap-6 min-w-[320px]">
+<div class="relative z-10 flex flex-col">
+<span class="text-xs font-bold text-on-surface-variant tracking-widest uppercase mb-1">Aggregate Gap Score</span>
+<div class="flex items-baseline gap-2">
+<span class="text-4xl font-black font-headline text-primary">64%</span>
+<span class="text-sm font-medium text-on-surface-variant">Ready</span>
+</div>
+</div>
+<div class="flex-1 h-2 bg-surface-container-highest rounded-full overflow-hidden relative z-10">
+<div class="h-full bg-gradient-to-r from-primary to-secondary w-[64%]"></div>
+</div>
+<div class="absolute -right-4 -bottom-4 opacity-10">
+<span class="material-symbols-outlined text-8xl" style="font-variation-settings: 'FILL' 1;">insights</span>
+</div>
+</div>
+</header>
+<!-- Skill Comparison Section -->
+<div class="space-y-4">
+<!-- Table Header -->
+<div class="grid grid-cols-12 px-8 mb-6 text-[10px] font-black uppercase tracking-[0.2em] text-on-surface-variant opacity-60">
+<div class="col-span-4 flex items-center gap-2">
+<span class="material-symbols-outlined text-sm text-secondary">bolt</span>
+                    Core Competency
+                </div>
+<div class="col-span-3 text-center">Current Level</div>
+<div class="col-span-2 text-center">Gap Delta</div>
+<div class="col-span-3 text-center">Required Level</div>
+</div>
+<!-- Skill Row 1: CRITICAL -->
+<div class="grid grid-cols-12 items-center bg-surface-container-low hover:bg-surface-container transition-all duration-300 p-8 rounded-2xl group border border-transparent hover:border-error/10">
+<div class="col-span-4 flex items-start justify-between pr-8">
+<div>
+<h3 class="text-lg font-bold text-on-surface group-hover:text-primary transition-colors">Transformer Architectures</h3>
+<p class="text-xs text-on-surface-variant mt-1">Deep understanding of Attention &amp; SSMs</p>
+</div>
+<div class="bg-[#ff6e84]/15 text-[#ff6e84] border border-[#ff6e84]/30 rounded-full px-3 py-1 text-xs font-bold uppercase tracking-wider h-fit mt-1">
+                        CRITICAL
+                    </div>
+</div>
+<!-- Current Progress -->
+<div class="col-span-3 flex justify-center gap-1.5">
+<div class="w-2.5 h-2.5 rounded-full bg-primary"></div>
+<div class="w-2.5 h-2.5 rounded-full border border-primary/30"></div>
+<div class="w-2.5 h-2.5 rounded-full border border-primary/30"></div>
+</div>
+<!-- Gap Arrow -->
+<div class="col-span-2 flex justify-center">
+<span class="material-symbols-outlined text-[#ff6e84] text-2xl font-bold">arrow_right_alt</span>
+</div>
+<!-- Required Progress -->
+<div class="col-span-3 flex justify-center gap-1.5">
+<div class="w-2.5 h-2.5 rounded-full bg-secondary"></div>
+<div class="w-2.5 h-2.5 rounded-full bg-secondary"></div>
+<div class="w-2.5 h-2.5 rounded-full bg-secondary"></div>
+</div>
+</div>
+<!-- Skill Row 2: MODERATE -->
+<div class="grid grid-cols-12 items-center bg-surface-container-low hover:bg-surface-container transition-all duration-300 p-8 rounded-2xl group border border-transparent hover:border-secondary/10">
+<div class="col-span-4 flex items-start justify-between pr-8">
+<div>
+<h3 class="text-lg font-bold text-on-surface group-hover:text-primary transition-colors">Distributed System Design</h3>
+<p class="text-xs text-on-surface-variant mt-1">Kubernetes &amp; Slurm orchestration</p>
+</div>
+<div class="bg-[#34b5fa]/15 text-[#34b5fa] border border-[#34b5fa]/30 rounded-full px-3 py-1 text-xs font-bold uppercase tracking-wider h-fit mt-1">
+                        MODERATE
+                    </div>
+</div>
+<!-- Current Progress -->
+<div class="col-span-3 flex justify-center gap-1.5">
+<div class="w-2.5 h-2.5 rounded-full bg-primary"></div>
+<div class="w-2.5 h-2.5 rounded-full bg-primary"></div>
+<div class="w-2.5 h-2.5 rounded-full border border-primary/30"></div>
+</div>
+<!-- Gap Arrow -->
+<div class="col-span-2 flex justify-center">
+<span class="material-symbols-outlined text-[#34b5fa] text-xl font-bold">arrow_right_alt</span>
+</div>
+<!-- Required Progress -->
+<div class="col-span-3 flex justify-center gap-1.5">
+<div class="w-2.5 h-2.5 rounded-full bg-secondary"></div>
+<div class="w-2.5 h-2.5 rounded-full bg-secondary"></div>
+<div class="w-2.5 h-2.5 rounded-full bg-secondary"></div>
+</div>
+</div>
+<!-- Skill Row 3: MINOR -->
+<div class="grid grid-cols-12 items-center bg-surface-container-low hover:bg-surface-container transition-all duration-300 p-8 rounded-2xl group border border-transparent hover:border-primary/10">
+<div class="col-span-4 flex items-start justify-between pr-8">
+<div>
+<h3 class="text-lg font-bold text-on-surface group-hover:text-primary transition-colors">Vector Database Scaling</h3>
+<p class="text-xs text-on-surface-variant mt-1">Pinecone &amp; Milvus production loads</p>
+</div>
+<div class="bg-[#ba9eff]/15 text-[#ba9eff] border border-[#ba9eff]/30 rounded-full px-3 py-1 text-xs font-bold uppercase tracking-wider h-fit mt-1">
+                        MINOR
+                    </div>
+</div>
+<!-- Current Progress -->
+<div class="col-span-3 flex justify-center gap-1.5">
+<div class="w-2.5 h-2.5 rounded-full bg-primary"></div>
+<div class="w-2.5 h-2.5 rounded-full bg-primary"></div>
+<div class="w-2.5 h-2.5 rounded-full border border-primary/30"></div>
+</div>
+<!-- Gap Arrow -->
+<div class="col-span-2 flex justify-center">
+<span class="material-symbols-outlined text-[#ba9eff] text-lg font-bold">arrow_right_alt</span>
+</div>
+<!-- Required Progress -->
+<div class="col-span-3 flex justify-center gap-1.5">
+<div class="w-2.5 h-2.5 rounded-full bg-secondary"></div>
+<div class="w-2.5 h-2.5 rounded-full bg-secondary"></div>
+<div class="w-2.5 h-2.5 rounded-full border border-secondary/30"></div>
+</div>
+</div>
+<!-- Skill Row 4: COVERED -->
+<div class="grid grid-cols-12 items-center bg-surface-container-low hover:bg-surface-container transition-all duration-300 p-8 rounded-2xl group border border-transparent opacity-60 grayscale hover:grayscale-0 hover:opacity-100">
+<div class="col-span-4 flex items-start justify-between pr-8">
+<div>
+<h3 class="text-lg font-bold text-on-surface group-hover:text-primary transition-colors">Python Meta-programming</h3>
+<p class="text-xs text-on-surface-variant mt-1">Dynamic code &amp; decorators</p>
+</div>
+<div class="bg-white/5 text-on-surface-variant border border-white/10 rounded-full px-3 py-1 text-xs font-bold uppercase tracking-wider h-fit mt-1">
+                        COVERED
+                    </div>
+</div>
+<!-- Current Progress -->
+<div class="col-span-3 flex justify-center gap-1.5">
+<div class="w-2.5 h-2.5 rounded-full bg-primary"></div>
+<div class="w-2.5 h-2.5 rounded-full bg-primary"></div>
+<div class="w-2.5 h-2.5 rounded-full bg-primary"></div>
+</div>
+<!-- Gap Arrow -->
+<div class="col-span-2 flex justify-center">
+<span class="material-symbols-outlined text-on-surface-variant text-lg">check_circle</span>
+</div>
+<!-- Required Progress -->
+<div class="col-span-3 flex justify-center gap-1.5">
+<div class="w-2.5 h-2.5 rounded-full bg-secondary"></div>
+<div class="w-2.5 h-2.5 rounded-full bg-secondary"></div>
+<div class="w-2.5 h-2.5 rounded-full bg-secondary"></div>
+</div>
+</div>
+</div>
+<!-- AI Insights Sidebar Detail -->
+<div class="fixed right-12 bottom-32 w-80 glass-panel rounded-2xl p-6 shadow-2xl z-20">
+<div class="flex items-center gap-3 mb-4">
+<span class="material-symbols-outlined text-secondary" style="font-variation-settings: 'FILL' 1;">psychology</span>
+<h4 class="font-headline font-bold text-sm tracking-tight">AI REASONING</h4>
+</div>
+<p class="text-xs font-['JetBrains_Mono'] leading-relaxed text-on-surface-variant mb-6">
+                Critical gap detected in <span class="text-error">Transformer Architectures</span>. Current market demand for Senior AI Architects requires expertise in efficient attention mechanisms and state-space models. 
+            </p>
+<div class="pt-4 border-t border-on-surface-variant/10">
+<div class="text-[10px] font-black uppercase tracking-widest text-on-surface-variant mb-3">Priority Action</div>
+<div class="flex items-center gap-3 p-3 rounded-xl bg-surface-container-highest group cursor-pointer hover:bg-primary/10 transition-colors">
+<span class="material-symbols-outlined text-primary">play_circle</span>
+<span class="text-xs font-bold">Watch: Advanced LLM Infra</span>
+</div>
+</div>
+</div>
+<!-- Sticky Bottom Area with People and Full Width Button -->
+<div class="fixed bottom-0 left-[256px] right-0 p-6 z-40">
+<div class="max-w-6xl mx-auto flex flex-col items-center gap-4">
+<div class="flex items-center gap-4">
+<div class="flex -space-x-2">
+<img class="w-8 h-8 rounded-full border-2 border-surface-dim" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDBY-Rf0dHTtnbjk8fwc6-LfwgF70RhjEc4M0uVI3RbLi2I0bnRfl9KHxWMA4lOPeFzoqZMO38DKgCPGSS9Cmc2q-GaDtFl91Ke6UQsLPq4M_UW3ZhjlbxeOrDo7PgCOoc-DwoBo7N1R_mtVJl36SaIE7YEf1GuVsiOjD2ysApL6PknYlc2rs4QUrLCOWugUDBDPZdnCrxW07qn5g9fs53gR8Cyahzzn0jKyJShR5v-RqUXIucdBZwuti0OXBNNha2-caQA62FS2lY"/>
+<img class="w-8 h-8 rounded-full border-2 border-surface-dim" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAj9sncdmvGkorQ4y6SJbGz9zbU34gcyehVs_22uT8xzVslMroffw4I6mySxJK0wp15qox9wl21TuYcaPwlxgfuzc0FUfi09qN4K7AhpDO9P74KhPN2QUfPJfLlOxIvP2pZ9JruViS8hsf0icdS4s02LnercWgVKUpgpO61h2n7P_-BcHKgoqOPv9A7nRSKW7mToRAE6i_BmFJxfIwNctKGCnmYxBtLEcc940ujh4vIG6mQhSVntv1ifOKB88fle795OzFscdvBAaM"/>
+<div class="w-8 h-8 rounded-full border-2 border-surface-dim bg-surface-container-highest flex items-center justify-center text-[10px] font-bold text-primary">+12</div>
+</div>
+<p class="text-sm text-on-surface-variant font-medium">12 others are bridging these same gaps.</p>
+</div>
+<button class="w-full max-w-sm mx-auto py-4 bg-gradient-to-br from-[#ba9eff] to-[#8455ef] rounded-xl text-on-primary-container font-bold shadow-xl shadow-primary/20 hover:scale-[1.02] active:scale-[0.98] transition-all flex items-center justify-center gap-3 group">
+<span>Generate Roadmap</span>
+<span class="material-symbols-outlined group-hover:translate-x-1 transition-transform">auto_awesome</span>
+</button>
+</div>
+</div>
+</main>
+<!-- Background Elements -->
+<div class="fixed top-0 left-0 w-full h-full pointer-events-none -z-10 overflow-hidden">
+<div class="absolute top-[-10%] right-[-10%] w-[60%] h-[60%] rounded-full bg-primary/5 blur-[120px]"></div>
+<div class="absolute bottom-[-10%] left-[20%] w-[40%] h-[40%] rounded-full bg-secondary/5 blur-[120px]"></div>
+</div>
+</body></html>

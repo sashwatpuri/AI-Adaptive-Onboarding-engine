@@ -1,0 +1,40 @@
+{
+  "resumeSkills": [
+    { "skill": "Python", "level": "Intermediate", "confidence": 90, "evidence": ["Built 3 projects in Python"], "category": "Technical" },
+    { "skill": "SQL", "level": "Intermediate", "confidence": 85, "evidence": ["Wrote complex queries"], "category": "Technical" },
+    { "skill": "Git", "level": "Advanced", "confidence": 92, "evidence": ["Maintained CI/CD pipelines"], "category": "Technical" },
+    { "skill": "REST APIs", "level": "Intermediate", "confidence": 80, "evidence": ["Developed RESTful endpoints"], "category": "Technical" },
+    { "skill": "Communication", "level": "Advanced", "confidence": 88, "evidence": ["Presented to stakeholders"], "category": "Soft Skills" }
+  ],
+  "jdSkills": [
+    { "skill": "PyTorch", "level_required": "Advanced", "is_critical": true, "frequency": 4 },
+    { "skill": "MLOps", "level_required": "Advanced", "is_critical": true, "frequency": 3 },
+    { "skill": "Feature Engineering", "level_required": "Intermediate", "is_critical": true, "frequency": 2 },
+    { "skill": "Python", "level_required": "Advanced", "is_critical": true, "frequency": 5 },
+    { "skill": "Docker", "level_required": "Intermediate", "is_critical": false, "frequency": 2 }
+  ],
+  "gapMap": {
+    "skills": [
+      { "skill": "PyTorch", "current_level": 0, "required_level": 3, "gap_score": 3, "severity": "CRITICAL" },
+      { "skill": "MLOps", "current_level": 0, "required_level": 3, "gap_score": 3, "severity": "CRITICAL" },
+      { "skill": "Feature Engineering", "current_level": 0, "required_level": 2, "gap_score": 2, "severity": "MODERATE" },
+      { "skill": "Python", "current_level": 2, "required_level": 3, "gap_score": 1, "severity": "MINOR" },
+      { "skill": "Docker", "current_level": 0, "required_level": 2, "gap_score": 2, "severity": "MODERATE" },
+      { "skill": "SQL", "current_level": 2, "required_level": 1, "gap_score": 0, "severity": "COVERED" }
+    ],
+    "overall_readiness_pct": 33,
+    "critical_count": 2,
+    "moderate_count": 2,
+    "minor_count": 1,
+    "covered_count": 1
+  },
+  "roadmap": [
+    { "month": 1, "title": "Foundations Sprint", "skills": ["Python", "Feature Engineering", "Docker"], "estimated_hours": 13, "target_levels": { "Python": "Advanced", "Feature Engineering": "Intermediate", "Docker": "Intermediate" }, "courses": [], "status": "in_progress", "has_simulation": true },
+    { "month": 2, "title": "Advanced Mastery", "skills": ["PyTorch", "MLOps"], "estimated_hours": 16, "target_levels": { "PyTorch": "Advanced", "MLOps": "Advanced" }, "courses": [], "status": "locked", "has_simulation": true }
+  ],
+  "reasoningTrace": [
+    { "type": "SKILL_EXTRACTION", "summary": "Extracted 5 skills from resume", "reasoning": "Skills filtered by confidence", "evidence": [ "Raw skills found: 5", "Model: gemini-2.5-flash" ], "confidence": 92 },
+    { "type": "GAP_ANALYSIS", "summary": "PyTorch identified as CRITICAL", "reasoning": "Current: Level 0, Required: Level 3", "evidence": [ "Required level: 3/3", "Current level: 0/3" ], "confidence": 95 },
+    { "type": "SKILL_PLACEMENT", "summary": "Month 1: 3 skills assigned", "reasoning": "Sorted by priority (Critical->Moderate->Minor) with dependency ordering", "evidence": [ "Skills: Python, Feature Engineering, Docker" ], "confidence": 91 }
+  ]
+}

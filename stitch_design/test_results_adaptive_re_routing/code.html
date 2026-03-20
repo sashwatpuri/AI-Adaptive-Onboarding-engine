@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>SkillPath AI — Test Interface</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Manrope:wght@700;800&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "tertiary-container": "#fd78bd",
+              "surface-dim": "#0d0e12",
+              "surface-variant": "#24252b",
+              "tertiary-fixed": "#ff8bc4",
+              "on-primary": "#371975",
+              "secondary-dim": "#17a8ec",
+              "surface-bright": "#2a2c32",
+              "on-secondary-container": "#f3f8ff",
+              "inverse-surface": "#faf8fe",
+              "tertiary-fixed-dim": "#f976ba",
+              "tertiary-dim": "#f370b4",
+              "secondary-container": "#006591",
+              "on-secondary-fixed": "#003853",
+              "error-container": "#a70138",
+              "on-error-container": "#ffb2b9",
+              "on-tertiary-fixed-variant": "#73004b",
+              "error": "#ff6e84",
+              "surface-container-lowest": "#000000",
+              "surface": "#0d0e12",
+              "on-primary-fixed-variant": "#40247e",
+              "inverse-primary": "#694fa9",
+              "on-error": "#490013",
+              "outline": "#75757a",
+              "surface-container-low": "#121318",
+              "secondary-fixed": "#a4d8ff",
+              "background": "#0d0e12",
+              "on-tertiary": "#670043",
+              "primary-dim": "#ac91f1",
+              "primary-fixed": "#ba9eff",
+              "on-secondary": "#003047",
+              "on-tertiary-container": "#530035",
+              "on-primary-fixed": "#1b004a",
+              "secondary": "#34b5fa",
+              "error-dim": "#d73357",
+              "on-surface-variant": "#abaab0",
+              "on-primary-container": "#2b0569",
+              "on-surface": "#faf8fe",
+              "secondary-fixed-dim": "#81ccff",
+              "primary": "#ba9eff",
+              "primary-container": "#ac91f1",
+              "on-background": "#faf8fe",
+              "on-tertiary-fixed": "#360021",
+              "on-secondary-fixed-variant": "#00567c",
+              "surface-tint": "#ba9eff",
+              "surface-container": "#18191e",
+              "tertiary": "#ff90c6",
+              "surface-container-highest": "#24252b",
+              "inverse-on-surface": "#54555a",
+              "primary-fixed-dim": "#ac91f1",
+              "surface-container-high": "#1e1f25",
+              "outline-variant": "#47484c"
+            },
+            fontFamily: {
+              "headline": ["Manrope"],
+              "body": ["Inter"],
+              "label": ["Inter"],
+              "mono": ["JetBrains Mono"]
+            },
+            borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+          },
+        },
+      }
+    </script>
+<style>
+        body { font-family: 'Inter', sans-serif; }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .ai-mesh-gradient {
+            background: radial-gradient(at top right, #ba9eff33, transparent),
+                        radial-gradient(at bottom left, #ff90c622, transparent),
+                        #18191e;
+        }
+        .adaptive-rerouting-gradient {
+            background: radial-gradient(circle at top left, rgba(186,158,255,0.08), transparent),
+                        radial-gradient(circle at bottom right, rgba(255,134,195,0.08), transparent);
+            background-color: #18191e;
+        }
+        .percentile-ring {
+            background: conic-gradient(#ba9eff 270deg, #1e1f25 0deg);
+        }
+        @keyframes grow-width {
+            from { width: 0; }
+        }
+        .animate-grow-width {
+            animation: grow-width 700ms cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-surface antialiased overflow-x-hidden">
+<!-- Sidebar Navigation -->
+<aside class="w-[256px] h-screen fixed left-0 top-0 bg-[#121318] dark:bg-[#121318] font-['Manrope'] antialiased tracking-wide flex flex-col py-6 z-50">
+<div class="px-6 mb-10">
+<h1 class="text-xl font-extrabold bg-gradient-to-br from-[#ba9eff] to-[#8455ef] bg-clip-text text-transparent">SkillPath AI</h1>
+<p class="text-[10px] tracking-[0.2em] text-on-surface-variant font-bold mt-1 uppercase">THE DIGITAL ORACLE</p>
+</div>
+<nav class="flex-1 space-y-1">
+<a class="flex items-center gap-3 px-6 py-3 text-[#faf8fe]/60 hover:text-[#faf8fe] transition-all duration-200 hover:bg-[#18191e]" href="#">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+<span class="text-sm font-medium">Dashboard</span>
+</a>
+<a class="flex items-center gap-3 px-6 py-3 text-[#faf8fe]/60 hover:text-[#faf8fe] transition-all duration-200 hover:bg-[#18191e]" href="#">
+<span class="material-symbols-outlined" data-icon="auto_awesome">auto_awesome</span>
+<span class="text-sm font-medium">Learning Path</span>
+</a>
+<a class="flex items-center gap-3 px-6 py-3 bg-[#24252b] text-[#faf8fe] border-l-[3px] border-[#ba9eff] transition-all duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="insights">insights</span>
+<span class="text-sm font-medium">Skill Analysis</span>
+</a>
+<a class="flex items-center gap-3 px-6 py-3 text-[#faf8fe]/60 hover:text-[#faf8fe] transition-all duration-200 hover:bg-[#18191e]" href="#">
+<span class="material-symbols-outlined" data-icon="school">school</span>
+<span class="text-sm font-medium">Mentors</span>
+</a>
+<a class="flex items-center gap-3 px-6 py-3 text-[#faf8fe]/60 hover:text-[#faf8fe] transition-all duration-200 hover:bg-[#18191e]" href="#">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+<span class="text-sm font-medium">Settings</span>
+</a>
+</nav>
+<div class="px-6 mt-auto pt-6 border-t border-outline-variant/10">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-full bg-surface-container-highest overflow-hidden border border-outline-variant/20">
+<img alt="User profile" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDPrfxwwT8DsDZq1ga50mxssE9R9-aq7wrsGs2bBbbh1XF7xkqFjfMbfcSwFhPOwxaNmZdEU5fSOc_HiVeRhodkeYK-0_mt7pMNUstHiPo4NEI8t_pgJD8JdxWjvitV0o2G6zLJCioop2haF4lBrIQgJQCna57BhZ-QhAd_yHSuTb-8BZtmzO_uY1I2UbkiFOxVOscfVLrpZkrmVMryFDbHlV-gvuJRbyr6dJWncBOW0S2covqNrfdhcZZCOGEFXHxCn3i7Cg-ePkw"/>
+</div>
+<div class="flex flex-col">
+<span class="text-sm font-semibold text-on-surface">Alex Rivera</span>
+<span class="text-[10px] text-primary">PRO MEMBER</span>
+</div>
+</div>
+</div>
+</aside>
+<!-- Top Navigation -->
+<header class="fixed top-0 right-0 w-[calc(100%-256px)] h-16 z-40 bg-[#1e1f25]/70 backdrop-blur-xl border-b border-[#faf8fe]/10 flex justify-between items-center px-8 shadow-2xl shadow-black/40">
+<div class="flex items-center flex-1 max-w-xl">
+<div class="relative w-full group">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-on-surface-variant text-lg">search</span>
+<input class="w-full bg-surface-container/50 border-none rounded-xl py-2 pl-10 pr-4 text-sm focus:ring-1 focus:ring-primary/40 transition-all placeholder:text-on-surface-variant/50" placeholder="Search insights, lessons, or skills..." type="text"/>
+</div>
+</div>
+<div class="flex items-center gap-6">
+<button class="flex items-center gap-2 text-on-surface-variant hover:text-primary transition-colors">
+<span class="material-symbols-outlined" data-icon="bolt">bolt</span>
+<span class="text-xs font-bold tracking-widest">720 XP</span>
+</button>
+<button class="relative text-on-surface-variant hover:text-on-surface transition-colors">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+<span class="absolute top-0 right-0 w-2 h-2 bg-tertiary rounded-full"></span>
+</button>
+</div>
+</header>
+<!-- Main Content -->
+<main class="ml-[256px] pt-24 pb-12 px-10 min-h-screen">
+<div class="max-w-6xl mx-auto">
+<!-- Hero Header -->
+<div class="mb-10">
+<h2 class="font-headline text-4xl font-extrabold tracking-tight text-on-surface mb-2">Assessment Results</h2>
+<p class="text-on-surface-variant text-lg max-w-2xl">Analysis complete. The engine has recalculated your trajectory based on your latest performance data.</p>
+</div>
+<!-- Bento Grid Layout -->
+<div class="grid grid-cols-12 gap-8 mb-8">
+<!-- Adaptive Re-routing Card (Large) -->
+<div class="col-span-12 lg:col-span-8 ai-mesh-gradient rounded-3xl p-10 relative overflow-hidden group border border-primary/20">
+<div class="relative z-10">
+<div class="flex items-center gap-3 mb-6">
+<span class="flex items-center justify-center w-10 h-10 rounded-full bg-primary/20 text-primary">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">bolt</span>
+</span>
+<h3 class="font-headline text-2xl font-bold tracking-tight">Roadmap Updated</h3>
+</div>
+<div class="flex flex-col md:flex-row gap-10 items-start">
+<div class="flex-1">
+<p class="font-mono text-sm text-primary mb-2 opacity-80">LATENCY DETECTED IN DATA MODELING</p>
+<p class="text-lg text-on-surface leading-relaxed mb-8">
+                                    SQL scored <span class="text-primary font-bold">58%</span>, indicating a gap in relational normalization logic. Your personalized roadmap has been extended by <span class="font-bold underline decoration-primary underline-offset-4">2 weeks</span> to reinforce back-end fundamentals before proceeding to Cloud Architecture.
+                                </p>
+<button class="bg-gradient-to-br from-[#ba9eff] to-[#8455ef] text-on-primary px-8 py-4 rounded-xl font-bold flex items-center gap-3 shadow-lg shadow-primary/20 hover:scale-[1.02] transition-transform active:scale-95">
+                                    View Updated Roadmap
+                                    <span class="material-symbols-outlined">arrow_forward</span>
+</button>
+</div>
+<!-- Circular Percentile -->
+<div class="w-48 h-48 relative flex items-center justify-center shrink-0">
+<div class="percentile-ring absolute inset-0 rounded-full rotate-45"></div>
+<div class="absolute inset-2 bg-[#18191e] rounded-full flex flex-col items-center justify-center border border-outline-variant/10">
+<span class="text-4xl font-headline font-extrabold">75</span>
+<span class="text-[10px] tracking-widest text-on-surface-variant font-bold uppercase">Percentile</span>
+</div>
+<div class="absolute -top-2 -right-2 bg-secondary text-on-secondary-container p-2 rounded-lg shadow-lg">
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">auto_awesome</span>
+</div>
+</div>
+</div>
+</div>
+<div class="absolute top-0 right-0 w-64 h-64 bg-primary/5 rounded-full blur-[100px]"></div>
+</div>
+<!-- Score Insights Panel -->
+<div class="col-span-12 lg:col-span-4 bg-surface-container rounded-3xl p-8 border border-outline-variant/10 flex flex-col">
+<h4 class="font-headline text-lg font-bold mb-6 flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary" style="font-variation-settings: 'FILL' 1;">electric_bolt</span>
+                        AI Insights
+                    </h4>
+<div class="space-y-6 flex-1">
+<div class="p-4 rounded-2xl bg-surface-container-high border border-outline-variant/5">
+<p class="font-mono text-[11px] text-secondary mb-2 tracking-tighter">ANOMALY_DETECTION_v2.1</p>
+<p class="text-sm text-on-surface-variant leading-relaxed">High proficiency in <span class="text-on-surface font-semibold">Array Manipulation</span> suggests a pivot towards specialized Algorithm modules might be more efficient.</p>
+</div>
+<div class="p-4 rounded-2xl bg-surface-container-high border border-outline-variant/5">
+<p class="font-mono text-[11px] text-secondary mb-2 tracking-tighter">RECOMMENDED_ADJUSTMENT</p>
+<p class="text-sm text-on-surface-variant leading-relaxed">Injecting <span class="text-on-surface font-semibold">PostgreSQL Advanced indexing</span> labs to bridge your syntax knowledge gap.</p>
+</div>
+</div>
+<div class="mt-8 pt-6 border-t border-outline-variant/10">
+<div class="flex justify-between items-center mb-1">
+<span class="text-xs font-bold text-on-surface-variant">NEXT MILESTONE</span>
+<span class="text-xs font-mono text-primary">40% READY</span>
+</div>
+<div class="h-1.5 bg-surface-container-highest rounded-full overflow-hidden">
+<div class="h-full bg-primary w-[40%]"></div>
+</div>
+</div>
+</div>
+</div>
+<!-- Skill Breakdown Section -->
+<div class="col-span-12 bg-surface-container-low rounded-3xl p-10 mb-8">
+<div class="flex justify-between items-end mb-10">
+<div>
+<h3 class="font-headline text-2xl font-bold mb-2">Skill Breakdown</h3>
+<p class="text-on-surface-variant">Quantified performance across the core assessment pillars.</p>
+</div>
+<div class="flex gap-4">
+<div class="flex items-center gap-2">
+<span class="w-3 h-3 rounded-full bg-[#34fa96]"></span>
+<span class="text-xs font-medium text-on-surface-variant">Expert (&gt;80%)</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="w-3 h-3 rounded-full bg-[#ba9eff]"></span>
+<span class="text-xs font-medium text-on-surface-variant">Proficient (60-80%)</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="w-3 h-3 rounded-full bg-[#f59e0b]"></span>
+<span class="text-xs font-medium text-on-surface-variant">Focus Required (&lt;60%)</span>
+</div>
+</div>
+</div>
+<div class="space-y-8">
+<!-- SQL Logic -->
+<div>
+<div class="flex justify-between items-center mb-3">
+<span class="text-sm font-semibold tracking-wide">SQL &amp; Database Logic</span>
+<span class="font-mono text-sm text-[#f59e0b]">58%</span>
+</div>
+<div class="h-3 bg-surface-container-highest rounded-full overflow-hidden relative">
+<div class="h-full bg-[#f59e0b] w-[58%] rounded-full animate-grow-width"></div>
+</div>
+</div>
+<!-- JavaScript Core -->
+<div>
+<div class="flex justify-between items-center mb-3">
+<span class="text-sm font-semibold tracking-wide">JavaScript Fundamental Patterns</span>
+<span class="font-mono text-sm text-[#ba9eff]">76%</span>
+</div>
+<div class="h-3 bg-surface-container-highest rounded-full overflow-hidden relative">
+<div class="h-full bg-[#ba9eff] w-[76%] rounded-full animate-grow-width"></div>
+</div>
+</div>
+<!-- System Design -->
+<div>
+<div class="flex justify-between items-center mb-3">
+<span class="text-sm font-semibold tracking-wide">System Design Concepts</span>
+<span class="font-mono text-sm text-[#34fa96]">92%</span>
+</div>
+<div class="h-3 bg-surface-container-highest rounded-full overflow-hidden relative">
+<div class="h-full bg-[#34fa96] w-[92%] rounded-full animate-grow-width"></div>
+</div>
+</div>
+<!-- API Architecture -->
+<div>
+<div class="flex justify-between items-center mb-3">
+<span class="text-sm font-semibold tracking-wide">RESTful API Architecture</span>
+<span class="font-mono text-sm text-[#ba9eff]">64%</span>
+</div>
+<div class="h-3 bg-surface-container-highest rounded-full overflow-hidden relative">
+<div class="h-full bg-[#ba9eff] w-[64%] rounded-full animate-grow-width"></div>
+</div>
+</div>
+</div>
+</div>
+<!-- ADAPTIVE RE-ROUTING CARD -->
+<div class="adaptive-rerouting-gradient rounded-2xl p-6 border border-primary/30 shadow-xl shadow-black/20">
+<div class="flex items-center gap-2 mb-3">
+<span class="material-symbols-outlined text-secondary text-xl" style="font-variation-settings: 'FILL' 1;">bolt</span>
+<h4 class="font-headline font-bold text-xl text-primary">Roadmap Updated</h4>
+</div>
+<p class="text-on-surface-variant text-sm leading-relaxed mb-4">
+                    SQL scored 58% — below the 60% threshold. SQL fundamentals have been reinforced in Month 2. Roadmap extended by 2 weeks.
+                </p>
+<button class="w-full bg-gradient-to-r from-[#ba9eff] to-[#8455ef] text-on-primary py-3 rounded-xl font-bold hover:brightness-110 transition-all flex items-center justify-center gap-2 group">
+                    View Updated Roadmap
+                    <span class="material-symbols-outlined text-sm transition-transform group-hover:translate-x-1">arrow_forward</span>
+</button>
+</div>
+</div>
+</main>
+<!-- Visual Polish -->
+<div class="fixed inset-0 pointer-events-none opacity-[0.03] mix-blend-overlay">
+<svg viewbox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+<filter id="noise">
+<feturbulence basefrequency="0.65" numoctaves="3" stitchtiles="stitch" type="fractalNoise"></feturbulence>
+</filter>
+<rect filter="url(#noise)" height="100%" width="100%"></rect>
+</svg>
+</div>
+</body></html>

@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&amp;family=Inter:wght@400;500;600&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "outline-variant": "#47484c",
+              "inverse-primary": "#694fa9",
+              "secondary-dim": "#17a8ec",
+              "on-secondary-fixed-variant": "#00567c",
+              "on-primary-fixed": "#1b004a",
+              "surface-variant": "#24252b",
+              "on-tertiary-fixed": "#360021",
+              "secondary": "#34b5fa",
+              "error-dim": "#d73357",
+              "on-primary-fixed-variant": "#40247e",
+              "on-error-container": "#ffb2b9",
+              "background": "#0d0e12",
+              "surface-container-high": "#1e1f25",
+              "primary-dim": "#ac91f1",
+              "primary-fixed": "#ba9eff",
+              "tertiary-container": "#fd78bd",
+              "surface-tint": "#ba9eff",
+              "inverse-surface": "#faf8fe",
+              "on-surface": "#faf8fe",
+              "on-secondary": "#003047",
+              "surface-container-low": "#121318",
+              "tertiary": "#ff90c6",
+              "on-secondary-container": "#f3f8ff",
+              "on-background": "#faf8fe",
+              "tertiary-fixed": "#ff8bc4",
+              "secondary-container": "#006591",
+              "tertiary-fixed-dim": "#f976ba",
+              "primary-fixed-dim": "#ac91f1",
+              "secondary-fixed-dim": "#81ccff",
+              "error-container": "#a70138",
+              "error": "#ff6e84",
+              "surface-bright": "#2a2c32",
+              "outline": "#75757a",
+              "surface-container-lowest": "#000000",
+              "primary": "#ba9eff",
+              "on-tertiary": "#670043",
+              "surface": "#0d0e12",
+              "surface-container-highest": "#24252b",
+              "primary-container": "#ac91f1",
+              "surface-dim": "#0d0e12",
+              "secondary-fixed": "#a4d8ff",
+              "on-surface-variant": "#abaab0",
+              "on-secondary-fixed": "#003853",
+              "on-tertiary-container": "#530035",
+              "surface-container": "#18191e",
+              "on-primary-container": "#2b0569",
+              "inverse-on-surface": "#54555a",
+              "tertiary-dim": "#f370b4",
+              "on-error": "#490013",
+              "on-primary": "#371975",
+              "on-tertiary-fixed-variant": "#73004b"
+            },
+            fontFamily: {
+              "headline": ["Manrope"],
+              "body": ["Inter"],
+              "label": ["Inter"],
+              "mono": ["JetBrains Mono"]
+            },
+            borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            vertical-align: middle;
+        }
+        .glass-panel {
+            background: rgba(30, 31, 37, 0.7);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(250, 248, 254, 0.1);
+        }
+        .ai-mesh {
+            background: radial-gradient(circle at top right, rgba(255, 144, 198, 0.15), transparent),
+                        radial-gradient(circle at bottom left, rgba(186, 158, 255, 0.1), transparent);
+        }
+        body { font-family: 'Inter', sans-serif; }
+        h1, h2, h3, .font-headline { font-family: 'Manrope', sans-serif; }
+    </style>
+</head>
+<body class="bg-background text-on-surface antialiased overflow-hidden">
+<!-- SideNavBar -->
+<nav class="w-64 h-screen fixed left-0 top-0 bg-[#121318] flex flex-col py-8 px-4 shadow-[20px_0_40px_rgba(0,0,0,0.4)] transition-colors duration-300 z-50">
+<div class="mb-10 px-2">
+<span class="text-xl font-extrabold tracking-tighter bg-gradient-to-br from-[#ba9eff] to-[#8455ef] bg-clip-text text-transparent">SkillPath AI</span>
+<p class="text-[10px] text-primary/40 tracking-[0.2em] font-bold mt-1">THE DIGITAL ORACLE</p>
+</div>
+<div class="space-y-2 flex-1">
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg text-[#faf8fe]/60 hover:text-[#faf8fe] hover:bg-[#24252b] transition-all duration-300" href="#">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+<span class="font-medium text-sm">Dashboard</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg relative text-[#ba9eff] font-bold before:absolute before:left-0 before:w-1 before:h-8 before:bg-[#ba9eff] before:rounded-r-full bg-[#24252b]/50" href="#">
+<span class="material-symbols-outlined" data-icon="auto_stories">auto_stories</span>
+<span class="font-medium text-sm">Learning Path</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg text-[#faf8fe]/60 hover:text-[#faf8fe] hover:bg-[#24252b] transition-all duration-300" href="#">
+<span class="material-symbols-outlined" data-icon="analytics">analytics</span>
+<span class="font-medium text-sm">Skill Analysis</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg text-[#faf8fe]/60 hover:text-[#faf8fe] hover:bg-[#24252b] transition-all duration-300" href="#">
+<span class="material-symbols-outlined" data-icon="psychology">psychology</span>
+<span class="font-medium text-sm">Mentors</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg text-[#faf8fe]/60 hover:text-[#faf8fe] hover:bg-[#24252b] transition-all duration-300" href="#">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+<span class="font-medium text-sm">Settings</span>
+</a>
+</div>
+<div class="mt-auto px-2">
+<button class="w-full py-3 px-4 bg-gradient-to-br from-[#ba9eff] to-[#8455ef] text-on-primary font-bold rounded-xl text-sm shadow-lg hover:scale-105 active:scale-95 transition-all">
+                Upgrade to Pro
+            </button>
+<div class="flex items-center gap-3 mt-8 pt-6 border-t border-outline-variant/10">
+<img alt="User profile" class="w-10 h-10 rounded-full bg-surface-container" data-alt="Close up portrait of a professional user avatar" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBHPxT3d6RS65gpvbvyQVwbkgrK0pH9wOuM0rnIeRkMOVpHvFNlTGlrY71NJS7cZqliRoOrEd6HcblWGAyiuJRUumsp5BMISfHBHus0Y1T0q078FQOL84je0VnCDxOWwhcOICwMIDwIE5mgsPlQhshyDDW3Piln_IeDtiykQvyzidFqC84_no3dRymkut3M4vNDixTPpbjhTDRJ47vWovDkexjn1UC2zkNNhpA2hIvnMAWGQnMHsRLYe_TNjZpmk0jihni1vvQtwU8"/>
+<div class="flex flex-col">
+<span class="text-sm font-bold">Alex Rivera</span>
+<span class="text-[10px] text-on-surface-variant">Level 14 Adept</span>
+</div>
+</div>
+</div>
+</nav>
+<!-- Main Canvas -->
+<main class="ml-64 min-h-screen flex flex-col">
+<!-- TopAppBar -->
+<header class="fixed top-0 right-0 w-[calc(100%-16rem)] h-16 bg-transparent backdrop-blur-xl flex items-center justify-between px-8 z-40">
+<div class="flex items-center gap-2 text-xs font-medium text-on-surface-variant">
+<span>Month 1</span>
+<span class="material-symbols-outlined text-[14px]">chevron_right</span>
+<span class="text-on-surface">Simulation</span>
+</div>
+<div class="flex items-center gap-6">
+<div class="relative group">
+<input class="bg-surface-container-high border-none rounded-full py-1.5 px-4 pl-10 text-xs w-64 focus:ring-2 focus:ring-primary/20 transition-all" placeholder="Search knowledge base..." type="text"/>
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-on-surface-variant text-sm" data-icon="search">search</span>
+</div>
+<div class="flex items-center gap-4 text-on-surface-variant">
+<button class="hover:text-primary transition-colors duration-200">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+</button>
+<button class="hover:text-primary transition-colors duration-200">
+<span class="material-symbols-outlined" data-icon="help_outline">help_outline</span>
+</button>
+</div>
+</div>
+</header>
+<!-- Content Area -->
+<div class="mt-16 p-8 flex-1 flex flex-col gap-8 max-w-7xl mx-auto w-full">
+<!-- Header Section -->
+<div class="flex justify-between items-end">
+<div class="space-y-1">
+<div class="flex items-center gap-3">
+<h1 class="text-4xl font-extrabold tracking-tight">Skill Simulation</h1>
+<span class="px-3 py-1 rounded-full bg-tertiary-container/20 text-tertiary text-[10px] font-black tracking-widest uppercase">⚡ Simulation Active</span>
+</div>
+<p class="text-on-surface-variant font-medium">Applied skill verification — not just multiple choice</p>
+</div>
+<div class="flex items-center gap-4 bg-surface-container rounded-xl p-1">
+<button class="px-6 py-2.5 rounded-lg text-sm font-bold text-primary transition-all border-b-2 border-tertiary">
+                        💻 Coding Task
+                    </button>
+<button class="px-6 py-2.5 rounded-lg text-sm font-bold text-on-surface-variant hover:text-on-surface transition-all">
+                        📋 Scenario Challenge
+                    </button>
+</div>
+</div>
+<!-- Two Column Grid for Coding Task -->
+<div class="grid grid-cols-1 lg:grid-cols-5 gap-6 flex-1">
+<!-- Left Panel: Task -->
+<div class="lg:col-span-2 flex flex-col gap-6">
+<div class="surface-container bg-[#18191e] rounded-2xl p-6 flex flex-col h-full ai-mesh relative overflow-hidden">
+<div class="flex gap-2 mb-4">
+<span class="px-2 py-0.5 rounded bg-primary/10 text-primary text-[10px] font-bold uppercase tracking-wider">Python</span>
+<span class="px-2 py-0.5 rounded bg-on-surface-variant/10 text-on-surface-variant text-[10px] font-bold uppercase tracking-wider">Month 1 Task</span>
+</div>
+<h2 class="text-2xl font-bold mb-4">Flatten a Nested List</h2>
+<p class="text-on-surface-variant leading-relaxed mb-6">Write a function <code class="bg-surface-container-highest px-1.5 py-0.5 rounded text-primary text-sm font-mono">flatten(lst)</code> that takes a nested list and returns all values flat. Your solution should handle arbitrary levels of nesting.</p>
+<div class="space-y-3 mb-8">
+<h3 class="text-xs font-bold text-on-surface-variant uppercase tracking-widest">Expected Output</h3>
+<div class="bg-surface-container-lowest rounded-xl p-4 font-mono text-sm border border-outline-variant/5">
+<div class="text-on-surface-variant opacity-50 mb-1"># input: [1, [2, [3, 4], 5], 6]</div>
+<div class="text-secondary font-bold">&gt; [1, 2, 3, 4, 5, 6]</div>
+</div>
+</div>
+<div class="mt-auto pt-6 border-t border-outline-variant/10 flex flex-wrap gap-3">
+<div class="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-surface-container-highest border border-outline-variant/10">
+<span class="material-symbols-outlined text-sm text-tertiary" data-icon="signal_cellular_alt">signal_cellular_alt</span>
+<span class="text-xs font-semibold">Intermediate</span>
+</div>
+<div class="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-surface-container-highest/50">
+<span class="text-xs text-on-surface-variant">Recursion</span>
+</div>
+<div class="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-surface-container-highest/50">
+<span class="text-xs text-on-surface-variant">List operations</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Right Panel: Editor & Feedback -->
+<div class="lg:col-span-3 flex flex-col gap-6">
+<!-- Code Editor Sim -->
+<div class="bg-surface-container-low rounded-2xl flex flex-col overflow-hidden shadow-2xl">
+<div class="px-6 py-4 flex items-center justify-between border-b border-outline-variant/5">
+<div class="flex items-center gap-2">
+<div class="w-3 h-3 rounded-full bg-error/40"></div>
+<div class="w-3 h-3 rounded-full bg-secondary/40"></div>
+<div class="w-3 h-3 rounded-full bg-primary/40"></div>
+<span class="ml-4 text-xs font-bold text-on-surface-variant uppercase tracking-widest">Your Solution</span>
+</div>
+<div class="flex gap-2">
+<button class="flex items-center gap-2 px-3 py-1.5 rounded-lg bg-secondary/10 text-secondary text-xs font-bold hover:bg-secondary/20 transition-all">
+<span class="material-symbols-outlined text-sm" data-icon="play_arrow">play_arrow</span> Run
+                                </button>
+<button class="flex items-center gap-2 px-4 py-1.5 rounded-lg bg-gradient-to-br from-primary to-primary-dim text-on-primary text-xs font-extrabold hover:shadow-[0_0_20px_rgba(186,158,255,0.3)] transition-all">
+                                    Submit <span class="material-symbols-outlined text-sm" data-icon="arrow_forward">arrow_forward</span>
+</button>
+</div>
+</div>
+<div class="p-6 h-64 bg-surface-container-lowest/50 font-mono text-sm text-primary-dim leading-relaxed">
+<div class="flex gap-4">
+<span class="text-on-surface-variant/30 text-right w-4">1</span>
+<span><span class="text-tertiary">def</span> <span class="text-secondary">flatten</span>(lst):</span>
+</div>
+<div class="flex gap-4">
+<span class="text-on-surface-variant/30 text-right w-4">2</span>
+<span class="pl-4 text-on-surface-variant opacity-50">"""Flatten a nested list recursively."""</span>
+</div>
+<div class="flex gap-4">
+<span class="text-on-surface-variant/30 text-right w-4">3</span>
+<span class="pl-4">result = []</span>
+</div>
+<div class="flex gap-4">
+<span class="text-on-surface-variant/30 text-right w-4">4</span>
+<span class="pl-4"><span class="text-tertiary">for</span> item <span class="text-tertiary">in</span> lst:</span>
+</div>
+<div class="flex gap-4">
+<span class="text-on-surface-variant/30 text-right w-4">5</span>
+<span class="pl-8"><span class="text-tertiary">if</span> <span class="text-secondary">isinstance</span>(item, list):</span>
+</div>
+<div class="flex gap-4">
+<span class="text-on-surface-variant/30 text-right w-4">6</span>
+<span class="pl-12">result.extend(flatten(item))</span>
+</div>
+<div class="flex gap-4">
+<span class="text-on-surface-variant/30 text-right w-4">7</span>
+<span class="pl-8"><span class="text-tertiary">else</span>:</span>
+</div>
+<div class="flex gap-4">
+<span class="text-on-surface-variant/30 text-right w-4">8</span>
+<span class="pl-12">result.append(item)</span>
+</div>
+<div class="flex gap-4">
+<span class="text-on-surface-variant/30 text-right w-4">9</span>
+<span class="pl-4"><span class="text-tertiary">return</span> result</span>
+</div>
+</div>
+<div class="px-6 py-4 flex gap-4 bg-surface-container-high/40">
+<div class="flex items-center gap-1.5 px-2.5 py-1 rounded bg-secondary/10 text-secondary text-[10px] font-bold">
+<span class="material-symbols-outlined text-[12px]" data-icon="check_circle">check_circle</span> ✓ Test 1 passed
+                            </div>
+<div class="flex items-center gap-1.5 px-2.5 py-1 rounded bg-secondary/10 text-secondary text-[10px] font-bold">
+<span class="material-symbols-outlined text-[12px]" data-icon="check_circle">check_circle</span> ✓ Test 2 passed
+                            </div>
+<div class="flex items-center gap-1.5 px-2.5 py-1 rounded bg-secondary/10 text-secondary text-[10px] font-bold">
+<span class="material-symbols-outlined text-[12px]" data-icon="check_circle">check_circle</span> ✓ Test 3 passed
+                            </div>
+</div>
+</div>
+<!-- AI Feedback -->
+<div class="ai-mesh rounded-2xl p-6 border border-primary/20 shadow-xl flex flex-col gap-4">
+<div class="flex justify-between items-start">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-lg bg-primary/20 flex items-center justify-center">
+<span class="material-symbols-outlined text-primary" data-icon="auto_awesome">auto_awesome</span>
+</div>
+<div>
+<h3 class="font-bold text-lg">AI Performance Review</h3>
+<p class="text-xs text-on-surface-variant">Instant synthesis of your recursion logic</p>
+</div>
+</div>
+<div class="flex flex-col items-end">
+<span class="text-2xl font-black text-secondary">3/3</span>
+<span class="text-[10px] uppercase font-bold tracking-widest text-on-surface-variant">Test Score</span>
+</div>
+</div>
+<p class="text-sm leading-relaxed text-on-surface/90 italic">
+                            "Elegant use of the base-case/recursive-step pattern. Your implementation handles deeply nested lists with O(n) complexity. Efficiency is within the 98th percentile."
+                        </p>
+<div class="flex justify-between items-center mt-2">
+<span class="px-3 py-1.5 rounded-lg bg-tertiary-container/10 text-tertiary text-[10px] font-bold uppercase tracking-widest border border-tertiary/20">
+                                ⚡ Fast-track: Month 2 advanced unlocked
+                            </span>
+<button class="text-primary text-xs font-bold flex items-center gap-1 hover:underline">
+                                View Detail Log <span class="material-symbols-outlined text-sm" data-icon="open_in_new">open_in_new</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+<!-- Scenario Challenge Area (Hidden by default in actual app but visible for design demo below) -->
+<div class="hidden max-w-2xl mx-auto w-full flex flex-col gap-6 py-12">
+<span class="self-start px-3 py-1 rounded bg-secondary/10 text-secondary text-[11px] font-bold tracking-widest uppercase">Data Engineering — Month 2</span>
+<div class="ai-mesh rounded-3xl p-8 border border-outline-variant/10 shadow-2xl space-y-6">
+<blockquote class="border-l-4 border-secondary pl-6 py-2">
+<p class="text-lg text-on-surface leading-relaxed font-medium">
+                            The pipeline suddenly drops 40% of records when migrating from the staging S3 bucket to the production Redshift cluster. The logs show 'String length exceeds limit' but only for the European region data.
+                        </p>
+</blockquote>
+<h4 class="text-xl font-headline font-bold text-on-surface pt-4">How would you diagnose and resolve this without manual data patching?</h4>
+<div class="space-y-4">
+<textarea class="w-full bg-surface-container border-b-2 border-primary border-t-0 border-x-0 focus:ring-0 focus:bg-surface-container-high transition-all text-sm leading-relaxed rounded-t-xl py-4 px-5" placeholder="Draft your architectural approach..." rows="5"></textarea>
+<div class="flex justify-between items-center">
+<span class="text-xs text-on-surface-variant font-mono">0 / 50 words minimum</span>
+<button class="px-8 py-3 bg-gradient-to-br from-primary to-primary-dim text-on-primary font-extrabold rounded-xl text-sm shadow-xl hover:scale-105 active:scale-95 transition-all">
+                                Submit Scenario
+                            </button>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- Floating Background Details -->
+<div class="fixed top-[-10%] right-[-10%] w-[40%] h-[40%] bg-primary/5 blur-[120px] rounded-full pointer-events-none -z-10"></div>
+<div class="fixed bottom-[-5%] left-[15%] w-[30%] h-[30%] bg-tertiary/5 blur-[100px] rounded-full pointer-events-none -z-10"></div>
+</body></html>

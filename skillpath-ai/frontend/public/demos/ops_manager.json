@@ -1,0 +1,38 @@
+{
+  "resumeSkills": [
+    { "skill": "Excel", "level": "Advanced", "confidence": 90, "evidence": ["Built complex macros"], "category": "Technical" },
+    { "skill": "Communication", "level": "Advanced", "confidence": 88, "evidence": ["Led executive meetings"], "category": "Soft Skills" },
+    { "skill": "Process Mapping", "level": "Intermediate", "confidence": 82, "evidence": ["Designed operational workflows"], "category": "Domain" },
+    { "skill": "Team Management", "level": "Beginner", "confidence": 70, "evidence": ["Managed 2 interns"], "category": "Soft Skills" }
+  ],
+  "jdSkills": [
+    { "skill": "Supply Chain Systems", "level_required": "Intermediate", "is_critical": true, "frequency": 4 },
+    { "skill": "Data Analysis", "level_required": "Intermediate", "is_critical": true, "frequency": 3 },
+    { "skill": "ERP Software", "level_required": "Intermediate", "is_critical": false, "frequency": 2 },
+    { "skill": "Leadership", "level_required": "Advanced", "is_critical": true, "frequency": 5 },
+    { "skill": "Logistics Operations", "level_required": "Advanced", "is_critical": true, "frequency": 3 }
+  ],
+  "gapMap": {
+    "skills": [
+      { "skill": "Supply Chain Systems", "current_level": 0, "required_level": 2, "gap_score": 2, "severity": "MODERATE" },
+      { "skill": "Data Analysis", "current_level": 0, "required_level": 2, "gap_score": 2, "severity": "MODERATE" },
+      { "skill": "ERP Software", "current_level": 0, "required_level": 2, "gap_score": 2, "severity": "MODERATE" },
+      { "skill": "Leadership", "current_level": 1, "required_level": 3, "gap_score": 2, "severity": "MODERATE" },
+      { "skill": "Logistics Operations", "current_level": 0, "required_level": 3, "gap_score": 3, "severity": "CRITICAL" },
+      { "skill": "Communication", "current_level": 3, "required_level": 2, "gap_score": 0, "severity": "COVERED" }
+    ],
+    "overall_readiness_pct": 20,
+    "critical_count": 1,
+    "moderate_count": 4,
+    "minor_count": 0,
+    "covered_count": 1
+  },
+  "roadmap": [
+    { "month": 1, "title": "Foundations Sprint", "skills": ["Logistics Operations", "Data Analysis"], "estimated_hours": 13, "target_levels": { "Logistics Operations": "Advanced", "Data Analysis": "Intermediate" }, "courses": [], "status": "in_progress", "has_simulation": false },
+    { "month": 2, "title": "Core Skills Build", "skills": ["Supply Chain Systems", "Leadership", "ERP Software"], "estimated_hours": 15, "target_levels": { "Supply Chain Systems": "Intermediate", "Leadership": "Advanced", "ERP Software": "Intermediate" }, "courses": [], "status": "locked", "has_simulation": false }
+  ],
+  "reasoningTrace": [
+    { "type": "SKILL_EXTRACTION", "summary": "Extracted 4 skills from resume", "reasoning": "Skills filtered by confidence", "evidence": [ "Raw skills found: 4", "Model: gemini-2.5-flash" ], "confidence": 90 },
+    { "type": "GAP_ANALYSIS", "summary": "Logistics Operations identified as CRITICAL", "reasoning": "Current: Level 0, Required: Level 3", "evidence": [ "Required level: 3/3", "Current level: 0/3" ], "confidence": 95 }
+  ]
+}

@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>SkillPath AI - Course Recommendations</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=Manrope:wght@700;800&amp;family=JetBrains+Mono:wght@400;500&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "tertiary-dim": "#f370b4",
+                        "on-primary": "#371975",
+                        "inverse-primary": "#694fa9",
+                        "tertiary-fixed": "#ff8bc4",
+                        "secondary-dim": "#17a8ec",
+                        "primary": "#ba9eff",
+                        "on-secondary-fixed-variant": "#00567c",
+                        "primary-container": "#ac91f1",
+                        "on-tertiary": "#670043",
+                        "secondary-fixed": "#a4d8ff",
+                        "primary-fixed": "#ba9eff",
+                        "tertiary": "#ff90c6",
+                        "on-surface-variant": "#abaab0",
+                        "tertiary-fixed-dim": "#f976ba",
+                        "surface-container-highest": "#24252b",
+                        "on-error": "#490013",
+                        "surface-container-high": "#1e1f25",
+                        "surface-bright": "#2a2c32",
+                        "secondary": "#34b5fa",
+                        "error-container": "#a70138",
+                        "on-tertiary-fixed-variant": "#73004b",
+                        "on-secondary-container": "#f3f8ff",
+                        "outline": "#75757a",
+                        "on-secondary-fixed": "#003853",
+                        "on-secondary": "#003047",
+                        "inverse-on-surface": "#54555a",
+                        "error-dim": "#d73357",
+                        "on-background": "#faf8fe",
+                        "secondary-fixed-dim": "#81ccff",
+                        "surface-dim": "#0d0e12",
+                        "on-primary-container": "#2b0569",
+                        "tertiary-container": "#fd78bd",
+                        "on-surface": "#faf8fe",
+                        "on-error-container": "#ffb2b9",
+                        "surface-variant": "#24252b",
+                        "surface-container-low": "#121318",
+                        "on-primary-fixed": "#1b004a",
+                        "background": "#0d0e12",
+                        "on-primary-fixed-variant": "#40247e",
+                        "surface-tint": "#ba9eff",
+                        "outline-variant": "#47484c",
+                        "on-tertiary-fixed": "#360021",
+                        "primary-dim": "#ac91f1",
+                        "surface-container": "#18191e",
+                        "on-tertiary-container": "#530035",
+                        "secondary-container": "#006591",
+                        "surface-container-lowest": "#000000",
+                        "surface": "#0d0e12",
+                        "error": "#ff6e84",
+                        "inverse-surface": "#faf8fe",
+                        "primary-fixed-dim": "#ac91f1"
+                    },
+                    fontFamily: {
+                        "headline": ["Manrope"],
+                        "body": ["Inter"],
+                        "label": ["Inter"]
+                    },
+                    borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body {
+            background-color: #0d0e12;
+            color: #faf8fe;
+        }
+        .relevance-gradient {
+            background: linear-gradient(135deg, #ba9eff 0%, #8455ef 100%);
+        }
+        .glass-panel {
+            background: rgba(30, 31, 37, 0.7);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(250, 248, 254, 0.1);
+        }
+    </style>
+</head>
+<body class="font-body antialiased selection:bg-primary/30">
+<!-- SideNavBar Shell -->
+<aside class="w-[256px] h-screen fixed left-0 top-0 bg-[#121318] dark:bg-[#121318] font-['Manrope'] antialiased tracking-wide flex flex-col h-full py-6 z-[60]">
+<div class="px-6 mb-10">
+<span class="text-xl font-extrabold bg-gradient-to-br from-[#ba9eff] to-[#8455ef] bg-clip-text text-transparent">SkillPath AI</span>
+<p class="text-[10px] tracking-[0.2em] text-[#faf8fe]/40 mt-1 uppercase">THE DIGITAL ORACLE</p>
+</div>
+<nav class="flex-1 space-y-1">
+<a class="flex items-center gap-3 px-4 py-3 text-[#faf8fe]/60 hover:text-[#faf8fe] transition-all duration-200 hover:bg-[#18191e]" href="#">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+<span class="text-sm font-medium">Dashboard</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 bg-[#24252b] text-[#faf8fe] border-l-[3px] border-[#ba9eff] transition-all duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="auto_awesome" style="font-variation-settings: 'FILL' 1;">auto_awesome</span>
+<span class="text-sm font-medium">Learning Path</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-[#faf8fe]/60 hover:text-[#faf8fe] transition-all duration-200 hover:bg-[#18191e]" href="#">
+<span class="material-symbols-outlined" data-icon="insights">insights</span>
+<span class="text-sm font-medium">Skill Analysis</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-[#faf8fe]/60 hover:text-[#faf8fe] transition-all duration-200 hover:bg-[#18191e]" href="#">
+<span class="material-symbols-outlined" data-icon="school">school</span>
+<span class="text-sm font-medium">Mentors</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-[#faf8fe]/60 hover:text-[#faf8fe] transition-all duration-200 hover:bg-[#18191e]" href="#">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+<span class="text-sm font-medium">Settings</span>
+</a>
+</nav>
+<div class="px-6 mt-auto pt-6 border-t border-[#faf8fe]/5">
+<div class="flex items-center gap-3">
+<img alt="User profile" class="w-10 h-10 rounded-full" data-alt="User profile circular avatar image" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAUxuezncNIQfxTat1CwZlwD1_8sM6i6uICBz6--AVgLz9kuJdeJytcP_cfre1Xfxe_-YpJq1xivo5vlapE1D_BhXD86D3HRPwjD1UTx_LCSfu2bw1Rh5suSBFidMX2hHaOvkYLvdSKj6SWNZIZUuAzXGAUIMdnbg-rwNzlZKIUD2kaT5xccJiabDEdI50myLTDLrjl68bVDpKZSh4kuvxKdBzx4uE6jYZopewLNz1_ytW3UZGab_HitReYqQqtU5RO0nrd-MY8Fjo"/>
+<div>
+<p class="text-sm font-semibold text-[#faf8fe]">Alex Chen</p>
+<p class="text-xs text-[#faf8fe]/40">Senior ML Track</p>
+</div>
+</div>
+</div>
+</aside>
+<!-- TopNavBar Shell -->
+<header class="fixed top-0 right-0 w-[calc(100%-256px)] h-16 z-50 bg-[#1e1f25]/70 backdrop-blur-xl border-b border-[#faf8fe]/10 flex justify-between items-center px-8 shadow-2xl shadow-black/40 font-['Inter'] text-sm">
+<div class="flex items-center bg-surface-container-high rounded-lg px-3 py-1.5 w-96 group focus-within:ring-1 focus-within:ring-[#ba9eff]/40 transition-all">
+<span class="material-symbols-outlined text-on-surface-variant mr-2 text-lg" data-icon="search">search</span>
+<input class="bg-transparent border-none focus:ring-0 text-sm w-full placeholder:text-[#faf8fe]/30" placeholder="Explore specialized courses..." type="text"/>
+</div>
+<div class="flex items-center gap-6">
+<div class="flex items-center gap-4">
+<button class="text-[#faf8fe]/70 hover:text-[#ba9eff] transition-colors">
+<span class="material-symbols-outlined" data-icon="bolt">bolt</span>
+</button>
+<button class="relative text-[#faf8fe]/70 hover:text-[#ba9eff] transition-colors">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+<span class="absolute top-0 right-0 w-2 h-2 bg-primary rounded-full ring-2 ring-[#1e1f25]"></span>
+</button>
+</div>
+<div class="h-8 w-[1px] bg-[#faf8fe]/10"></div>
+<button class="text-primary font-semibold">Recommendations</button>
+<button class="text-[#faf8fe]/70 hover:text-[#ba9eff] transition-colors">History</button>
+</div>
+</header>
+<!-- Main Content Canvas -->
+<main class="ml-[256px] pt-24 pb-12 px-12 min-h-screen bg-background">
+<!-- Header Section -->
+<header class="mb-12">
+<h1 class="font-headline text-4xl font-extrabold tracking-tight mb-2 text-on-surface">Oracle Recommendations</h1>
+<p class="text-on-surface-variant text-lg max-w-2xl font-light">Synthesizing your current skill gap with market demand. These pathways are optimized for your <span class="text-secondary font-medium">Neural Engineering</span> specialization.</p>
+</header>
+<!-- Course Grid -->
+<section class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+<!-- Card 1 -->
+<article class="group relative bg-surface-container rounded-xl p-6 transition-all duration-300 hover:scale-[1.02] hover:bg-surface-container-highest overflow-hidden">
+<div class="absolute top-0 right-0 w-32 h-32 bg-primary/5 rounded-full -mr-16 -mt-16 blur-3xl"></div>
+<div class="flex justify-between items-center mb-6">
+<span class="px-2.5 py-1 rounded bg-[#2a2c32] text-[10px] font-bold tracking-wider text-secondary-fixed uppercase">Coursera</span>
+<span class="flex items-center gap-1.5 text-xs text-on-surface-variant">
+<span class="material-symbols-outlined text-sm" data-icon="schedule">schedule</span>
+                        28hrs
+                    </span>
+</div>
+<h3 class="font-headline text-xl font-bold leading-tight mb-4 group-hover:text-primary transition-colors">Machine Learning with Python</h3>
+<div class="mb-6">
+<div class="flex justify-between items-end mb-2">
+<span class="text-xs font-medium text-on-surface-variant">Match Relevance</span>
+<span class="font-mono text-sm text-primary">94%</span>
+</div>
+<div class="h-1 w-full bg-surface-container-low rounded-full overflow-hidden">
+<div class="h-full relevance-gradient w-[94%]"></div>
+</div>
+</div>
+<div class="flex flex-wrap gap-2 mb-8">
+<span class="px-2 py-0.5 text-[11px] rounded-full bg-surface-container-low text-on-surface-variant">Python</span>
+<span class="px-2 py-0.5 text-[11px] rounded-full bg-surface-container-low text-on-surface-variant">Scikit-learn</span>
+<span class="px-2 py-0.5 text-[11px] rounded-full bg-surface-container-low text-on-surface-variant">Regression</span>
+</div>
+<div class="flex justify-between items-center mt-auto">
+<button class="text-primary text-sm font-semibold hover:opacity-80 transition-opacity">View Course →</button>
+<span class="flex items-center gap-1 px-2 py-0.5 rounded text-[10px] font-bold bg-[#34fa96]/10 text-[#34fa96] uppercase tracking-tighter">
+<span class="material-symbols-outlined text-[10px]" data-icon="verified" style="font-variation-settings: 'FILL' 1;">verified</span>
+                        Grounded
+                    </span>
+</div>
+</article>
+<!-- Card 2 -->
+<article class="group relative bg-surface-container rounded-xl p-6 transition-all duration-300 hover:scale-[1.02] hover:bg-surface-container-highest overflow-hidden">
+<div class="absolute top-0 right-0 w-32 h-32 bg-primary/5 rounded-full -mr-16 -mt-16 blur-3xl"></div>
+<div class="flex justify-between items-center mb-6">
+<span class="px-2.5 py-1 rounded bg-[#2a2c32] text-[10px] font-bold tracking-wider text-secondary-fixed uppercase">Udemy</span>
+<span class="flex items-center gap-1.5 text-xs text-on-surface-variant">
+<span class="material-symbols-outlined text-sm" data-icon="schedule">schedule</span>
+                        18hrs
+                    </span>
+</div>
+<h3 class="font-headline text-xl font-bold leading-tight mb-4 group-hover:text-primary transition-colors">PyTorch Deep Learning Bootcamp</h3>
+<div class="mb-6">
+<div class="flex justify-between items-end mb-2">
+<span class="text-xs font-medium text-on-surface-variant">Match Relevance</span>
+<span class="font-mono text-sm text-primary">91%</span>
+</div>
+<div class="h-1 w-full bg-surface-container-low rounded-full overflow-hidden">
+<div class="h-full relevance-gradient w-[91%]"></div>
+</div>
+</div>
+<div class="flex flex-wrap gap-2 mb-8">
+<span class="px-2 py-0.5 text-[11px] rounded-full bg-surface-container-low text-on-surface-variant">PyTorch</span>
+<span class="px-2 py-0.5 text-[11px] rounded-full bg-surface-container-low text-on-surface-variant">Neural Networks</span>
+<span class="px-2 py-0.5 text-[11px] rounded-full bg-surface-container-low text-on-surface-variant">Deep Learning</span>
+</div>
+<div class="flex justify-between items-center mt-auto">
+<button class="text-primary text-sm font-semibold hover:opacity-80 transition-opacity">View Course →</button>
+<span class="flex items-center gap-1 px-2 py-0.5 rounded text-[10px] font-bold bg-[#34fa96]/10 text-[#34fa96] uppercase tracking-tighter">
+<span class="material-symbols-outlined text-[10px]" data-icon="verified" style="font-variation-settings: 'FILL' 1;">verified</span>
+                        Grounded
+                    </span>
+</div>
+</article>
+<!-- Card 3 -->
+<article class="group relative bg-surface-container rounded-xl p-6 transition-all duration-300 hover:scale-[1.02] hover:bg-surface-container-highest overflow-hidden">
+<div class="absolute top-0 right-0 w-32 h-32 bg-primary/5 rounded-full -mr-16 -mt-16 blur-3xl"></div>
+<div class="flex justify-between items-center mb-6">
+<span class="px-2.5 py-1 rounded bg-[#2a2c32] text-[10px] font-bold tracking-wider text-secondary-fixed uppercase">fast.ai</span>
+<span class="flex items-center gap-1.5 text-xs text-on-surface-variant">
+<span class="material-symbols-outlined text-sm" data-icon="schedule">schedule</span>
+                        22hrs
+                    </span>
+</div>
+<h3 class="font-headline text-xl font-bold leading-tight mb-4 group-hover:text-primary transition-colors">Practical Deep Learning for Coders</h3>
+<div class="mb-6">
+<div class="flex justify-between items-end mb-2">
+<span class="text-xs font-medium text-on-surface-variant">Match Relevance</span>
+<span class="font-mono text-sm text-primary">89%</span>
+</div>
+<div class="h-1 w-full bg-surface-container-low rounded-full overflow-hidden">
+<div class="h-full relevance-gradient w-[89%]"></div>
+</div>
+</div>
+<div class="flex flex-wrap gap-2 mb-8">
+<span class="px-2 py-0.5 text-[11px] rounded-full bg-surface-container-low text-on-surface-variant">Fast.ai</span>
+<span class="px-2 py-0.5 text-[11px] rounded-full bg-surface-container-low text-on-surface-variant">Computer Vision</span>
+<span class="px-2 py-0.5 text-[11px] rounded-full bg-surface-container-low text-on-surface-variant">NLP</span>
+</div>
+<div class="flex justify-between items-center mt-auto">
+<button class="text-primary text-sm font-semibold hover:opacity-80 transition-opacity">View Course →</button>
+<span class="flex items-center gap-1 px-2 py-0.5 rounded text-[10px] font-bold bg-[#34fa96]/10 text-[#34fa96] uppercase tracking-tighter">
+<span class="material-symbols-outlined text-[10px]" data-icon="verified" style="font-variation-settings: 'FILL' 1;">verified</span>
+                        Grounded
+                    </span>
+</div>
+</article>
+<!-- Card 4 -->
+<article class="group relative bg-surface-container rounded-xl p-6 transition-all duration-300 hover:scale-[1.02] hover:bg-surface-container-highest overflow-hidden">
+<div class="absolute top-0 right-0 w-32 h-32 bg-primary/5 rounded-full -mr-16 -mt-16 blur-3xl"></div>
+<div class="flex justify-between items-center mb-6">
+<span class="px-2.5 py-1 rounded bg-[#2a2c32] text-[10px] font-bold tracking-wider text-secondary-fixed uppercase">Coursera</span>
+<span class="flex items-center gap-1.5 text-xs text-on-surface-variant">
+<span class="material-symbols-outlined text-sm" data-icon="schedule">schedule</span>
+                        12hrs
+                    </span>
+</div>
+<h3 class="font-headline text-xl font-bold leading-tight mb-4 group-hover:text-primary transition-colors">Feature Engineering for ML</h3>
+<div class="mb-6">
+<div class="flex justify-between items-end mb-2">
+<span class="text-xs font-medium text-on-surface-variant">Match Relevance</span>
+<span class="font-mono text-sm text-primary">86%</span>
+</div>
+<div class="h-1 w-full bg-surface-container-low rounded-full overflow-hidden">
+<div class="h-full relevance-gradient w-[86%]"></div>
+</div>
+</div>
+<div class="flex flex-wrap gap-2 mb-8">
+<span class="px-2 py-0.5 text-[11px] rounded-full bg-surface-container-low text-on-surface-variant">Pandas</span>
+<span class="px-2 py-0.5 text-[11px] rounded-full bg-surface-container-low text-on-surface-variant">Data Preprocessing</span>
+<span class="px-2 py-0.5 text-[11px] rounded-full bg-surface-container-low text-on-surface-variant">ML Ops</span>
+</div>
+<div class="flex justify-between items-center mt-auto">
+<button class="text-primary text-sm font-semibold hover:opacity-80 transition-opacity">View Course →</button>
+<span class="flex items-center gap-1 px-2 py-0.5 rounded text-[10px] font-bold bg-[#34fa96]/10 text-[#34fa96] uppercase tracking-tighter">
+<span class="material-symbols-outlined text-[10px]" data-icon="verified" style="font-variation-settings: 'FILL' 1;">verified</span>
+                        Grounded
+                    </span>
+</div>
+</article>
+<!-- Card 5 -->
+<article class="group relative bg-surface-container rounded-xl p-6 transition-all duration-300 hover:scale-[1.02] hover:bg-surface-container-highest overflow-hidden">
+<div class="absolute top-0 right-0 w-32 h-32 bg-primary/5 rounded-full -mr-16 -mt-16 blur-3xl"></div>
+<div class="flex justify-between items-center mb-6">
+<span class="px-2.5 py-1 rounded bg-[#2a2c32] text-[10px] font-bold tracking-wider text-secondary-fixed uppercase">Coursera</span>
+<span class="flex items-center gap-1.5 text-xs text-on-surface-variant">
+<span class="material-symbols-outlined text-sm" data-icon="schedule">schedule</span>
+                        14hrs
+                    </span>
+</div>
+<h3 class="font-headline text-xl font-bold leading-tight mb-4 group-hover:text-primary transition-colors">SQL for Data Science</h3>
+<div class="mb-6">
+<div class="flex justify-between items-end mb-2">
+<span class="text-xs font-medium text-on-surface-variant">Match Relevance</span>
+<span class="font-mono text-sm text-primary">83%</span>
+</div>
+<div class="h-1 w-full bg-surface-container-low rounded-full overflow-hidden">
+<div class="h-full relevance-gradient w-[83%]"></div>
+</div>
+</div>
+<div class="flex flex-wrap gap-2 mb-8">
+<span class="px-2 py-0.5 text-[11px] rounded-full bg-surface-container-low text-on-surface-variant">SQL</span>
+<span class="px-2 py-0.5 text-[11px] rounded-full bg-surface-container-low text-on-surface-variant">Postgres</span>
+<span class="px-2 py-0.5 text-[11px] rounded-full bg-surface-container-low text-on-surface-variant">Data Analysis</span>
+</div>
+<div class="flex justify-between items-center mt-auto">
+<button class="text-primary text-sm font-semibold hover:opacity-80 transition-opacity">View Course →</button>
+<span class="flex items-center gap-1 px-2 py-0.5 rounded text-[10px] font-bold bg-[#34fa96]/10 text-[#34fa96] uppercase tracking-tighter">
+<span class="material-symbols-outlined text-[10px]" data-icon="verified" style="font-variation-settings: 'FILL' 1;">verified</span>
+                        Grounded
+                    </span>
+</div>
+</article>
+<!-- Card 6 -->
+<article class="group relative bg-surface-container rounded-xl p-6 transition-all duration-300 hover:scale-[1.02] hover:bg-surface-container-highest overflow-hidden">
+<div class="absolute top-0 right-0 w-32 h-32 bg-primary/5 rounded-full -mr-16 -mt-16 blur-3xl"></div>
+<div class="flex justify-between items-center mb-6">
+<span class="px-2.5 py-1 rounded bg-[#2a2c32] text-[10px] font-bold tracking-wider text-secondary-fixed uppercase">Udemy</span>
+<span class="flex items-center gap-1.5 text-xs text-on-surface-variant">
+<span class="material-symbols-outlined text-sm" data-icon="schedule">schedule</span>
+                        8hrs
+                    </span>
+</div>
+<h3 class="font-headline text-xl font-bold leading-tight mb-4 group-hover:text-primary transition-colors">Docker for ML Engineers</h3>
+<div class="mb-6">
+<div class="flex justify-between items-end mb-2">
+<span class="text-xs font-medium text-on-surface-variant">Match Relevance</span>
+<span class="font-mono text-sm text-primary">80%</span>
+</div>
+<div class="h-1 w-full bg-surface-container-low rounded-full overflow-hidden">
+<div class="h-full relevance-gradient w-[80%]"></div>
+</div>
+</div>
+<div class="flex flex-wrap gap-2 mb-8">
+<span class="px-2 py-0.5 text-[11px] rounded-full bg-surface-container-low text-on-surface-variant">Docker</span>
+<span class="px-2 py-0.5 text-[11px] rounded-full bg-surface-container-low text-on-surface-variant">Containers</span>
+<span class="px-2 py-0.5 text-[11px] rounded-full bg-surface-container-low text-on-surface-variant">Deployment</span>
+</div>
+<div class="flex justify-between items-center mt-auto">
+<button class="text-primary text-sm font-semibold hover:opacity-80 transition-opacity">View Course →</button>
+<span class="flex items-center gap-1 px-2 py-0.5 rounded text-[10px] font-bold bg-[#34fa96]/10 text-[#34fa96] uppercase tracking-tighter">
+<span class="material-symbols-outlined text-[10px]" data-icon="verified" style="font-variation-settings: 'FILL' 1;">verified</span>
+                        Grounded
+                    </span>
+</div>
+</article>
+</section>
+<!-- Insights Panel -->
+<section class="mt-16 relative bg-surface-container rounded-2xl p-8 overflow-hidden">
+<div class="absolute top-0 right-0 w-64 h-64 bg-tertiary/10 rounded-full -mr-32 -mt-32 blur-[80px]"></div>
+<div class="flex items-start gap-6">
+<div class="w-12 h-12 rounded-xl bg-primary/20 flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-primary" data-icon="auto_awesome">auto_awesome</span>
+</div>
+<div>
+<h2 class="font-headline text-xl font-bold mb-4">Oracle Insight: Core Acceleration</h2>
+<p class="font-mono text-sm text-on-surface-variant leading-relaxed mb-6">
+                        System analysis indicates a 42% acceleration in your "Deployment Efficiency" score if you prioritize the <span class="text-[#34fa96]">Docker for ML Engineers</span> module. The synergy between your current PyTorch knowledge and containerization is currently the highest-ROI learning vector available.
+                    </p>
+<div class="flex gap-4">
+<button class="px-6 py-2 rounded-lg bg-gradient-to-br from-[#ba9eff] to-[#8455ef] text-on-primary text-sm font-bold shadow-lg shadow-primary/20">Apply Optimized Path</button>
+<button class="px-6 py-2 rounded-lg bg-surface-container-highest text-[#faf8fe] text-sm font-medium border border-[#faf8fe]/10">Refine Oracle Model</button>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- FAB Suppression Logic: FAB removed for "Course Details/Recommendations" screen focus as per mandate -->
+</body></html>
