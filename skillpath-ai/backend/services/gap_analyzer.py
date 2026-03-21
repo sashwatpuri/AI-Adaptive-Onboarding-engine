@@ -61,7 +61,7 @@ def compute_gap_map(
                 break
     
     current = LEVEL_MAP.get(
-      resume_match.level, 0) if resume_match else 0
+      str(resume_match.level.value if hasattr(resume_match.level, 'value') else resume_match.level), 0) if resume_match else 0
     required = LEVEL_MAP[jd_skill.level_required]
     gap = max(0, required - current)
     

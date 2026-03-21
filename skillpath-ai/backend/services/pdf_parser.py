@@ -11,7 +11,22 @@ def parse_pdf(file_bytes: bytes, filename: str = "") -> str:
         try:
             from docx import Document
             doc = Document(BytesIO(file_bytes))
-            text = "\n".join(paragraph.text for paragraph in doc.paragraphs)
+            
+            blocks = []
+            for paragraph in doc.paragraphs:
+                if paragraph.text.strip():
+                    blocks.append(paragraph.text)
+            
+            for table in doc.tables:
+                for row in table.rows:
+                    row_text = []
+                    for cell in row.cells:
+                        if cell.text.strip():
+                            row_text.append(cell.text.strip())
+                    if row_text:
+                        blocks.append(" | ".join(row_text))
+            
+            text = "\n".join(blocks)
             print(f"Parsed DOCX: {filename} - {len(text)} chars")
             return clean_text(text)
         except ImportError:

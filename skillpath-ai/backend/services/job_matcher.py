@@ -9,32 +9,43 @@ from config import config
 SKILL_KEYWORDS = {
     "Python": ["python", "py"],
     "Java": ["java"],
+    "C++": ["c++", "cpp"],
+    "C": ["\bc\b"],
     "JavaScript": ["javascript", "js", "nodejs", "node.js"],
+    "TypeScript": ["typescript", "ts"],
     "React": ["react", "reactjs"],
     "Angular": ["angular", "angularjs"],
+    "Vue": ["vue", "vuejs"],
+    "HTML/CSS": ["html", "css", "tailwind", "sass", "less"],
     "Django": ["django"],
     "Flask": ["flask"],
+    "FastAPI": ["fastapi"],
     "REST API": ["rest api", "rest", "api", "restful"],
-    "SQL": ["sql", "mysql", "postgresql", "oracle", "database"],
-    "MongoDB": ["mongodb", "mongo", "nosql"],
-    "Machine Learning": ["machine learning", "ml", "deep learning", "neural network"],
+    "SQL": ["sql", "mysql", "postgresql", "oracle", "database", "sqlite"],
+    "NoSQL": ["mongodb", "mongo", "nosql", "redis", "cassandra"],
+    "Machine Learning": ["machine learning", "ml", "deep learning", "neural network", "model evaluation"],
+    "Computer Vision": ["computer vision", "opencv", "image processing", "image classification"],
+    "NLP": ["nlp", "natural language processing", "llm", "large language model"],
     "PyTorch": ["pytorch"],
-    "TensorFlow": ["tensorflow"],
+    "TensorFlow": ["tensorflow", "keras"],
     "Pandas": ["pandas"],
     "NumPy": ["numpy"],
-    "Data Science": ["data science", "data scientist"],
+    "Data Science": ["data science", "data scientist", "data analysis", "data analytics", "data preprocessing"],
+    "Matplotlib": ["matplotlib", "seaborn", "visualization", "plotting"],
     "Docker": ["docker", "containerization"],
     "Kubernetes": ["kubernetes", "k8s"],
     "AWS": ["aws", "amazon web services"],
     "GCP": ["gcp", "google cloud"],
     "Azure": ["azure", "microsoft azure"],
-    "Git": ["git", "version control"],
-    "Linux": ["linux", "unix"],
-    "Communication": ["communication", "interpersonal", "verbal", "written"],
-    "Leadership": ["leadership", "leader", "manage", "management"],
-    "Problem Solving": ["problem solving", "analytical", "critical thinking"],
+    "Git": ["git", "version control", "github", "gitlab", "bitbucket"],
+    "Linux": ["linux", "unix", "ubuntu", "debian", "centos"],
+    "IoT": ["iot", "internet of things", "sensor", "arduino", "raspberry pi", "esp32", "hardware integration"],
+    "Communication": ["communication", "interpersonal", "verbal", "written", "presentation"],
+    "Leadership": ["leadership", "leader", "manage", "management", "mentoring"],
+    "Problem Solving": ["problem solving", "analytical", "critical thinking", "troubleshooting"],
     "Team Work": ["teamwork", "collaboration", "team player", "collaborative"],
-    "Agile": ["agile", "scrum", "sprint"],
+    "Time Management": ["time management", "organization", "prioritization", "organisational"],
+    "Agile": ["agile", "scrum", "sprint", "kanban"],
     "Flutter": ["flutter"],
     "Kotlin": ["kotlin"],
     "Swift": ["swift"],
@@ -255,9 +266,15 @@ def get_job_description(job_title: str) -> dict:
         return None
 
     row = matching_rows.iloc[0]
+    description = row["Job Description"]
+    
+    # Extract required skills from the description
+    extraction = extract_skills_from_text(description)
+    
     return {
         "job_title": row["Job Title"],
-        "description": row["Job Description"],
+        "description": description,
+        "required_skills": extraction.get("skill_names", [])
     }
 
 

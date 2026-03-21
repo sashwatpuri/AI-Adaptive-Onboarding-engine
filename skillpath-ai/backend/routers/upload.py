@@ -56,25 +56,35 @@ async def get_random_dataset_resume(category: str):
         from services.pdf_parser import parse_pdf
         
         base_dir = Path(__file__).resolve().parents[3] / "datasets" / "resume_pdfs" / "data"
-        safe_cat = "".join(c for c in category if c.isalnum() or c in "-_ ").strip()
-        cat_dir = base_dir / safe_cat
-        
-        if not cat_dir.is_dir():
-            # Fallback to search if exact match fails
-            dirs = [d for d in os.listdir(base_dir) if (base_dir / d).is_dir()]
-            matched = False
-            for d in dirs:
-                if category.lower() in d.lower():
-                    cat_dir = base_dir / d
-                    safe_cat = d
-                    matched = True
-                    break
-            if not matched:
-                raise HTTPException(status_code=404, detail=f"Category '{safe_cat}' not found in dataset")
+        if not base_dir.exists():
+            # If the specific datasets folder is missing, try to find ANY PDFs in the repo for demo
+            print(f"Warning: Datasets directory {base_dir} not found. Searching for any PDFs...")
+            repo_root = Path(__file__).resolve().parents[3]
+            import glob
+            all_pdfs = glob.glob(str(repo_root / "**" / "*.pdf"), recursive=True)
+            if not all_pdfs:
+                raise HTTPException(status_code=404, detail="No resume PDFs found in the repository for random selection. Please upload a file manually.")
+            safe_cat = "General"
+        else:
+            safe_cat = "".join(c for c in category if c.isalnum() or c in "-_ ").strip()
+            cat_dir = base_dir / safe_cat
             
-        all_pdfs = glob.glob(str(cat_dir / "**" / "*.pdf"), recursive=True)
-        if not all_pdfs:
-            raise HTTPException(status_code=404, detail=f"No PDFs found for category '{safe_cat}'")
+            if not cat_dir.is_dir():
+                # Fallback to search if exact match fails
+                dirs = [d for d in os.listdir(base_dir) if (base_dir / d).is_dir()]
+                matched = False
+                for d in dirs:
+                    if category.lower() in d.lower():
+                        cat_dir = base_dir / d
+                        safe_cat = d
+                        matched = True
+                        break
+                if not matched:
+                    raise HTTPException(status_code=404, detail=f"Category '{safe_cat}' not found in dataset")
+            
+            all_pdfs = glob.glob(str(cat_dir / "**" / "*.pdf"), recursive=True)
+            if not all_pdfs:
+                raise HTTPException(status_code=404, detail=f"No PDFs found for category '{safe_cat}'")
             
         pdf_path = random.choice(all_pdfs)
         

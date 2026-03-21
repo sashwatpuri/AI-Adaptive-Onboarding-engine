@@ -125,7 +125,7 @@ export default function JobMatches({ skills, sessionId }) {
               <div className="required-skills">
                 <strong>Required Skills:</strong>
                 <div className="skill-tags">
-                  {jobDetails.required_skills.map((skill, i) => (
+                  {jobDetails.required_skills?.map((skill, i) => (
                     <span key={i} className="skill-tag">
                       {skill}
                     </span>

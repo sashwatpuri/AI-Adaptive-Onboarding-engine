@@ -24,7 +24,7 @@ class Config:
 
     GOOGLE_API_KEY = os.getenv("GOOGLE_API_KEY", "")
     ENABLE_GEMINI = os.getenv("ENABLE_GEMINI", "0") == "1"
-    GEMINI_MODEL = os.getenv("GEMINI_MODEL", "gemini-2.5-flash")
+    GEMINI_MODEL = os.getenv("GEMINI_MODEL", "gemini-1.5-flash")
     EMBED_MODEL = os.getenv("EMBED_MODEL", "all-MiniLM-L6-v2")
     ENABLE_EMBEDDINGS = os.getenv("ENABLE_EMBEDDINGS", "0") == "1"
     CATALOG_PATH = _resolve_path(

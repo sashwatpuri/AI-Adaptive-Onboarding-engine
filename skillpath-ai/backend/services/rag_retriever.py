@@ -65,7 +65,19 @@ def build_index():
         _index = None
 
 
-def retrieve_courses(skill: str, top_k: int = 5, session_id: str = "") -> list:
+from typing import List, Union
+
+def retrieve_courses(skill: Union[str, List[str]], top_k: int = 5, session_id: str = "") -> list:
+    # Handle list of skills by joining them or taking the first one for the query
+    if isinstance(skill, list):
+        if not skill:
+            return []
+        skill_str = ", ".join(skill)
+        primary_skill = skill[0]
+    else:
+        skill_str = skill
+        primary_skill = skill
+        
     if _catalog is None:
         build_index()
 
@@ -76,7 +88,7 @@ def retrieve_courses(skill: str, top_k: int = 5, session_id: str = "") -> list:
 
     if _model is not None and _index is not None:
         try:
-            query = f"Course teaching {skill} from beginner to advanced"
+            query = f"Course teaching {skill_str} from beginner to advanced"
             query_embedding = _model.encode([query], normalize_embeddings=True)
             distances, indices = _index.search(query_embedding.astype("float32"), top_k)
             for position, idx in enumerate(indices[0]):
@@ -88,10 +100,11 @@ def retrieve_courses(skill: str, top_k: int = 5, session_id: str = "") -> list:
             print(f"Semantic course retrieval skipped: {exc}")
 
     if not candidates:
-        ranked = sorted(_catalog, key=lambda course: _score_course(skill, course), reverse=True)[:top_k]
+        # Fallback to local ranking using the primary skill
+        ranked = sorted(_catalog, key=lambda course: _score_course(primary_skill, course), reverse=True)[:top_k]
         for course in ranked:
             item = course.copy()
-            item["relevance_score"] = min(99, _score_course(skill, course))
+            item["relevance_score"] = min(99, _score_course(primary_skill, course))
             item["grounded"] = True
             candidates.append(item)
 

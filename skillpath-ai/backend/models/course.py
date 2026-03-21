@@ -7,8 +7,6 @@ class Course(BaseModel):
     platform: str
     duration_hrs: int
     difficulty: str
-    skills_covered: List[str]
-    relevance_score: int = 0
-    grounded: bool = True
-    url: str = ""
+    description: str = ""
     rating: float = 0.0
+    free: bool = False
