@@ -1,0 +1,42 @@
+version: "3.9"
+
+services:
+  # ── Backend (FastAPI + Uvicorn) ────────────────────────────────────────────
+  backend:
+    build:
+      context: ./skillpath-ai/backend
+      dockerfile: Dockerfile
+    container_name: skillpath_backend
+    ports:
+      - "8000:8000"
+    env_file:
+      - ./skillpath-ai/backend/.env
+    environment:
+      - PYTHONUNBUFFERED=1
+    volumes:
+      # Persist uploaded data across restarts
+      - backend_data:/app/data
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8000/docs"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+
+  # ── Frontend (React → Nginx) ───────────────────────────────────────────────
+  frontend:
+    build:
+      context: ./skillpath-ai/frontend
+      dockerfile: Dockerfile
+      args:
+        # Points browser-side requests at the backend
+        VITE_API_URL: http://localhost:8000
+    container_name: skillpath_frontend
+    ports:
+      - "3000:80"
+    depends_on:
+      - backend
+    restart: unless-stopped
+
+volumes:
+  backend_data:
