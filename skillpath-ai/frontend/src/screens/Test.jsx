@@ -114,9 +114,11 @@ export default function Test() {
   const handleSubmit = async () => {
     try {
       setLoading(true, 'Grading Assessment & Re-routing Roadmap...');
+      let finalResults = null;
+
       if (sessionId && !testData?.fallback) {
         const res = await submitTest(monthNumber, answers, '', sessionId);
-        setLocalResults(res);
+        finalResults = res;
         setTestResults(res);
         if (res.updated_roadmap) {
           setRoadmap(gapMap, res.updated_roadmap, overallReadinessPct);
@@ -153,21 +155,23 @@ export default function Test() {
           reroutingActions.push('Proceeding with standard pace. Your progress is on track.');
         }
 
-        const mockResults = {
+        finalResults = {
           overall_score: overallScore,
           skill_scores: skillScores,
           rerouting: action,
           rerouting_actions: reroutingActions,
           updated_roadmap: roadmap.length > 0 ? roadmap : [],
         };
-        setLocalResults(mockResults);
-        setTestResults(mockResults);
+        setTestResults(finalResults);
       }
+      
+      setLocalResults(finalResults);
       setPhase('results');
     } catch (e) {
       toast.error(e.response?.data?.detail || 'Failed to grade test.');
     } finally {
-      setLoading(false);
+      // Small delay to ensure state transitions are visually smooth
+      setTimeout(() => setLoading(false), 300);
     }
   };
 
@@ -183,7 +187,8 @@ export default function Test() {
   }
 
   if (phase === 'results' && results) {
-    const data = [{ name: 'Score', value: results.overall_score, fill: '#34fa96' }];
+    const score = results.overall_score ?? 0;
+    const data = [{ name: 'Score', value: score, fill: '#34fa96' }];
     const skillBreakdown = Object.entries(results.skill_scores || {});
 
     return (
@@ -204,12 +209,12 @@ export default function Test() {
                 </RadialBarChart>
               </ResponsiveContainer>
               <div className="absolute inset-0 flex flex-col items-center justify-center">
-                <span className="text-5xl font-headline font-extrabold text-[#34fa96]">{results.overall_score}%</span>
+                <span className="text-5xl font-headline font-extrabold text-[#34fa96]">{score}%</span>
               </div>
             </div>
 
-            <div className={`mt-6 px-6 py-2 rounded-full font-bold text-sm tracking-wide ${results.overall_score >= 80 ? 'bg-[#34fa96]/20 text-[#34fa96]' : results.overall_score >= 60 ? 'bg-primary/20 text-primary' : 'bg-amber-400/20 text-amber-400'}`}>
-              STATUS: {results.rerouting}
+            <div className={`mt-6 px-6 py-2 rounded-full font-bold text-sm tracking-wide ${score >= 80 ? 'bg-[#34fa96]/20 text-[#34fa96]' : score >= 60 ? 'bg-primary/20 text-primary' : 'bg-amber-400/20 text-amber-400'}`}>
+              STATUS: {results.rerouting || 'PROCEED'}
             </div>
           </div>
 
@@ -220,18 +225,19 @@ export default function Test() {
             </h3>
 
             <div className="space-y-6 relative z-10">
-              {skillBreakdown.map(([skill, score], idx) => {
-                const textClass = score >= 80 ? 'text-[#34fa96]' : score >= 60 ? 'text-primary' : 'text-amber-400';
-                const fillClass = score >= 80 ? 'bg-[#34fa96]' : score >= 60 ? 'bg-primary' : 'bg-amber-400';
+              {skillBreakdown.map(([skill, sVal], idx) => {
+                const s = sVal ?? 0;
+                const textClass = s >= 80 ? 'text-[#34fa96]' : s >= 60 ? 'text-primary' : 'text-amber-400';
+                const fillClass = s >= 80 ? 'bg-[#34fa96]' : s >= 60 ? 'bg-primary' : 'bg-amber-400';
 
                 return (
                   <div key={skill}>
                     <div className="flex justify-between text-sm font-semibold mb-2">
                       <span>{skill}</span>
-                      <span className={textClass}>{score}%</span>
+                      <span className={textClass}>{s}%</span>
                     </div>
-                    <Motion.div initial={{ width: 0 }} animate={{ width: `${score}%` }} transition={{ duration: 1, delay: idx * 0.2 }} className="h-2 bg-surface-container-highest rounded-full overflow-hidden">
-                      <div className={`h-full ${fillClass}`} style={{ width: `${score}%` }}></div>
+                    <Motion.div initial={{ width: 0 }} animate={{ width: `${s}%` }} transition={{ duration: 1, delay: idx * 0.2 }} className="h-2 bg-surface-container-highest rounded-full overflow-hidden">
+                      <div className={`h-full ${fillClass}`} style={{ width: `${s}%` }}></div>
                     </Motion.div>
                   </div>
                 );
