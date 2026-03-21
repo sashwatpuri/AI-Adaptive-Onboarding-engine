@@ -12,6 +12,31 @@
   font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
 }
 
+/* Recharts container fixes */
+.recharts-container {
+  margin: 0 auto;
+}
+
+.chart-container {
+  width: 100%;
+  height: 100%;
+  min-height: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.chart-wrapper {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+/* System fonts fallback to avoid Google Fonts blocking */
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+}
+
 .glass-card, .glass-panel {
   background: rgba(30, 31, 37, 0.7);
   backdrop-filter: blur(20px);

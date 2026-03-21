@@ -23,6 +23,7 @@ export const useAppStore = create((set) => ({
   setRoadmap: (gapMap, roadmap, pct) => set({ gapMap, roadmap, overallReadinessPct: pct }),
   setTestData: (data) => set({ testData: data }),
   setTestResults: (results) => set({ testResults: results }),
+  setCurrentMonth: (month) => set({ currentMonth: month }),
   addTraceEntries: (entries) => set((state) => ({ reasoningTrace: [...state.reasoningTrace, ...entries] })),
   setLoading: (bool, message = "") => set({ isLoading: bool, loadingMessage: message }),
   setScreen: (name) => set({ activeScreen: name }),

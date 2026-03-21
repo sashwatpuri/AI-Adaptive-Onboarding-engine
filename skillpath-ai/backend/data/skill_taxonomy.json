@@ -1,1 +1,146 @@
-{}
+{
+  "Python": {
+    "onet_element_id": "2.C.3.b",
+    "aliases": ["python3", "python programming", "python scripting", "py", "python development", "python coding"]
+  },
+  "SQL": {
+    "onet_element_id": "2.C.3.a",
+    "aliases": ["structured query language", "sql queries", "mysql", "postgresql", "sql server", "t-sql", "plsql", "pl/sql", "sqlite"]
+  },
+  "Machine Learning": {
+    "onet_element_id": "2.C.3.e",
+    "aliases": ["ml", "machine learning algorithms", "supervised learning", "unsupervised learning", "ml modeling", "predictive modeling", "statistical modeling", "scikit-learn", "sklearn"]
+  },
+  "Deep Learning": {
+    "onet_element_id": "2.C.3.e",
+    "aliases": ["neural networks", "cnn", "rnn", "lstm", "transformer", "deep neural networks", "ann", "convolutional neural networks", "recurrent neural networks"]
+  },
+  "PyTorch": {
+    "onet_element_id": "2.C.3.e",
+    "aliases": ["pytorch framework", "torch", "pytorch deep learning", "deep learning/pytorch"]
+  },
+  "TensorFlow": {
+    "onet_element_id": "2.C.3.e",
+    "aliases": ["tensorflow2", "tf2", "keras", "tensorflow keras", "tensorflow/keras"]
+  },
+  "Feature Engineering": {
+    "onet_element_id": "2.C.3.e",
+    "aliases": ["feature extraction", "feature selection", "data features", "feature transformation", "feature scaling"]
+  },
+  "MLOps": {
+    "onet_element_id": "2.C.3.e",
+    "aliases": ["ml operations", "ml pipeline", "ml deployment", "model deployment", "model serving", "mlops/docker", "ml infrastructure"]
+  },
+  "Docker": {
+    "onet_element_id": "2.C.3.a",
+    "aliases": ["containerization", "docker containers", "docker compose", "dockerfile", "container orchestration"]
+  },
+  "Kubernetes": {
+    "onet_element_id": "2.C.3.a",
+    "aliases": ["k8s", "container orchestration", "kubernetes cluster", "kubectl", "helm"]
+  },
+  "Data Engineering": {
+    "onet_element_id": "2.C.3.a",
+    "aliases": ["data pipeline", "etl", "elt", "data warehousing", "data infrastructure", "data platform", "apache spark", "spark"]
+  },
+  "JavaScript": {
+    "onet_element_id": "2.C.3.b",
+    "aliases": ["js", "javascript/react", "es6", "ecmascript", "node.js", "nodejs", "typescript", "ts"]
+  },
+  "React": {
+    "onet_element_id": "2.C.3.b",
+    "aliases": ["reactjs", "react.js", "react hooks", "redux", "react native", "nextjs", "next.js"]
+  },
+  "Git": {
+    "onet_element_id": "2.C.3.a",
+    "aliases": ["version control", "github", "gitlab", "bitbucket", "source control", "git/github"]
+  },
+  "REST APIs": {
+    "onet_element_id": "2.C.3.a",
+    "aliases": ["restful api", "api development", "rest", "fastapi", "flask api", "django rest", "http api", "web api"]
+  },
+  "Cloud Computing": {
+    "onet_element_id": "2.C.3.a",
+    "aliases": ["aws", "azure", "gcp", "google cloud", "amazon web services", "cloud services", "cloud infrastructure", "cloud architecture"]
+  },
+  "Data Analysis": {
+    "onet_element_id": "2.C.3.d",
+    "aliases": ["data analytics", "statistical analysis", "exploratory data analysis", "eda", "data exploration", "quantitative analysis"]
+  },
+  "Pandas": {
+    "onet_element_id": "2.C.3.b",
+    "aliases": ["pandas library", "python pandas", "dataframes", "data manipulation", "pandas/numpy"]
+  },
+  "NumPy": {
+    "onet_element_id": "2.C.3.b",
+    "aliases": ["numpy library", "python numpy", "numerical computing", "numpy arrays"]
+  },
+  "Statistics": {
+    "onet_element_id": "2.C.3.d",
+    "aliases": ["statistical methods", "probability", "statistical analysis", "hypothesis testing", "regression analysis", "stochastic methods"]
+  },
+  "Data Visualization": {
+    "onet_element_id": "2.C.3.d",
+    "aliases": ["data viz", "matplotlib", "seaborn", "plotly", "tableau", "power bi", "dashboard", "charting"]
+  },
+  "NLP": {
+    "onet_element_id": "2.C.3.e",
+    "aliases": ["natural language processing", "text processing", "text mining", "sentiment analysis", "named entity recognition", "ner", "language models", "llm"]
+  },
+  "Computer Vision": {
+    "onet_element_id": "2.C.3.e",
+    "aliases": ["image processing", "object detection", "image classification", "cv", "image recognition", "yolo", "opencv"]
+  },
+  "Supply Chain Systems": {
+    "onet_element_id": "4.C.3.b.2",
+    "aliases": ["supply chain management", "scm", "inventory management", "procurement", "logistics systems", "supply chain optimization"]
+  },
+  "Logistics Operations": {
+    "onet_element_id": "4.C.3.b.2",
+    "aliases": ["logistics management", "operations management", "warehouse management", "distribution", "freight management", "fleet management"]
+  },
+  "ERP Software": {
+    "onet_element_id": "2.C.3.a",
+    "aliases": ["enterprise resource planning", "sap", "oracle erp", "epicor", "microsoft dynamics", "erp systems"]
+  },
+  "Leadership": {
+    "onet_element_id": "4.A.4.b.5",
+    "aliases": ["team leadership", "people management", "executive leadership", "staff leadership", "cross-functional leadership"]
+  },
+  "Communication": {
+    "onet_element_id": "4.A.4.a.1",
+    "aliases": ["verbal communication", "written communication", "presentation skills", "public speaking", "interpersonal communication"]
+  },
+  "Project Management": {
+    "onet_element_id": "4.A.1.b.2",
+    "aliases": ["pmp", "agile", "scrum", "kanban", "jira", "project planning", "project coordination", "waterfall"]
+  },
+  "Linux": {
+    "onet_element_id": "2.C.3.a",
+    "aliases": ["unix", "bash", "shell scripting", "linux administration", "command line", "cli"]
+  },
+  "HTML/CSS": {
+    "onet_element_id": "2.C.3.b",
+    "aliases": ["html", "css", "html5", "css3", "web design", "frontend development", "responsive design", "sass", "scss"]
+  },
+  "Cybersecurity": {
+    "onet_element_id": "2.C.3.a",
+    "aliases": ["information security", "infosec", "network security", "penetration testing", "vulnerability assessment", "siem", "soc"]
+  },
+  "Agile": {
+    "onet_element_id": "4.A.1.b.2",
+    "aliases": ["scrum", "kanban", "agile methodology", "sprint planning", "agile development", "sdlc"]
+  },
+  "Excel": {
+    "onet_element_id": "2.C.3.a",
+    "aliases": ["microsoft excel", "spreadsheets", "excel vba", "excel macros", "google sheets"]
+  },
+  "Process Mapping": {
+    "onet_element_id": "4.A.2.b.4",
+    "aliases": ["process design", "business process mapping", "workflow design", "process optimization", "bpm", "business process management"]
+  },
+  "Team Management": {
+    "onet_element_id": "4.A.4.b.5",
+    "aliases": ["people management", "team building", "staff management", "hr management", "employee management"]
+  }
+}

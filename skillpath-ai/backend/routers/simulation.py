@@ -40,5 +40,7 @@ async def run_simulation(req: SimulationRequest):
             "session_id": req.session_id,
             "ms": int((time.time() - start_time) * 1000)
         }
+    except HTTPException:
+        raise
     except Exception as e:
         raise HTTPException(status_code=500, detail=str(e))

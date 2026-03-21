@@ -28,11 +28,107 @@
     "covered_count": 1
   },
   "roadmap": [
-    { "month": 1, "title": "Foundations Sprint", "skills": ["Logistics Operations", "Data Analysis"], "estimated_hours": 13, "target_levels": { "Logistics Operations": "Advanced", "Data Analysis": "Intermediate" }, "courses": [], "status": "in_progress", "has_simulation": false },
-    { "month": 2, "title": "Core Skills Build", "skills": ["Supply Chain Systems", "Leadership", "ERP Software"], "estimated_hours": 15, "target_levels": { "Supply Chain Systems": "Intermediate", "Leadership": "Advanced", "ERP Software": "Intermediate" }, "courses": [], "status": "locked", "has_simulation": false }
+    { 
+      "month": 1, 
+      "title": "Foundations Sprint", 
+      "skills": ["Logistics Operations", "Data Analysis"], 
+      "estimated_hours": 13, 
+      "target_levels": { "Logistics Operations": "Advanced", "Data Analysis": "Intermediate" }, 
+      "courses": [
+        {
+          "id": "course_037",
+          "title": "Logistics and Supply Chain Fundamentals",
+          "platform": "edX",
+          "duration_hrs": 16,
+          "difficulty": "Beginner",
+          "skills_covered": ["Logistics Operations", "Supply Chain Systems", "Procurement", "Inventory Management"],
+          "description": "MIT-backed course on logistics fundamentals, transportation, and supply chain design.",
+          "rating": 4.5,
+          "free": false,
+          "url": "https://www.edx.org/course/supply-chain-and-logistics-fundamentals",
+          "relevance_score": 96,
+          "grounded": true,
+          "rank_reason": "High reputation MIT course covering logistics."
+        },
+        {
+          "id": "course_040",
+          "title": "Data Analysis for Operations Managers",
+          "platform": "LinkedIn Learning",
+          "duration_hrs": 5,
+          "difficulty": "Beginner",
+          "skills_covered": ["Data Analysis", "Excel", "Operations Management", "Decision Making"],
+          "description": "Use Excel and data analysis techniques to make better operations decisions.",
+          "rating": 4.3,
+          "free": false,
+          "url": "https://www.linkedin.com/learning/data-analytics-for-business-professionals",
+          "relevance_score": 93,
+          "grounded": true,
+          "rank_reason": "Perfect tailored course for data analysis in operations."
+        }
+      ], 
+      "status": "in_progress", 
+      "has_simulation": false 
+    },
+    { 
+      "month": 2, 
+      "title": "Core Skills Build", 
+      "skills": ["Supply Chain Systems", "Leadership", "ERP Software"], 
+      "estimated_hours": 15, 
+      "target_levels": { "Supply Chain Systems": "Intermediate", "Leadership": "Advanced", "ERP Software": "Intermediate" }, 
+      "courses": [
+        {
+          "id": "course_036",
+          "title": "Supply Chain Management Specialization",
+          "platform": "Coursera",
+          "duration_hrs": 30,
+          "difficulty": "Intermediate",
+          "skills_covered": ["Supply Chain Systems", "Supply Chain Management", "Logistics Operations", "Operations Management"],
+          "description": "Rutgers Supply Chain Management specialization covering sourcing, operations, and logistics.",
+          "rating": 4.6,
+          "free": false,
+          "url": "https://www.coursera.org/specializations/supply-chain-management",
+          "relevance_score": 97,
+          "grounded": true,
+          "rank_reason": "Comprehensive supply chain intermediate course."
+        },
+        {
+          "id": "course_039",
+          "title": "Leadership and Management Specialization",
+          "platform": "Coursera",
+          "duration_hrs": 30,
+          "difficulty": "Intermediate",
+          "skills_covered": ["Leadership", "Team Management", "Communication", "Project Management"],
+          "description": "University of Illinois course on leadership, influence, and organizational performance.",
+          "rating": 4.6,
+          "free": false,
+          "url": "https://www.coursera.org/specializations/leadership-excellence-management",
+          "relevance_score": 94,
+          "grounded": true,
+          "rank_reason": "Required intermediate leadership skills."
+        },
+        {
+          "id": "course_038",
+          "title": "SAP Fundamentals for End Users",
+          "platform": "LinkedIn Learning",
+          "duration_hrs": 6,
+          "difficulty": "Beginner",
+          "skills_covered": ["ERP Software", "SAP", "Supply Chain Systems", "Enterprise Resource Planning"],
+          "description": "Hands-on introduction to SAP ERP for business processes and end users.",
+          "rating": 4.3,
+          "free": false,
+          "url": "https://www.linkedin.com/learning/sap-erp-essential-training",
+          "relevance_score": 90,
+          "grounded": true,
+          "rank_reason": "Direct ERP training with SAP basics."
+        }
+      ], 
+      "status": "locked", 
+      "has_simulation": false 
+    }
   ],
   "reasoningTrace": [
     { "type": "SKILL_EXTRACTION", "summary": "Extracted 4 skills from resume", "reasoning": "Skills filtered by confidence", "evidence": [ "Raw skills found: 4", "Model: gemini-2.5-flash" ], "confidence": 90 },
-    { "type": "GAP_ANALYSIS", "summary": "Logistics Operations identified as CRITICAL", "reasoning": "Current: Level 0, Required: Level 3", "evidence": [ "Required level: 3/3", "Current level: 0/3" ], "confidence": 95 }
+    { "type": "GAP_ANALYSIS", "summary": "Logistics Operations identified as CRITICAL", "reasoning": "Current: Level 0, Required: Level 3", "evidence": [ "Required level: 3/3", "Current level: 0/3" ], "confidence": 95 },
+    { "type": "COURSE_SELECTION", "summary": "Logistics and Supply Chain Fundamentals selected", "reasoning": "High alignment with user operational needs", "evidence": [ "Matched Logistics Operations", "Relevance score: 96%" ], "confidence": 96 }
   ]
 }

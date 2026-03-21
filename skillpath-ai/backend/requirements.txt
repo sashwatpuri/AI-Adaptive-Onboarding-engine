@@ -4,9 +4,11 @@ pydantic
 python-multipart
 pymupdf
 pdfplumber
+python-docx
 sentence-transformers
 faiss-cpu
 google-generativeai
 httpx
 python-dotenv
 numpy
+pandas

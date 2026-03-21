@@ -50,6 +50,8 @@ async def generate_test(req: GenerateTestRequest):
             "session_id": req.session_id,
             "ms": int((time.time() - start_time) * 1000)
         }
+    except HTTPException:
+        raise
     except Exception as e:
         raise HTTPException(status_code=500, detail=str(e))
 
@@ -68,10 +70,19 @@ async def submit_test(req: SubmitTestRequest):
         mcqs = test_data.get("questions", [])
         correct = 0
         total = len(mcqs)
-        skill_scores = {}
+        
+        # Track per-skill scores
+        skill_buckets = {}
         
         for q in mcqs:
             q_id = q["id"]
+            tag = q.get("skill_tag", "General")
+            
+            if tag not in skill_buckets:
+                skill_buckets[tag] = {"total": 0, "correct": 0}
+            
+            skill_buckets[tag]["total"] += 1
+            
             if q_id in req.answers:
                 ans_idx = None
                 try:
@@ -80,18 +91,39 @@ async def submit_test(req: SubmitTestRequest):
                     pass
                 if ans_idx == q["correct_index"]:
                     correct += 1
+                    skill_buckets[tag]["correct"] += 1
             
         sim_score = 0
         if req.simulation_response and test_data.get("simulation_task"):
-            sim_result = grade_simulation(test_data["simulation_task"], req.simulation_response)
+            sim_task = test_data["simulation_task"]
+            sim_result = grade_simulation(sim_task, req.simulation_response)
             sim_score = sim_result.get("score", 0)
+            tag = sim_task.get("skill_tag", "Simulation")
+            
+            # Treat simulation as multiple questions for weighting
             total += 3
             correct += sim_score
             
+            if tag not in skill_buckets:
+                skill_buckets[tag] = {"total": 0, "correct": 0}
+            skill_buckets[tag]["total"] += 3
+            skill_buckets[tag]["correct"] += sim_score
+            
         overall_score = int((correct / total) * 100) if total > 0 else 0
         
+        # Compute proper skill scores
+        skill_scores = {}
+        for skill, counts in skill_buckets.items():
+            if counts["total"] > 0:
+                skill_scores[skill] = int((counts["correct"] / counts["total"]) * 100)
+        
+        if not skill_scores:
+            skill_scores = {"General": overall_score}
+            
         roadmap = sessions[req.session_id].get("roadmap", [])
-        updated_roadmap, action = route_adaptively(
+        
+        # Call adapted route_adaptively
+        updated_roadmap, action, rerouting_actions = route_adaptively(
             req.session_id, skill_scores, overall_score, roadmap, req.month - 1
         )
         
@@ -101,9 +133,12 @@ async def submit_test(req: SubmitTestRequest):
             "skill_scores": skill_scores,
             "overall_score": overall_score,
             "rerouting": action,
+            "rerouting_actions": rerouting_actions,
             "updated_roadmap": updated_roadmap,
             "session_id": req.session_id,
             "ms": int((time.time() - start_time) * 1000)
         }
+    except HTTPException:
+        raise
     except Exception as e:
         raise HTTPException(status_code=500, detail=str(e))

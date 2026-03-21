@@ -1,9 +1,18 @@
+import json
 from typing import List
 from models.skill import ResumeSkill, JDSkill, GapSkill
 from services.reasoning_tracer import log_reasoning
+from config import config
 
 LEVEL_MAP = {"Beginner":1, "Intermediate":2, "Advanced":3}
 SEVERITY = {0:"COVERED", 1:"MINOR", 2:"MODERATE", 3:"CRITICAL"}
+
+def load_taxonomy():
+    try:
+        with open(config.TAXONOMY_PATH) as f:
+            return json.load(f)
+    except FileNotFoundError:
+        return {}
 
 def compute_gap_map(
   resume_skills: List[ResumeSkill],
@@ -11,14 +20,45 @@ def compute_gap_map(
   session_id: str
 ) -> dict:
   
-  resume_index = {
-    s.skill.lower(): s for s in resume_skills
-  }
+  taxonomy = load_taxonomy()
   
+  # Normalize resume skills: exact match or via aliases from taxonomy
+  resume_index = {}
+  for rs in resume_skills:
+      r_clean = rs.skill.lower()
+      resume_index[r_clean] = rs
+      
+  # Reverse alias map for rapid lookup: alias -> canonical key
+  alias_map = {}
+  for key, data in taxonomy.items():
+      alias_map[key.lower()] = key.lower()
+      for alias in data.get("aliases", []):
+          alias_map[alias.lower()] = key.lower()
+
   gap_skills = []
+  
   for jd_skill in jd_skills:
-    key = jd_skill.skill.lower()
-    resume_match = resume_index.get(key)
+    # 1. Exact match attempt
+    jd_clean = jd_skill.skill.lower()
+    
+    # 2. Map JD to canonical if exists
+    jd_canonical = alias_map.get(jd_clean, jd_clean)
+    
+    resume_match = None
+    
+    # Check exact match First
+    if jd_clean in resume_index:
+        resume_match = resume_index[jd_clean]
+    # Check canonical
+    elif jd_canonical in resume_index:
+        resume_match = resume_index[jd_canonical]
+    # Check if any resume skill maps to the same canonical
+    else:
+        for r_raw, rs in resume_index.items():
+            r_canonical = alias_map.get(r_raw, r_raw)
+            if r_canonical == jd_canonical:
+                resume_match = rs
+                break
     
     current = LEVEL_MAP.get(
       resume_match.level, 0) if resume_match else 0

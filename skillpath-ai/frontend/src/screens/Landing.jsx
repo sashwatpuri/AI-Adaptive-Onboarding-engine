@@ -1,7 +1,7 @@
 import { useState, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useAppStore } from '../store/useAppStore';
-import { uploadDocuments, extractSkills, generateRoadmap } from '../lib/api';
+import { uploadDocuments, extractSkills, generateRoadmap, loadRandomDataset } from '../lib/api';
 import toast from 'react-hot-toast';
 import { FileText, Type, ArrowRight, Bot } from 'lucide-react';
 import { motion } from 'framer-motion';
@@ -33,19 +33,31 @@ export default function Landing() {
     }
   };
 
-  const handleDemo = async (type) => {
+  const handleLiveDataset = async (category) => {
     try {
-      const res = await fetch(`/demos/${type}.json`);
-      const data = await res.json();
+      setLoading(true, `Loading random ${category} resume from dataset...`);
+      toast.loading(`Fetching ${category} resume...`, { id: "main-toast" });
       
-      const t = toast.loading("Analysing...");
-      setTimeout(() => {
-        toast.dismiss(t);
-        loadDemoPersona(data);
-        navigate("/extract");
-      }, 1500);
+      const uploadRes = await loadRandomDataset(category);
+      const sessionId = uploadRes.session_id;
+
+      toast.loading(`Analyzing ${uploadRes.filename} with Gemini...`, { id: "main-toast" });
+      const extractRes = await extractSkills(uploadRes.resume_text, uploadRes.jd_text, sessionId);
+      
+      toast.loading("Generating customized roadmap...", { id: "main-toast", duration: 10000 });
+      const mapRes = await generateRoadmap(sessionId);
+
+      setSession(sessionId);
+      setTexts(uploadRes.resume_text, uploadRes.jd_text);
+      setSkills(extractRes.resume_skills, extractRes.jd_skills);
+      setRoadmap(mapRes.gap_map, mapRes.roadmap, mapRes.overall_readiness_pct);
+
+      toast.success("Live dataset analysis complete!", { id: "main-toast" });
+      navigate("/extract");
     } catch (e) {
-      toast.error("Failed to load demo setup.");
+      toast.dismiss("main-toast");
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -179,22 +191,22 @@ export default function Landing() {
       <div className="border-t border-white/5 pt-10">
         <h4 className="text-center font-headline font-bold text-on-surface-variant mb-6 flex items-center justify-center">
           <Bot size={18} className="mr-2" />
-          Or try an instant demo scenario (Judges start here)
+          Or trigger a Live Pipeline Demo using your Kaggle Resume Dataset
         </h4>
         <div className="flex justify-center flex-wrap gap-4">
-          <button onClick={() => handleDemo('ml_engineer')} className="group flex items-center space-x-4 bg-surface-container hover:bg-surface-container-high border border-white/5 hover:border-white/10 px-6 py-4 rounded-2xl transition-all hover:-translate-y-1">
+          <button onClick={() => handleLiveDataset('INFORMATION-TECHNOLOGY')} className="group flex items-center space-x-4 bg-surface-container hover:bg-surface-container-high border border-white/5 hover:border-white/10 px-6 py-4 rounded-2xl transition-all hover:-translate-y-1">
             <div className="w-10 h-10 rounded-full bg-primary/20 flex items-center justify-center text-primary text-xl group-hover:scale-110 transition-transform shadow-[0_0_15px_rgba(186,158,255,0.15)]">🚀</div>
             <div className="text-left">
-              <div className="font-headline font-bold text-sm text-on-surface group-hover:text-primary transition-colors">ML Engineer</div>
-              <div className="text-xs text-on-surface-variant font-medium mt-0.5">Technical path w/ simulation</div>
+              <div className="font-headline font-bold text-sm text-on-surface group-hover:text-primary transition-colors">IT & Engineering</div>
+              <div className="text-xs text-on-surface-variant font-medium mt-0.5">Live Dataset Extraction</div>
             </div>
           </button>
           
-          <button onClick={() => handleDemo('ops_manager')} className="group flex items-center space-x-4 bg-surface-container hover:bg-surface-container-high border border-white/5 hover:border-white/10 px-6 py-4 rounded-2xl transition-all hover:-translate-y-1">
+          <button onClick={() => handleLiveDataset('SALES')} className="group flex items-center space-x-4 bg-surface-container hover:bg-surface-container-high border border-white/5 hover:border-white/10 px-6 py-4 rounded-2xl transition-all hover:-translate-y-1">
             <div className="w-10 h-10 rounded-full bg-secondary/20 flex items-center justify-center text-secondary text-xl group-hover:scale-110 transition-transform shadow-[0_0_15px_rgba(52,181,250,0.15)]">📊</div>
             <div className="text-left">
-              <div className="font-headline font-bold text-sm text-on-surface group-hover:text-secondary transition-colors">Ops Manager</div>
-              <div className="text-xs text-on-surface-variant font-medium mt-0.5">Non-technical leadership path</div>
+              <div className="font-headline font-bold text-sm text-on-surface group-hover:text-secondary transition-colors">Sales Professional</div>
+              <div className="text-xs text-on-surface-variant font-medium mt-0.5">Live Dataset Extraction</div>
             </div>
           </button>
         </div>

@@ -1,4 +1,5 @@
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
+import { useEffect } from 'react';
 import Sidebar from './components/Sidebar';
 import { useAppStore } from './store/useAppStore';
 import { Toaster } from 'react-hot-toast';
@@ -15,9 +16,31 @@ import Reasoning from './screens/Reasoning';
 import Test from './screens/Test';
 import Simulation from './screens/Simulation';
 
+const SCREEN_BY_PATH = {
+  '/': 'landing',
+  '/extract': 'extract',
+  '/gap': 'gap',
+  '/roadmap': 'roadmap',
+  '/courses': 'courses',
+  '/reasoning': 'reasoning',
+  '/test': 'test',
+  '/simulation': 'simulation',
+};
+
+function ScreenSync() {
+  const location = useLocation();
+  const setScreen = useAppStore(state => state.setScreen);
+
+  useEffect(() => {
+    setScreen(SCREEN_BY_PATH[location.pathname] || 'landing');
+  }, [location.pathname, setScreen]);
+
+  return null;
+}
+
 function Layout({ children }) {
-  const activeScreen = useAppStore(state => state.activeScreen);
-  if (activeScreen === "landing") {
+  const location = useLocation();
+  if (location.pathname === "/") {
     return <>{children}</>;
   }
   return (
@@ -33,6 +56,7 @@ function Layout({ children }) {
 function App() {
   return (
     <Router>
+      <ScreenSync />
       <Toaster position="top-right" toastOptions={{
         style: {
           background: '#24252b',

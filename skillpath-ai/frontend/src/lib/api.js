@@ -21,6 +21,17 @@ export const uploadDocuments = async (resumeFile, jdFile, jdText) => {
   }
 };
 
+export const loadRandomDataset = async (category) => {
+  try {
+    const { data } = await api.get(`/random-dataset/${category}`);
+    return data;
+  } catch (error) {
+    toast.error("Failed to load random dataset: " + (error.response?.data?.detail || error.message));
+    throw error;
+  }
+};
+
+
 export const extractSkills = async (resumeText, jdText, sessionId) => {
   try {
     const { data } = await api.post('/extract-skills', {
@@ -102,5 +113,42 @@ export const getReasoningTrace = async (sessionId) => {
   } catch (error) {
     console.error("Failed to fetch reasoning trace.");
     return { decisions: [] };
+  }
+};
+
+// Job Matching API (New - Local Model)
+
+export const matchSkillsToJobs = async (skills, sessionId) => {
+  try {
+    const { data } = await api.post('/match-skills-to-jobs', {
+      skills: Array.isArray(skills) ? skills : [skills],
+      session_id: sessionId
+    });
+    return data;
+  } catch (error) {
+    toast.error("Job matching failed: " + (error.response?.data?.detail || error.message));
+    throw error;
+  }
+};
+
+export const getJobDescription = async (jobTitle) => {
+  try {
+    const { data } = await api.post('/job-description', {
+      job_title: jobTitle
+    });
+    return data;
+  } catch (error) {
+    toast.error("Failed to load job description: " + (error.response?.data?.detail || error.message));
+    throw error;
+  }
+};
+
+export const getAllJobs = async () => {
+  try {
+    const { data } = await api.get('/all-jobs');
+    return data;
+  } catch (error) {
+    console.error("Failed to load job list");
+    return { jobs: [], total_jobs: 0 };
   }
 };

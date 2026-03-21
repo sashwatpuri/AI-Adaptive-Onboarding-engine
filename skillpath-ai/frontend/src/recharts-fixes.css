@@ -1,0 +1,57 @@
+/* Recharts Dimension Fixes */
+/* Prevents "width(-1) and height(-1)" errors */
+
+.recharts-wrapper {
+  position: relative !important;
+}
+
+.recharts-surface {
+  overflow: visible !important;
+}
+
+/* Ensure ResponsiveContainer parent has proper dimensions */
+.chart-container,
+[style*="height: 100%"] > .recharts-responsive-container {
+  min-width: 1px;
+  min-height: 1px;
+}
+
+/* Fix for radial charts specifically */
+.radial-chart-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  width: 100%;
+}
+
+/* Fallback system fonts to prevent Google Fonts blocking */
+@font-face {
+  font-family: 'InterFallback';
+  src: local('Arial'), local('sans-serif');
+}
+
+/* Use CSS containment to improve performance */
+.chart-container {
+  contain: layout style paint;
+}
+
+/* High DPI display support */
+@media only screen and (-webkit-min-device-pixel-ratio: 2),
+       only screen and (min-resolution: 192dpi) {
+  .recharts-wrapper {
+    image-rendering: crisp-edges;
+  }
+}
+
+/* Responsive chart sizing */
+@media (max-width: 768px) {
+  .chart-container {
+    min-height: 150px;
+  }
+  
+  .recharts-responsive-container {
+    width: 100% !important;
+    height: auto !important;
+  }
+}

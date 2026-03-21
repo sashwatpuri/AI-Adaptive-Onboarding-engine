@@ -2,1523 +2,603 @@
   "courses": [
     {
       "id": "course_001",
-      "title": "Python Mastery: Course 1",
+      "title": "Python for Everybody Specialization",
       "platform": "Coursera",
-      "duration_hrs": 37,
-      "difficulty": "Advanced",
-      "skills_covered": [
-        "Python",
-        "Development",
-        "Python"
-      ],
-      "description": "Comprehensive Python course covering from basics to advanced.",
-      "rating": 4.9,
-      "free": true,
-      "url": "https://example.com/course_001"
+      "duration_hrs": 32,
+      "difficulty": "Beginner",
+      "skills_covered": ["Python", "Python Programming", "Scripting", "Data Structures"],
+      "description": "Learn Python from scratch covering data structures, web scraping, and databases.",
+      "rating": 4.8,
+      "free": false,
+      "url": "https://www.coursera.org/specializations/python"
     },
     {
       "id": "course_002",
-      "title": "Python Mastery: Course 2",
-      "platform": "edX",
-      "duration_hrs": 23,
-      "difficulty": "Beginner",
-      "skills_covered": [
-        "Python",
-        "Development",
-        "Fundamentals"
-      ],
-      "description": "Comprehensive Python course covering from basics to advanced.",
-      "rating": 4.3,
+      "title": "Python Programming Masterclass",
+      "platform": "Udemy",
+      "duration_hrs": 58,
+      "difficulty": "Intermediate",
+      "skills_covered": ["Python", "OOP", "Pandas", "NumPy", "Scripting"],
+      "description": "Comprehensive Python course from basics to advanced OOP, GUI, and data science libraries.",
+      "rating": 4.7,
       "free": false,
-      "url": "https://example.com/course_002"
+      "url": "https://www.udemy.com/course/python-the-complete-python-developer-course/"
     },
     {
       "id": "course_003",
-      "title": "Python Mastery: Course 3",
-      "platform": "Udacity",
-      "duration_hrs": 21,
-      "difficulty": "Intermediate",
-      "skills_covered": [
-        "Python",
-        "Python",
-        "Fundamentals"
-      ],
-      "description": "Comprehensive Python course covering from basics to advanced.",
-      "rating": 4.8,
-      "free": false,
-      "url": "https://example.com/course_003"
+      "title": "Automate the Boring Stuff with Python",
+      "platform": "Udemy",
+      "duration_hrs": 9,
+      "difficulty": "Beginner",
+      "skills_covered": ["Python", "Automation", "Scripting", "Python Programming"],
+      "description": "Practical Python programming for automating real-world tasks.",
+      "rating": 4.6,
+      "free": true,
+      "url": "https://automatetheboringstuff.com/"
     },
     {
       "id": "course_004",
-      "title": "Python Mastery: Course 4",
-      "platform": "Pluralsight",
-      "duration_hrs": 25,
+      "title": "Python Data Structures and Algorithms",
+      "platform": "edX",
+      "duration_hrs": 20,
       "difficulty": "Intermediate",
-      "skills_covered": [
-        "Python",
-        "Analysis",
-        "Fundamentals"
-      ],
-      "description": "Comprehensive Python course covering from basics to advanced.",
-      "rating": 4.8,
+      "skills_covered": ["Python", "Algorithms", "Data Structures", "Problem Solving"],
+      "description": "Master data structures and algorithms using Python for technical interviews.",
+      "rating": 4.5,
       "free": false,
-      "url": "https://example.com/course_004"
+      "url": "https://www.edx.org/course/data-structures-algorithms-python"
     },
     {
       "id": "course_005",
-      "title": "Python Mastery: Course 5",
-      "platform": "Udacity",
-      "duration_hrs": 11,
-      "difficulty": "Intermediate",
-      "skills_covered": [
-        "Python",
-        "Fundamentals",
-        "Development"
-      ],
-      "description": "Comprehensive Python course covering from basics to advanced.",
-      "rating": 4.8,
+      "title": "SQL for Data Science",
+      "platform": "Coursera",
+      "duration_hrs": 16,
+      "difficulty": "Beginner",
+      "skills_covered": ["SQL", "SQL Queries", "Database", "Data Retrieval", "PostgreSQL"],
+      "description": "Learn SQL from scratch for data science and analytics roles.",
+      "rating": 4.6,
       "free": false,
-      "url": "https://example.com/course_005"
+      "url": "https://www.coursera.org/learn/sql-for-data-science"
     },
     {
       "id": "course_006",
-      "title": "Python Mastery: Course 6",
-      "platform": "LinkedIn Learning",
-      "duration_hrs": 35,
-      "difficulty": "Beginner",
-      "skills_covered": [
-        "Python",
-        "Fundamentals",
-        "Development"
-      ],
-      "description": "Comprehensive Python course covering from basics to advanced.",
-      "rating": 4.0,
-      "free": false,
-      "url": "https://example.com/course_006"
+      "title": "Advanced SQL for Analytics",
+      "platform": "Mode Analytics",
+      "duration_hrs": 12,
+      "difficulty": "Advanced",
+      "skills_covered": ["SQL", "SQL Queries", "Window Functions", "Data Modeling", "PostgreSQL"],
+      "description": "Advanced SQL techniques: window functions, CTEs, and performance tuning.",
+      "rating": 4.7,
+      "free": true,
+      "url": "https://mode.com/sql-tutorial/"
     },
     {
       "id": "course_007",
-      "title": "Python Mastery: Course 7",
-      "platform": "edX",
-      "duration_hrs": 10,
+      "title": "The Complete SQL Bootcamp",
+      "platform": "Udemy",
+      "duration_hrs": 9,
       "difficulty": "Beginner",
-      "skills_covered": [
-        "Python",
-        "Analysis",
-        "Fundamentals"
-      ],
-      "description": "Comprehensive Python course covering from basics to advanced.",
-      "rating": 4.0,
-      "free": true,
-      "url": "https://example.com/course_007"
+      "skills_covered": ["SQL", "PostgreSQL", "Database Design", "SQL Server", "MySQL"],
+      "description": "Go from zero to hero in SQL with PostgreSQL — real-world exercises included.",
+      "rating": 4.7,
+      "free": false,
+      "url": "https://www.udemy.com/course/the-complete-sql-bootcamp/"
     },
     {
       "id": "course_008",
-      "title": "Python Mastery: Course 8",
-      "platform": "Udacity",
-      "duration_hrs": 33,
-      "difficulty": "Advanced",
-      "skills_covered": [
-        "Python",
-        "Analysis",
-        "Fundamentals"
-      ],
-      "description": "Comprehensive Python course covering from basics to advanced.",
-      "rating": 4.6,
-      "free": true,
-      "url": "https://example.com/course_008"
+      "title": "Machine Learning Specialization",
+      "platform": "Coursera",
+      "duration_hrs": 65,
+      "difficulty": "Intermediate",
+      "skills_covered": ["Machine Learning", "Supervised Learning", "Unsupervised Learning", "Neural Networks", "scikit-learn"],
+      "description": "Andrew Ng's legendary ML specialization covering regression, classification, clustering, and neural networks.",
+      "rating": 4.9,
+      "free": false,
+      "url": "https://www.coursera.org/specializations/machine-learning-introduction"
     },
     {
       "id": "course_009",
-      "title": "Python Mastery: Course 9",
-      "platform": "Pluralsight",
-      "duration_hrs": 6,
-      "difficulty": "Beginner",
-      "skills_covered": [
-        "Python",
-        "Analysis",
-        "Fundamentals"
-      ],
-      "description": "Comprehensive Python course covering from basics to advanced.",
-      "rating": 4.7,
+      "title": "Machine Learning A-Z",
+      "platform": "Udemy",
+      "duration_hrs": 44,
+      "difficulty": "Intermediate",
+      "skills_covered": ["Machine Learning", "scikit-learn", "Regression", "Classification", "Clustering", "Python"],
+      "description": "Hands-on ML with Python and R covering all major algorithms.",
+      "rating": 4.5,
       "free": false,
-      "url": "https://example.com/course_009"
+      "url": "https://www.udemy.com/course/machinelearning/"
     },
     {
       "id": "course_010",
-      "title": "Python Mastery: Course 10",
-      "platform": "edX",
-      "duration_hrs": 33,
-      "difficulty": "Advanced",
-      "skills_covered": [
-        "Python",
-        "Fundamentals",
-        "Python"
-      ],
-      "description": "Comprehensive Python course covering from basics to advanced.",
-      "rating": 4.5,
-      "free": true,
-      "url": "https://example.com/course_010"
+      "title": "Practical Machine Learning with Python",
+      "platform": "Pluralsight",
+      "duration_hrs": 18,
+      "difficulty": "Intermediate",
+      "skills_covered": ["Machine Learning", "Python", "scikit-learn", "Predictive Modeling", "Feature Engineering"],
+      "description": "Build practical ML models with Python and scikit-learn from data prep to deployment.",
+      "rating": 4.4,
+      "free": false,
+      "url": "https://www.pluralsight.com/courses/python-machine-learning"
     },
     {
       "id": "course_011",
-      "title": "SQL Mastery: Course 1",
-      "platform": "edX",
-      "duration_hrs": 17,
+      "title": "Deep Learning Specialization",
+      "platform": "Coursera",
+      "duration_hrs": 80,
       "difficulty": "Advanced",
-      "skills_covered": [
-        "SQL",
-        "Fundamentals",
-        "SQL"
-      ],
-      "description": "Comprehensive SQL course covering from basics to advanced.",
-      "rating": 4.2,
-      "free": true,
-      "url": "https://example.com/course_011"
+      "skills_covered": ["Deep Learning", "Neural Networks", "CNN", "RNN", "LSTM", "TensorFlow", "Keras"],
+      "description": "DeepLearning.AI's flagship 5-course specialization covering deep neural networks.",
+      "rating": 4.9,
+      "free": false,
+      "url": "https://www.coursera.org/specializations/deep-learning"
     },
     {
       "id": "course_012",
-      "title": "SQL Mastery: Course 2",
-      "platform": "edX",
-      "duration_hrs": 37,
-      "difficulty": "Beginner",
-      "skills_covered": [
-        "SQL",
-        "Development",
-        "Fundamentals"
-      ],
-      "description": "Comprehensive SQL course covering from basics to advanced.",
-      "rating": 4.3,
+      "title": "PyTorch for Deep Learning",
+      "platform": "Udemy",
+      "duration_hrs": 32,
+      "difficulty": "Intermediate",
+      "skills_covered": ["PyTorch", "Deep Learning", "Neural Networks", "CNN", "Transfer Learning"],
+      "description": "Build and train deep learning models using PyTorch from scratch.",
+      "rating": 4.7,
       "free": false,
-      "url": "https://example.com/course_012"
+      "url": "https://www.udemy.com/course/pytorch-for-deep-learning-and-computer-vision/"
     },
     {
       "id": "course_013",
-      "title": "SQL Mastery: Course 3",
-      "platform": "Pluralsight",
-      "duration_hrs": 34,
+      "title": "PyTorch: Zero to GANs",
+      "platform": "Jovian",
+      "duration_hrs": 40,
       "difficulty": "Advanced",
-      "skills_covered": [
-        "SQL",
-        "SQL",
-        "Development"
-      ],
-      "description": "Comprehensive SQL course covering from basics to advanced.",
-      "rating": 4.7,
-      "free": false,
-      "url": "https://example.com/course_013"
+      "skills_covered": ["PyTorch", "Deep Learning", "Generative Models", "Computer Vision", "Neural Networks"],
+      "description": "Deep dive into PyTorch covering image classification, NLP, and generative adversarial networks.",
+      "rating": 4.8,
+      "free": true,
+      "url": "https://jovian.com/learn/deep-learning-with-pytorch-zero-to-gans"
     },
     {
       "id": "course_014",
-      "title": "SQL Mastery: Course 4",
-      "platform": "edX",
-      "duration_hrs": 26,
+      "title": "PyTorch Lightning Bootcamp",
+      "platform": "Udemy",
+      "duration_hrs": 12,
       "difficulty": "Advanced",
-      "skills_covered": [
-        "SQL",
-        "Development",
-        "SQL"
-      ],
-      "description": "Comprehensive SQL course covering from basics to advanced.",
-      "rating": 4.4,
+      "skills_covered": ["PyTorch", "MLOps", "Deep Learning", "Model Training", "Experiment Tracking"],
+      "description": "Use PyTorch Lightning to build clean, scalable deep learning training pipelines.",
+      "rating": 4.6,
       "free": false,
-      "url": "https://example.com/course_014"
+      "url": "https://www.udemy.com/course/pytorch-lightning/"
     },
     {
       "id": "course_015",
-      "title": "SQL Mastery: Course 5",
-      "platform": "Udacity",
-      "duration_hrs": 39,
-      "difficulty": "Beginner",
-      "skills_covered": [
-        "SQL",
-        "Development",
-        "Fundamentals"
-      ],
-      "description": "Comprehensive SQL course covering from basics to advanced.",
-      "rating": 4.0,
-      "free": true,
-      "url": "https://example.com/course_015"
+      "title": "Feature Engineering for Machine Learning",
+      "platform": "Udemy",
+      "duration_hrs": 8,
+      "difficulty": "Intermediate",
+      "skills_covered": ["Feature Engineering", "Feature Selection", "Machine Learning", "Python", "Pandas"],
+      "description": "Master feature engineering techniques: encoding, scaling, and feature selection for ML.",
+      "rating": 4.6,
+      "free": false,
+      "url": "https://www.udemy.com/course/feature-engineering-for-machine-learning/"
     },
     {
       "id": "course_016",
-      "title": "SQL Mastery: Course 6",
-      "platform": "edX",
-      "duration_hrs": 40,
-      "difficulty": "Beginner",
-      "skills_covered": [
-        "SQL",
-        "SQL",
-        "Fundamentals"
-      ],
-      "description": "Comprehensive SQL course covering from basics to advanced.",
-      "rating": 4.6,
+      "title": "Advanced Feature Engineering",
+      "platform": "Kaggle",
+      "duration_hrs": 5,
+      "difficulty": "Advanced",
+      "skills_covered": ["Feature Engineering", "Feature Extraction", "Machine Learning", "NumPy", "Pandas"],
+      "description": "Kaggle's micro-course on advanced feature engineering for competitive ML.",
+      "rating": 4.7,
       "free": true,
-      "url": "https://example.com/course_016"
+      "url": "https://www.kaggle.com/learn/feature-engineering"
     },
     {
       "id": "course_017",
-      "title": "JavaScript/React Mastery: Course 1",
+      "title": "MLOps: Machine Learning Operations",
       "platform": "Coursera",
-      "duration_hrs": 23,
-      "difficulty": "Beginner",
-      "skills_covered": [
-        "JavaScript/React",
-        "JavaScript",
-        "Analysis"
-      ],
-      "description": "Comprehensive JavaScript/React course covering from basics to advanced.",
+      "duration_hrs": 24,
+      "difficulty": "Advanced",
+      "skills_covered": ["MLOps", "Model Deployment", "CI/CD", "Docker", "Kubernetes", "Monitoring"],
+      "description": "End-to-end MLOps course: build, deploy, monitor, and maintain ML models in production.",
       "rating": 4.7,
       "free": false,
-      "url": "https://example.com/course_017"
+      "url": "https://www.coursera.org/specializations/mlops-machine-learning-duke"
     },
     {
       "id": "course_018",
-      "title": "JavaScript/React Mastery: Course 2",
-      "platform": "edX",
-      "duration_hrs": 8,
-      "difficulty": "Intermediate",
-      "skills_covered": [
-        "JavaScript/React",
-        "Development",
-        "JavaScript"
-      ],
-      "description": "Comprehensive JavaScript/React course covering from basics to advanced.",
-      "rating": 5.0,
-      "free": true,
-      "url": "https://example.com/course_018"
+      "title": "Practical MLOps with Docker and Kubernetes",
+      "platform": "LinkedIn Learning",
+      "duration_hrs": 10,
+      "difficulty": "Advanced",
+      "skills_covered": ["MLOps", "Docker", "Kubernetes", "Model Deployment", "Python"],
+      "description": "Build production ML pipelines using containerization and orchestration.",
+      "rating": 4.5,
+      "free": false,
+      "url": "https://www.linkedin.com/learning/mlops"
     },
     {
       "id": "course_019",
-      "title": "JavaScript/React Mastery: Course 3",
-      "platform": "Coursera",
-      "duration_hrs": 25,
-      "difficulty": "Beginner",
-      "skills_covered": [
-        "JavaScript/React",
-        "Fundamentals",
-        "Analysis"
-      ],
-      "description": "Comprehensive JavaScript/React course covering from basics to advanced.",
-      "rating": 4.3,
-      "free": true,
-      "url": "https://example.com/course_019"
+      "title": "Docker for Data Science",
+      "platform": "Pluralsight",
+      "duration_hrs": 8,
+      "difficulty": "Intermediate",
+      "skills_covered": ["Docker", "Containerization", "MLOps", "DevOps", "Linux"],
+      "description": "Use Docker to package and deploy data science and ML workflows.",
+      "rating": 4.5,
+      "free": false,
+      "url": "https://www.pluralsight.com/courses/docker-data-science"
     },
     {
       "id": "course_020",
-      "title": "JavaScript/React Mastery: Course 4",
-      "platform": "Udacity",
+      "title": "Docker Mastery: with Kubernetes and Swarm",
+      "platform": "Udemy",
       "duration_hrs": 21,
       "difficulty": "Intermediate",
-      "skills_covered": [
-        "JavaScript/React",
-        "JavaScript",
-        "Development"
-      ],
-      "description": "Comprehensive JavaScript/React course covering from basics to advanced.",
-      "rating": 4.1,
+      "skills_covered": ["Docker", "Kubernetes", "DevOps", "Containerization", "Container Orchestration"],
+      "description": "Complete Docker and Kubernetes course from install to production deployment.",
+      "rating": 4.8,
       "free": false,
-      "url": "https://example.com/course_020"
+      "url": "https://www.udemy.com/course/docker-mastery/"
     },
     {
       "id": "course_021",
-      "title": "JavaScript/React Mastery: Course 5",
-      "platform": "LinkedIn Learning",
-      "duration_hrs": 33,
+      "title": "Data Engineering with Python",
+      "platform": "DataCamp",
+      "duration_hrs": 20,
       "difficulty": "Intermediate",
-      "skills_covered": [
-        "JavaScript/React",
-        "Analysis",
-        "JavaScript"
-      ],
-      "description": "Comprehensive JavaScript/React course covering from basics to advanced.",
-      "rating": 4.8,
-      "free": true,
-      "url": "https://example.com/course_021"
+      "skills_covered": ["Data Engineering", "ETL", "Python", "Apache Spark", "Airflow"],
+      "description": "Build end-to-end data pipelines using Python, Spark, and Airflow.",
+      "rating": 4.6,
+      "free": false,
+      "url": "https://www.datacamp.com/tracks/data-engineer-with-python"
     },
     {
       "id": "course_022",
-      "title": "JavaScript/React Mastery: Course 6",
-      "platform": "Udacity",
-      "duration_hrs": 33,
-      "difficulty": "Intermediate",
-      "skills_covered": [
-        "JavaScript/React",
-        "Fundamentals",
-        "Development"
-      ],
-      "description": "Comprehensive JavaScript/React course covering from basics to advanced.",
-      "rating": 4.6,
-      "free": true,
-      "url": "https://example.com/course_022"
+      "title": "Apache Spark and Hadoop for Big Data",
+      "platform": "Udemy",
+      "duration_hrs": 14,
+      "difficulty": "Advanced",
+      "skills_covered": ["Data Engineering", "Apache Spark", "Hadoop", "ETL", "Big Data"],
+      "description": "Learn Spark and Hadoop for processing massive datasets in production environments.",
+      "rating": 4.5,
+      "free": false,
+      "url": "https://www.udemy.com/course/spark-hadoop/"
     },
     {
       "id": "course_023",
-      "title": "JavaScript/React Mastery: Course 7",
-      "platform": "edX",
-      "duration_hrs": 22,
-      "difficulty": "Intermediate",
-      "skills_covered": [
-        "JavaScript/React",
-        "JavaScript",
-        "Development"
-      ],
-      "description": "Comprehensive JavaScript/React course covering from basics to advanced.",
-      "rating": 4.0,
+      "title": "JavaScript: The Complete Guide",
+      "platform": "Udemy",
+      "duration_hrs": 52,
+      "difficulty": "Beginner",
+      "skills_covered": ["JavaScript", "ES6", "DOM Manipulation", "Async JavaScript", "Web Development"],
+      "description": "Complete JavaScript course covering modern JS, async, and browser APIs.",
+      "rating": 4.7,
       "free": false,
-      "url": "https://example.com/course_023"
+      "url": "https://www.udemy.com/course/javascript-the-complete-guide-2020-beginner-advanced/"
     },
     {
       "id": "course_024",
-      "title": "JavaScript/React Mastery: Course 8",
-      "platform": "edX",
-      "duration_hrs": 34,
+      "title": "React: The Complete Guide",
+      "platform": "Udemy",
+      "duration_hrs": 48,
       "difficulty": "Intermediate",
-      "skills_covered": [
-        "JavaScript/React",
-        "Development",
-        "JavaScript"
-      ],
-      "description": "Comprehensive JavaScript/React course covering from basics to advanced.",
+      "skills_covered": ["React", "JavaScript", "Redux", "React Hooks", "Next.js", "TypeScript"],
+      "description": "Master React including hooks, context, Redux, and Next.js for full-stack apps.",
       "rating": 4.7,
       "free": false,
-      "url": "https://example.com/course_024"
+      "url": "https://www.udemy.com/course/react-the-complete-guide-incl-redux/"
     },
     {
       "id": "course_025",
-      "title": "Machine Learning Mastery: Course 1",
-      "platform": "Pluralsight",
-      "duration_hrs": 15,
-      "difficulty": "Beginner",
-      "skills_covered": [
-        "Machine Learning",
-        "Analysis",
-        "Fundamentals"
-      ],
-      "description": "Comprehensive Machine Learning course covering from basics to advanced.",
-      "rating": 4.0,
-      "free": true,
-      "url": "https://example.com/course_025"
+      "title": "Full Stack Web Development with React",
+      "platform": "Coursera",
+      "duration_hrs": 40,
+      "difficulty": "Intermediate",
+      "skills_covered": ["React", "JavaScript", "HTML/CSS", "Node.js", "REST APIs"],
+      "description": "Hong Kong U's full-stack specialization covering React front-end to Node.js back-end.",
+      "rating": 4.6,
+      "free": false,
+      "url": "https://www.coursera.org/specializations/full-stack-react"
     },
     {
       "id": "course_026",
-      "title": "Machine Learning Mastery: Course 2",
-      "platform": "LinkedIn Learning",
-      "duration_hrs": 30,
+      "title": "Git and GitHub Bootcamp",
+      "platform": "Udemy",
+      "duration_hrs": 17,
       "difficulty": "Beginner",
-      "skills_covered": [
-        "Machine Learning",
-        "Machine Learning",
-        "Fundamentals"
-      ],
-      "description": "Comprehensive Machine Learning course covering from basics to advanced.",
-      "rating": 4.7,
-      "free": true,
-      "url": "https://example.com/course_026"
+      "skills_covered": ["Git", "GitHub", "Version Control", "Branching", "Collaboration"],
+      "description": "Comprehensive Git course covering branching, merging, rebasing, and GitHub workflows.",
+      "rating": 4.8,
+      "free": false,
+      "url": "https://www.udemy.com/course/git-and-github-bootcamp/"
     },
     {
       "id": "course_027",
-      "title": "Machine Learning Mastery: Course 3",
-      "platform": "Udacity",
-      "duration_hrs": 23,
-      "difficulty": "Beginner",
-      "skills_covered": [
-        "Machine Learning",
-        "Development",
-        "Fundamentals"
-      ],
-      "description": "Comprehensive Machine Learning course covering from basics to advanced.",
-      "rating": 4.9,
-      "free": true,
-      "url": "https://example.com/course_027"
+      "title": "REST APIs with Flask and Python",
+      "platform": "Udemy",
+      "duration_hrs": 17,
+      "difficulty": "Intermediate",
+      "skills_covered": ["REST APIs", "Python", "Flask", "API Development", "JWT Authentication"],
+      "description": "Build production-ready REST APIs with Flask, SQLAlchemy, and JWT.",
+      "rating": 4.7,
+      "free": false,
+      "url": "https://www.udemy.com/course/rest-api-flask-and-python/"
     },
     {
       "id": "course_028",
-      "title": "Machine Learning Mastery: Course 4",
-      "platform": "edX",
-      "duration_hrs": 27,
-      "difficulty": "Advanced",
-      "skills_covered": [
-        "Machine Learning",
-        "Development",
-        "Analysis"
-      ],
-      "description": "Comprehensive Machine Learning course covering from basics to advanced.",
-      "rating": 4.9,
+      "title": "AWS Cloud Practitioner Essentials",
+      "platform": "AWS Training",
+      "duration_hrs": 12,
+      "difficulty": "Beginner",
+      "skills_covered": ["Cloud Computing", "AWS", "Cloud Architecture", "Cloud Services"],
+      "description": "Official AWS course covering core cloud concepts, AWS services, and pricing.",
+      "rating": 4.7,
       "free": true,
-      "url": "https://example.com/course_028"
+      "url": "https://aws.amazon.com/training/digital/aws-cloud-practitioner-essentials/"
     },
     {
       "id": "course_029",
-      "title": "Machine Learning Mastery: Course 5",
-      "platform": "LinkedIn Learning",
-      "duration_hrs": 15,
-      "difficulty": "Beginner",
-      "skills_covered": [
-        "Machine Learning",
-        "Development",
-        "Analysis"
-      ],
-      "description": "Comprehensive Machine Learning course covering from basics to advanced.",
-      "rating": 4.3,
+      "title": "Google Cloud Professional Data Engineer",
+      "platform": "Coursera",
+      "duration_hrs": 40,
+      "difficulty": "Advanced",
+      "skills_covered": ["Cloud Computing", "GCP", "Data Engineering", "BigQuery", "Kubernetes"],
+      "description": "Prep for the GCP Professional Data Engineer exam with hands-on labs.",
+      "rating": 4.6,
       "free": false,
-      "url": "https://example.com/course_029"
+      "url": "https://www.coursera.org/professional-certificates/gcp-data-engineering"
     },
     {
       "id": "course_030",
-      "title": "Machine Learning Mastery: Course 6",
-      "platform": "Coursera",
-      "duration_hrs": 21,
-      "difficulty": "Beginner",
-      "skills_covered": [
-        "Machine Learning",
-        "Analysis",
-        "Machine Learning"
-      ],
-      "description": "Comprehensive Machine Learning course covering from basics to advanced.",
-      "rating": 4.7,
+      "title": "Data Analysis with Pandas and Python",
+      "platform": "Udemy",
+      "duration_hrs": 19,
+      "difficulty": "Intermediate",
+      "skills_covered": ["Pandas", "Data Analysis", "Python", "NumPy", "Data Visualization"],
+      "description": "Comprehensive Pandas course for real-world data analysis and manipulation.",
+      "rating": 4.6,
       "free": false,
-      "url": "https://example.com/course_030"
+      "url": "https://www.udemy.com/course/data-analysis-with-pandas/"
     },
     {
       "id": "course_031",
-      "title": "Machine Learning Mastery: Course 7",
-      "platform": "edX",
-      "duration_hrs": 33,
+      "title": "Statistics for Data Science",
+      "platform": "Coursera",
+      "duration_hrs": 20,
       "difficulty": "Intermediate",
-      "skills_covered": [
-        "Machine Learning",
-        "Development",
-        "Machine Learning"
-      ],
-      "description": "Comprehensive Machine Learning course covering from basics to advanced.",
+      "skills_covered": ["Statistics", "Probability", "Hypothesis Testing", "Regression Analysis", "Data Analysis"],
+      "description": "Master statistics needed for data science: distributions, tests, and regression.",
       "rating": 4.5,
-      "free": true,
-      "url": "https://example.com/course_031"
+      "free": false,
+      "url": "https://www.coursera.org/learn/statistics-for-data-science-python"
     },
     {
       "id": "course_032",
-      "title": "Machine Learning Mastery: Course 8",
-      "platform": "Pluralsight",
-      "duration_hrs": 16,
-      "difficulty": "Intermediate",
-      "skills_covered": [
-        "Machine Learning",
-        "Machine Learning",
-        "Fundamentals"
-      ],
-      "description": "Comprehensive Machine Learning course covering from basics to advanced.",
+      "title": "Data Visualization with Python",
+      "platform": "Coursera",
+      "duration_hrs": 15,
+      "difficulty": "Beginner",
+      "skills_covered": ["Data Visualization", "Matplotlib", "Seaborn", "Plotly", "Python"],
+      "description": "Create compelling visualizations using Matplotlib, Seaborn, Folium, and Plotly.",
       "rating": 4.5,
       "free": false,
-      "url": "https://example.com/course_032"
+      "url": "https://www.coursera.org/learn/python-for-data-visualization"
     },
     {
       "id": "course_033",
-      "title": "Machine Learning Mastery: Course 9",
-      "platform": "Pluralsight",
-      "duration_hrs": 36,
+      "title": "Tableau for Data Visualization",
+      "platform": "Udemy",
+      "duration_hrs": 9,
       "difficulty": "Beginner",
-      "skills_covered": [
-        "Machine Learning",
-        "Analysis",
-        "Machine Learning"
-      ],
-      "description": "Comprehensive Machine Learning course covering from basics to advanced.",
-      "rating": 4.9,
-      "free": true,
-      "url": "https://example.com/course_033"
+      "skills_covered": ["Data Visualization", "Tableau", "Dashboard", "Business Intelligence"],
+      "description": "Build interactive dashboards and visualizations with Tableau from scratch.",
+      "rating": 4.6,
+      "free": false,
+      "url": "https://www.udemy.com/course/tableau10/"
     },
     {
       "id": "course_034",
-      "title": "Machine Learning Mastery: Course 10",
-      "platform": "Udacity",
-      "duration_hrs": 20,
-      "difficulty": "Intermediate",
-      "skills_covered": [
-        "Machine Learning",
-        "Analysis",
-        "Machine Learning"
-      ],
-      "description": "Comprehensive Machine Learning course covering from basics to advanced.",
-      "rating": 4.2,
+      "title": "Natural Language Processing Specialization",
+      "platform": "Coursera",
+      "duration_hrs": 60,
+      "difficulty": "Advanced",
+      "skills_covered": ["NLP", "Natural Language Processing", "Deep Learning", "Transformers", "PyTorch", "TensorFlow"],
+      "description": "DeepLearning.AI's 4-course NLP specialization: sentiment, named entities, machine translation.",
+      "rating": 4.7,
       "free": false,
-      "url": "https://example.com/course_034"
+      "url": "https://www.coursera.org/specializations/natural-language-processing"
     },
     {
       "id": "course_035",
-      "title": "Deep Learning/PyTorch Mastery: Course 1",
-      "platform": "edX",
-      "duration_hrs": 19,
-      "difficulty": "Beginner",
-      "skills_covered": [
-        "Deep Learning/PyTorch",
-        "Fundamentals",
-        "Deep Learning"
-      ],
-      "description": "Comprehensive Deep Learning/PyTorch course covering from basics to advanced.",
-      "rating": 4.9,
-      "free": true,
-      "url": "https://example.com/course_035"
+      "title": "Computer Vision with Python and OpenCV",
+      "platform": "Udemy",
+      "duration_hrs": 14,
+      "difficulty": "Intermediate",
+      "skills_covered": ["Computer Vision", "OpenCV", "Python", "Image Processing", "Deep Learning"],
+      "description": "Master computer vision techniques using Python, OpenCV, and deep learning models.",
+      "rating": 4.6,
+      "free": false,
+      "url": "https://www.udemy.com/course/computer-vision-with-python-and-pytorch/"
     },
     {
       "id": "course_036",
-      "title": "Deep Learning/PyTorch Mastery: Course 2",
-      "platform": "edX",
-      "duration_hrs": 20,
+      "title": "Supply Chain Management Specialization",
+      "platform": "Coursera",
+      "duration_hrs": 30,
       "difficulty": "Intermediate",
-      "skills_covered": [
-        "Deep Learning/PyTorch",
-        "Fundamentals",
-        "Development"
-      ],
-      "description": "Comprehensive Deep Learning/PyTorch course covering from basics to advanced.",
-      "rating": 4.8,
+      "skills_covered": ["Supply Chain Systems", "Supply Chain Management", "Logistics Operations", "Operations Management"],
+      "description": "Rutgers Supply Chain Management specialization covering sourcing, operations, and logistics.",
+      "rating": 4.6,
       "free": false,
-      "url": "https://example.com/course_036"
+      "url": "https://www.coursera.org/specializations/supply-chain-management"
     },
     {
       "id": "course_037",
-      "title": "Deep Learning/PyTorch Mastery: Course 3",
-      "platform": "Udacity",
-      "duration_hrs": 17,
+      "title": "Logistics and Supply Chain Fundamentals",
+      "platform": "edX",
+      "duration_hrs": 16,
       "difficulty": "Beginner",
-      "skills_covered": [
-        "Deep Learning/PyTorch",
-        "Fundamentals",
-        "Analysis"
-      ],
-      "description": "Comprehensive Deep Learning/PyTorch course covering from basics to advanced.",
-      "rating": 4.1,
+      "skills_covered": ["Logistics Operations", "Supply Chain Systems", "Procurement", "Inventory Management"],
+      "description": "MIT-backed course on logistics fundamentals, transportation, and supply chain design.",
+      "rating": 4.5,
       "free": false,
-      "url": "https://example.com/course_037"
+      "url": "https://www.edx.org/course/supply-chain-and-logistics-fundamentals"
     },
     {
       "id": "course_038",
-      "title": "Deep Learning/PyTorch Mastery: Course 4",
-      "platform": "edX",
+      "title": "SAP Fundamentals for End Users",
+      "platform": "LinkedIn Learning",
       "duration_hrs": 6,
-      "difficulty": "Intermediate",
-      "skills_covered": [
-        "Deep Learning/PyTorch",
-        "Development",
-        "Fundamentals"
-      ],
-      "description": "Comprehensive Deep Learning/PyTorch course covering from basics to advanced.",
-      "rating": 5.0,
-      "free": true,
-      "url": "https://example.com/course_038"
+      "difficulty": "Beginner",
+      "skills_covered": ["ERP Software", "SAP", "Supply Chain Systems", "Enterprise Resource Planning"],
+      "description": "Hands-on introduction to SAP ERP for business processes and end users.",
+      "rating": 4.3,
+      "free": false,
+      "url": "https://www.linkedin.com/learning/sap-erp-essential-training"
     },
     {
       "id": "course_039",
-      "title": "Deep Learning/PyTorch Mastery: Course 5",
+      "title": "Leadership and Management Specialization",
       "platform": "Coursera",
-      "duration_hrs": 34,
-      "difficulty": "Beginner",
-      "skills_covered": [
-        "Deep Learning/PyTorch",
-        "Deep Learning",
-        "Development"
-      ],
-      "description": "Comprehensive Deep Learning/PyTorch course covering from basics to advanced.",
+      "duration_hrs": 30,
+      "difficulty": "Intermediate",
+      "skills_covered": ["Leadership", "Team Management", "Communication", "Project Management"],
+      "description": "University of Illinois course on leadership, influence, and organizational performance.",
       "rating": 4.6,
-      "free": true,
-      "url": "https://example.com/course_039"
+      "free": false,
+      "url": "https://www.coursera.org/specializations/leadership-excellence-management"
     },
     {
       "id": "course_040",
-      "title": "Deep Learning/PyTorch Mastery: Course 6",
-      "platform": "Udacity",
-      "duration_hrs": 34,
-      "difficulty": "Advanced",
-      "skills_covered": [
-        "Deep Learning/PyTorch",
-        "Analysis",
-        "Fundamentals"
-      ],
-      "description": "Comprehensive Deep Learning/PyTorch course covering from basics to advanced.",
-      "rating": 4.8,
+      "title": "Data Analysis for Operations Managers",
+      "platform": "LinkedIn Learning",
+      "duration_hrs": 5,
+      "difficulty": "Beginner",
+      "skills_covered": ["Data Analysis", "Excel", "Operations Management", "Decision Making"],
+      "description": "Use Excel and data analysis techniques to make better operations decisions.",
+      "rating": 4.3,
       "free": false,
-      "url": "https://example.com/course_040"
+      "url": "https://www.linkedin.com/learning/data-analytics-for-business-professionals"
     },
     {
       "id": "course_041",
-      "title": "Deep Learning/PyTorch Mastery: Course 7",
-      "platform": "Pluralsight",
-      "duration_hrs": 12,
-      "difficulty": "Intermediate",
-      "skills_covered": [
-        "Deep Learning/PyTorch",
-        "Fundamentals",
-        "Analysis"
-      ],
-      "description": "Comprehensive Deep Learning/PyTorch course covering from basics to advanced.",
-      "rating": 4.9,
+      "title": "Linux Command Line Basics",
+      "platform": "Udacity",
+      "duration_hrs": 5,
+      "difficulty": "Beginner",
+      "skills_covered": ["Linux", "Bash", "Shell Scripting", "Command Line", "DevOps"],
+      "description": "Master the Linux command line: navigation, file management, and shell scripting.",
+      "rating": 4.6,
       "free": true,
-      "url": "https://example.com/course_041"
+      "url": "https://www.udacity.com/course/linux-command-line-basics--ud595"
     },
     {
       "id": "course_042",
-      "title": "Deep Learning/PyTorch Mastery: Course 8",
-      "platform": "Coursera",
-      "duration_hrs": 36,
-      "difficulty": "Advanced",
-      "skills_covered": [
-        "Deep Learning/PyTorch",
-        "Fundamentals",
-        "Deep Learning"
-      ],
-      "description": "Comprehensive Deep Learning/PyTorch course covering from basics to advanced.",
-      "rating": 4.8,
+      "title": "HTML and CSS for Beginners",
+      "platform": "freeCodeCamp",
+      "duration_hrs": 10,
+      "difficulty": "Beginner",
+      "skills_covered": ["HTML/CSS", "HTML", "CSS", "Web Design", "Responsive Design"],
+      "description": "Build responsive websites from scratch with modern HTML5 and CSS3.",
+      "rating": 4.7,
       "free": true,
-      "url": "https://example.com/course_042"
+      "url": "https://www.freecodecamp.org/learn/responsive-web-design/"
     },
     {
       "id": "course_043",
-      "title": "Data Engineering Mastery: Course 1",
-      "platform": "edX",
-      "duration_hrs": 36,
-      "difficulty": "Advanced",
-      "skills_covered": [
-        "Data Engineering",
-        "Development",
-        "Fundamentals"
-      ],
-      "description": "Comprehensive Data Engineering course covering from basics to advanced.",
+      "title": "Agile Project Management",
+      "platform": "Coursera",
+      "duration_hrs": 16,
+      "difficulty": "Beginner",
+      "skills_covered": ["Agile", "Scrum", "Project Management", "Kanban", "Sprint Planning"],
+      "description": "Google's Agile project management course covering Scrum, Kanban, and Agile principles.",
       "rating": 4.8,
       "free": false,
-      "url": "https://example.com/course_043"
+      "url": "https://www.coursera.org/learn/agile-project-management"
     },
     {
       "id": "course_044",
-      "title": "Data Engineering Mastery: Course 2",
-      "platform": "Pluralsight",
-      "duration_hrs": 11,
-      "difficulty": "Advanced",
-      "skills_covered": [
-        "Data Engineering",
-        "Development",
-        "Fundamentals"
-      ],
-      "description": "Comprehensive Data Engineering course covering from basics to advanced.",
-      "rating": 4.4,
-      "free": true,
-      "url": "https://example.com/course_044"
+      "title": "Excel Skills for Business",
+      "platform": "Coursera",
+      "duration_hrs": 30,
+      "difficulty": "Intermediate",
+      "skills_covered": ["Excel", "Microsoft Excel", "Spreadsheets", "Data Analysis", "VBA Macros"],
+      "description": "Master Excel for business analytics: pivot tables, VLOOKUP, charts, and VBA.",
+      "rating": 4.9,
+      "free": false,
+      "url": "https://www.coursera.org/specializations/excel"
     },
     {
       "id": "course_045",
-      "title": "Data Engineering Mastery: Course 3",
-      "platform": "Pluralsight",
-      "duration_hrs": 23,
+      "title": "MLflow for MLOps: Experiment Tracking",
+      "platform": "Udemy",
+      "duration_hrs": 7,
       "difficulty": "Intermediate",
-      "skills_covered": [
-        "Data Engineering",
-        "Data Engineering",
-        "Fundamentals"
-      ],
-      "description": "Comprehensive Data Engineering course covering from basics to advanced.",
-      "rating": 4.5,
+      "skills_covered": ["MLOps", "MLflow", "Experiment Tracking", "Model Registry", "Python"],
+      "description": "Use MLflow to track experiments, manage models, and deploy ML pipelines.",
+      "rating": 4.6,
       "free": false,
-      "url": "https://example.com/course_045"
+      "url": "https://www.udemy.com/course/mlflow-for-machine-learning/"
     },
     {
       "id": "course_046",
-      "title": "Data Engineering Mastery: Course 4",
-      "platform": "Udacity",
-      "duration_hrs": 38,
+      "title": "Kubernetes for Developers",
+      "platform": "Linux Foundation",
+      "duration_hrs": 20,
       "difficulty": "Advanced",
-      "skills_covered": [
-        "Data Engineering",
-        "Data Engineering",
-        "Analysis"
-      ],
-      "description": "Comprehensive Data Engineering course covering from basics to advanced.",
-      "rating": 4.4,
+      "skills_covered": ["Kubernetes", "Docker", "Container Orchestration", "DevOps", "Cloud Computing"],
+      "description": "CNCF official course on Kubernetes for deploying and managing containerized applications.",
+      "rating": 4.7,
       "free": false,
-      "url": "https://example.com/course_046"
+      "url": "https://training.linuxfoundation.org/training/kubernetes-for-developers/"
     },
     {
       "id": "course_047",
-      "title": "Data Engineering Mastery: Course 5",
-      "platform": "Udacity",
-      "duration_hrs": 25,
-      "difficulty": "Beginner",
-      "skills_covered": [
-        "Data Engineering",
-        "Development",
-        "Fundamentals"
-      ],
-      "description": "Comprehensive Data Engineering course covering from basics to advanced.",
-      "rating": 5.0,
+      "title": "FastAPI: Modern Python Web APIs",
+      "platform": "Udemy",
+      "duration_hrs": 11,
+      "difficulty": "Intermediate",
+      "skills_covered": ["REST APIs", "FastAPI", "Python", "Pydantic", "Async Programming"],
+      "description": "Build high-performance APIs with FastAPI, Pydantic, and async Python.",
+      "rating": 4.7,
       "free": false,
-      "url": "https://example.com/course_047"
+      "url": "https://www.udemy.com/course/fastapi-the-complete-course/"
     },
     {
       "id": "course_048",
-      "title": "Data Engineering Mastery: Course 6",
-      "platform": "LinkedIn Learning",
-      "duration_hrs": 31,
-      "difficulty": "Advanced",
-      "skills_covered": [
-        "Data Engineering",
-        "Fundamentals",
-        "Analysis"
-      ],
-      "description": "Comprehensive Data Engineering course covering from basics to advanced.",
+      "title": "Cybersecurity for Everyone",
+      "platform": "Coursera",
+      "duration_hrs": 12,
+      "difficulty": "Beginner",
+      "skills_covered": ["Cybersecurity", "Information Security", "Network Security", "Security Fundamentals"],
+      "description": "University of Maryland introduction to cybersecurity for non-technical audiences.",
       "rating": 4.5,
-      "free": true,
-      "url": "https://example.com/course_048"
+      "free": false,
+      "url": "https://www.coursera.org/learn/cybersecurity-for-everyone"
     },
     {
       "id": "course_049",
-      "title": "MLOps/Docker Mastery: Course 1",
-      "platform": "Coursera",
-      "duration_hrs": 37,
-      "difficulty": "Advanced",
-      "skills_covered": [
-        "MLOps/Docker",
-        "Development",
-        "Fundamentals"
-      ],
-      "description": "Comprehensive MLOps/Docker course covering from basics to advanced.",
-      "rating": 4.3,
+      "title": "Business Process Management",
+      "platform": "edX",
+      "duration_hrs": 15,
+      "difficulty": "Intermediate",
+      "skills_covered": ["Process Mapping", "BPM", "Business Process Management", "Workflow Design", "Operations Management"],
+      "description": "TU Munich course on designing and optimizing business processes with BPMN.",
+      "rating": 4.5,
       "free": false,
-      "url": "https://example.com/course_049"
+      "url": "https://www.edx.org/course/business-process-management"
     },
     {
       "id": "course_050",
-      "title": "MLOps/Docker Mastery: Course 2",
-      "platform": "Coursera",
-      "duration_hrs": 33,
+      "title": "NumPy for Data Science",
+      "platform": "DataCamp",
+      "duration_hrs": 4,
       "difficulty": "Beginner",
-      "skills_covered": [
-        "MLOps/Docker",
-        "Fundamentals",
-        "Analysis"
-      ],
-      "description": "Comprehensive MLOps/Docker course covering from basics to advanced.",
-      "rating": 4.0,
-      "free": false,
-      "url": "https://example.com/course_050"
-    },
-    {
-      "id": "course_051",
-      "title": "MLOps/Docker Mastery: Course 3",
-      "platform": "Pluralsight",
-      "duration_hrs": 36,
-      "difficulty": "Advanced",
-      "skills_covered": [
-        "MLOps/Docker",
-        "Development",
-        "MLOps"
-      ],
-      "description": "Comprehensive MLOps/Docker course covering from basics to advanced.",
+      "skills_covered": ["NumPy", "Python", "Numerical Computing", "Data Science"],
+      "description": "Master NumPy arrays, broadcasting, and linear algebra for data science.",
       "rating": 4.6,
       "free": false,
-      "url": "https://example.com/course_051"
-    },
-    {
-      "id": "course_052",
-      "title": "MLOps/Docker Mastery: Course 4",
-      "platform": "Coursera",
-      "duration_hrs": 7,
-      "difficulty": "Advanced",
-      "skills_covered": [
-        "MLOps/Docker",
-        "Fundamentals",
-        "MLOps"
-      ],
-      "description": "Comprehensive MLOps/Docker course covering from basics to advanced.",
-      "rating": 4.5,
-      "free": true,
-      "url": "https://example.com/course_052"
-    },
-    {
-      "id": "course_053",
-      "title": "MLOps/Docker Mastery: Course 5",
-      "platform": "LinkedIn Learning",
-      "duration_hrs": 35,
-      "difficulty": "Advanced",
-      "skills_covered": [
-        "MLOps/Docker",
-        "Development",
-        "MLOps"
-      ],
-      "description": "Comprehensive MLOps/Docker course covering from basics to advanced.",
-      "rating": 4.5,
-      "free": true,
-      "url": "https://example.com/course_053"
-    },
-    {
-      "id": "course_054",
-      "title": "MLOps/Docker Mastery: Course 6",
-      "platform": "LinkedIn Learning",
-      "duration_hrs": 7,
-      "difficulty": "Advanced",
-      "skills_covered": [
-        "MLOps/Docker",
-        "MLOps",
-        "Development"
-      ],
-      "description": "Comprehensive MLOps/Docker course covering from basics to advanced.",
-      "rating": 4.1,
-      "free": false,
-      "url": "https://example.com/course_054"
-    },
-    {
-      "id": "course_055",
-      "title": "Statistics/Math Mastery: Course 1",
-      "platform": "Coursera",
-      "duration_hrs": 28,
-      "difficulty": "Intermediate",
-      "skills_covered": [
-        "Statistics/Math",
-        "Analysis",
-        "Statistics"
-      ],
-      "description": "Comprehensive Statistics/Math course covering from basics to advanced.",
-      "rating": 4.3,
-      "free": false,
-      "url": "https://example.com/course_055"
-    },
-    {
-      "id": "course_056",
-      "title": "Statistics/Math Mastery: Course 2",
-      "platform": "edX",
-      "duration_hrs": 8,
-      "difficulty": "Intermediate",
-      "skills_covered": [
-        "Statistics/Math",
-        "Fundamentals",
-        "Statistics"
-      ],
-      "description": "Comprehensive Statistics/Math course covering from basics to advanced.",
-      "rating": 4.7,
-      "free": false,
-      "url": "https://example.com/course_056"
-    },
-    {
-      "id": "course_057",
-      "title": "Statistics/Math Mastery: Course 3",
-      "platform": "Udacity",
-      "duration_hrs": 39,
-      "difficulty": "Beginner",
-      "skills_covered": [
-        "Statistics/Math",
-        "Analysis",
-        "Statistics"
-      ],
-      "description": "Comprehensive Statistics/Math course covering from basics to advanced.",
-      "rating": 4.7,
-      "free": false,
-      "url": "https://example.com/course_057"
-    },
-    {
-      "id": "course_058",
-      "title": "Statistics/Math Mastery: Course 4",
-      "platform": "edX",
-      "duration_hrs": 11,
-      "difficulty": "Advanced",
-      "skills_covered": [
-        "Statistics/Math",
-        "Development",
-        "Fundamentals"
-      ],
-      "description": "Comprehensive Statistics/Math course covering from basics to advanced.",
-      "rating": 4.8,
-      "free": true,
-      "url": "https://example.com/course_058"
-    },
-    {
-      "id": "course_059",
-      "title": "Statistics/Math Mastery: Course 5",
-      "platform": "Pluralsight",
-      "duration_hrs": 5,
-      "difficulty": "Intermediate",
-      "skills_covered": [
-        "Statistics/Math",
-        "Statistics",
-        "Development"
-      ],
-      "description": "Comprehensive Statistics/Math course covering from basics to advanced.",
-      "rating": 4.2,
-      "free": true,
-      "url": "https://example.com/course_059"
-    },
-    {
-      "id": "course_060",
-      "title": "Statistics/Math Mastery: Course 6",
-      "platform": "LinkedIn Learning",
-      "duration_hrs": 23,
-      "difficulty": "Advanced",
-      "skills_covered": [
-        "Statistics/Math",
-        "Fundamentals",
-        "Analysis"
-      ],
-      "description": "Comprehensive Statistics/Math course covering from basics to advanced.",
-      "rating": 4.6,
-      "free": true,
-      "url": "https://example.com/course_060"
-    },
-    {
-      "id": "course_061",
-      "title": "System Design Mastery: Course 1",
-      "platform": "Coursera",
-      "duration_hrs": 37,
-      "difficulty": "Advanced",
-      "skills_covered": [
-        "System Design",
-        "Development",
-        "System Design"
-      ],
-      "description": "Comprehensive System Design course covering from basics to advanced.",
-      "rating": 4.9,
-      "free": false,
-      "url": "https://example.com/course_061"
-    },
-    {
-      "id": "course_062",
-      "title": "System Design Mastery: Course 2",
-      "platform": "Pluralsight",
-      "duration_hrs": 17,
-      "difficulty": "Beginner",
-      "skills_covered": [
-        "System Design",
-        "Development",
-        "Analysis"
-      ],
-      "description": "Comprehensive System Design course covering from basics to advanced.",
-      "rating": 4.2,
-      "free": false,
-      "url": "https://example.com/course_062"
-    },
-    {
-      "id": "course_063",
-      "title": "System Design Mastery: Course 3",
-      "platform": "Pluralsight",
-      "duration_hrs": 13,
-      "difficulty": "Beginner",
-      "skills_covered": [
-        "System Design",
-        "Analysis",
-        "System Design"
-      ],
-      "description": "Comprehensive System Design course covering from basics to advanced.",
-      "rating": 4.0,
-      "free": false,
-      "url": "https://example.com/course_063"
-    },
-    {
-      "id": "course_064",
-      "title": "System Design Mastery: Course 4",
-      "platform": "Pluralsight",
-      "duration_hrs": 34,
-      "difficulty": "Intermediate",
-      "skills_covered": [
-        "System Design",
-        "System Design",
-        "Development"
-      ],
-      "description": "Comprehensive System Design course covering from basics to advanced.",
-      "rating": 4.9,
-      "free": false,
-      "url": "https://example.com/course_064"
-    },
-    {
-      "id": "course_065",
-      "title": "System Design Mastery: Course 5",
-      "platform": "Pluralsight",
-      "duration_hrs": 37,
-      "difficulty": "Advanced",
-      "skills_covered": [
-        "System Design",
-        "Analysis",
-        "Fundamentals"
-      ],
-      "description": "Comprehensive System Design course covering from basics to advanced.",
-      "rating": 4.6,
-      "free": false,
-      "url": "https://example.com/course_065"
-    },
-    {
-      "id": "course_066",
-      "title": "FastAPI/Backend Mastery: Course 1",
-      "platform": "Pluralsight",
-      "duration_hrs": 16,
-      "difficulty": "Beginner",
-      "skills_covered": [
-        "FastAPI/Backend",
-        "Development",
-        "Fundamentals"
-      ],
-      "description": "Comprehensive FastAPI/Backend course covering from basics to advanced.",
-      "rating": 4.4,
-      "free": true,
-      "url": "https://example.com/course_066"
-    },
-    {
-      "id": "course_067",
-      "title": "FastAPI/Backend Mastery: Course 2",
-      "platform": "edX",
-      "duration_hrs": 20,
-      "difficulty": "Advanced",
-      "skills_covered": [
-        "FastAPI/Backend",
-        "Fundamentals",
-        "FastAPI"
-      ],
-      "description": "Comprehensive FastAPI/Backend course covering from basics to advanced.",
-      "rating": 4.8,
-      "free": false,
-      "url": "https://example.com/course_067"
-    },
-    {
-      "id": "course_068",
-      "title": "FastAPI/Backend Mastery: Course 3",
-      "platform": "LinkedIn Learning",
-      "duration_hrs": 6,
-      "difficulty": "Advanced",
-      "skills_covered": [
-        "FastAPI/Backend",
-        "Development",
-        "Analysis"
-      ],
-      "description": "Comprehensive FastAPI/Backend course covering from basics to advanced.",
-      "rating": 4.5,
-      "free": false,
-      "url": "https://example.com/course_068"
-    },
-    {
-      "id": "course_069",
-      "title": "FastAPI/Backend Mastery: Course 4",
-      "platform": "Coursera",
-      "duration_hrs": 6,
-      "difficulty": "Intermediate",
-      "skills_covered": [
-        "FastAPI/Backend",
-        "FastAPI",
-        "Fundamentals"
-      ],
-      "description": "Comprehensive FastAPI/Backend course covering from basics to advanced.",
-      "rating": 4.8,
-      "free": true,
-      "url": "https://example.com/course_069"
-    },
-    {
-      "id": "course_070",
-      "title": "FastAPI/Backend Mastery: Course 5",
-      "platform": "Coursera",
-      "duration_hrs": 8,
-      "difficulty": "Advanced",
-      "skills_covered": [
-        "FastAPI/Backend",
-        "Development",
-        "FastAPI"
-      ],
-      "description": "Comprehensive FastAPI/Backend course covering from basics to advanced.",
-      "rating": 4.3,
-      "free": false,
-      "url": "https://example.com/course_070"
-    },
-    {
-      "id": "course_071",
-      "title": "Cloud AWS/GCP Mastery: Course 1",
-      "platform": "edX",
-      "duration_hrs": 29,
-      "difficulty": "Intermediate",
-      "skills_covered": [
-        "Cloud AWS/GCP",
-        "Cloud AWS",
-        "Fundamentals"
-      ],
-      "description": "Comprehensive Cloud AWS/GCP course covering from basics to advanced.",
-      "rating": 4.3,
-      "free": true,
-      "url": "https://example.com/course_071"
-    },
-    {
-      "id": "course_072",
-      "title": "Cloud AWS/GCP Mastery: Course 2",
-      "platform": "LinkedIn Learning",
-      "duration_hrs": 36,
-      "difficulty": "Advanced",
-      "skills_covered": [
-        "Cloud AWS/GCP",
-        "Cloud AWS",
-        "Development"
-      ],
-      "description": "Comprehensive Cloud AWS/GCP course covering from basics to advanced.",
-      "rating": 4.0,
-      "free": true,
-      "url": "https://example.com/course_072"
-    },
-    {
-      "id": "course_073",
-      "title": "Cloud AWS/GCP Mastery: Course 3",
-      "platform": "Coursera",
-      "duration_hrs": 24,
-      "difficulty": "Intermediate",
-      "skills_covered": [
-        "Cloud AWS/GCP",
-        "Analysis",
-        "Fundamentals"
-      ],
-      "description": "Comprehensive Cloud AWS/GCP course covering from basics to advanced.",
-      "rating": 4.9,
-      "free": false,
-      "url": "https://example.com/course_073"
-    },
-    {
-      "id": "course_074",
-      "title": "Cloud AWS/GCP Mastery: Course 4",
-      "platform": "Udacity",
-      "duration_hrs": 22,
-      "difficulty": "Intermediate",
-      "skills_covered": [
-        "Cloud AWS/GCP",
-        "Fundamentals",
-        "Development"
-      ],
-      "description": "Comprehensive Cloud AWS/GCP course covering from basics to advanced.",
-      "rating": 4.9,
-      "free": false,
-      "url": "https://example.com/course_074"
-    },
-    {
-      "id": "course_075",
-      "title": "Cloud AWS/GCP Mastery: Course 5",
-      "platform": "Pluralsight",
-      "duration_hrs": 21,
-      "difficulty": "Intermediate",
-      "skills_covered": [
-        "Cloud AWS/GCP",
-        "Cloud AWS",
-        "Development"
-      ],
-      "description": "Comprehensive Cloud AWS/GCP course covering from basics to advanced.",
-      "rating": 4.1,
-      "free": false,
-      "url": "https://example.com/course_075"
-    },
-    {
-      "id": "course_076",
-      "title": "Project Management Mastery: Course 1",
-      "platform": "Pluralsight",
-      "duration_hrs": 26,
-      "difficulty": "Advanced",
-      "skills_covered": [
-        "Project Management",
-        "Analysis",
-        "Fundamentals"
-      ],
-      "description": "Comprehensive Project Management course covering from basics to advanced.",
-      "rating": 4.9,
-      "free": true,
-      "url": "https://example.com/course_076"
-    },
-    {
-      "id": "course_077",
-      "title": "Project Management Mastery: Course 2",
-      "platform": "Coursera",
-      "duration_hrs": 13,
-      "difficulty": "Advanced",
-      "skills_covered": [
-        "Project Management",
-        "Project Management",
-        "Fundamentals"
-      ],
-      "description": "Comprehensive Project Management course covering from basics to advanced.",
-      "rating": 4.4,
-      "free": false,
-      "url": "https://example.com/course_077"
-    },
-    {
-      "id": "course_078",
-      "title": "Project Management Mastery: Course 3",
-      "platform": "Udacity",
-      "duration_hrs": 23,
-      "difficulty": "Intermediate",
-      "skills_covered": [
-        "Project Management",
-        "Fundamentals",
-        "Analysis"
-      ],
-      "description": "Comprehensive Project Management course covering from basics to advanced.",
-      "rating": 4.5,
-      "free": true,
-      "url": "https://example.com/course_078"
-    },
-    {
-      "id": "course_079",
-      "title": "Project Management Mastery: Course 4",
-      "platform": "edX",
-      "duration_hrs": 12,
-      "difficulty": "Intermediate",
-      "skills_covered": [
-        "Project Management",
-        "Project Management",
-        "Analysis"
-      ],
-      "description": "Comprehensive Project Management course covering from basics to advanced.",
-      "rating": 4.3,
-      "free": true,
-      "url": "https://example.com/course_079"
-    },
-    {
-      "id": "course_080",
-      "title": "Project Management Mastery: Course 5",
-      "platform": "Udacity",
-      "duration_hrs": 19,
-      "difficulty": "Intermediate",
-      "skills_covered": [
-        "Project Management",
-        "Development",
-        "Fundamentals"
-      ],
-      "description": "Comprehensive Project Management course covering from basics to advanced.",
-      "rating": 5.0,
-      "free": false,
-      "url": "https://example.com/course_080"
-    },
-    {
-      "id": "course_081",
-      "title": "Communication Mastery: Course 1",
-      "platform": "Coursera",
-      "duration_hrs": 34,
-      "difficulty": "Advanced",
-      "skills_covered": [
-        "Communication",
-        "Communication",
-        "Development"
-      ],
-      "description": "Comprehensive Communication course covering from basics to advanced.",
-      "rating": 4.0,
-      "free": false,
-      "url": "https://example.com/course_081"
-    },
-    {
-      "id": "course_082",
-      "title": "Communication Mastery: Course 2",
-      "platform": "Udacity",
-      "duration_hrs": 36,
-      "difficulty": "Intermediate",
-      "skills_covered": [
-        "Communication",
-        "Development",
-        "Communication"
-      ],
-      "description": "Comprehensive Communication course covering from basics to advanced.",
-      "rating": 4.5,
-      "free": false,
-      "url": "https://example.com/course_082"
-    },
-    {
-      "id": "course_083",
-      "title": "Communication Mastery: Course 3",
-      "platform": "edX",
-      "duration_hrs": 9,
-      "difficulty": "Beginner",
-      "skills_covered": [
-        "Communication",
-        "Analysis",
-        "Fundamentals"
-      ],
-      "description": "Comprehensive Communication course covering from basics to advanced.",
-      "rating": 4.9,
-      "free": false,
-      "url": "https://example.com/course_083"
-    },
-    {
-      "id": "course_084",
-      "title": "Communication Mastery: Course 4",
-      "platform": "LinkedIn Learning",
-      "duration_hrs": 18,
-      "difficulty": "Intermediate",
-      "skills_covered": [
-        "Communication",
-        "Development",
-        "Communication"
-      ],
-      "description": "Comprehensive Communication course covering from basics to advanced.",
-      "rating": 4.4,
-      "free": false,
-      "url": "https://example.com/course_084"
-    },
-    {
-      "id": "course_085",
-      "title": "Communication Mastery: Course 5",
-      "platform": "Pluralsight",
-      "duration_hrs": 18,
-      "difficulty": "Intermediate",
-      "skills_covered": [
-        "Communication",
-        "Communication",
-        "Fundamentals"
-      ],
-      "description": "Comprehensive Communication course covering from basics to advanced.",
-      "rating": 5.0,
-      "free": true,
-      "url": "https://example.com/course_085"
-    },
-    {
-      "id": "course_086",
-      "title": "Operations/Logistics Mastery: Course 1",
-      "platform": "LinkedIn Learning",
-      "duration_hrs": 13,
-      "difficulty": "Intermediate",
-      "skills_covered": [
-        "Operations/Logistics",
-        "Analysis",
-        "Operations"
-      ],
-      "description": "Comprehensive Operations/Logistics course covering from basics to advanced.",
-      "rating": 4.7,
-      "free": false,
-      "url": "https://example.com/course_086"
-    },
-    {
-      "id": "course_087",
-      "title": "Operations/Logistics Mastery: Course 2",
-      "platform": "LinkedIn Learning",
-      "duration_hrs": 31,
-      "difficulty": "Beginner",
-      "skills_covered": [
-        "Operations/Logistics",
-        "Fundamentals",
-        "Operations"
-      ],
-      "description": "Comprehensive Operations/Logistics course covering from basics to advanced.",
-      "rating": 4.4,
-      "free": false,
-      "url": "https://example.com/course_087"
-    },
-    {
-      "id": "course_088",
-      "title": "Operations/Logistics Mastery: Course 3",
-      "platform": "Pluralsight",
-      "duration_hrs": 35,
-      "difficulty": "Advanced",
-      "skills_covered": [
-        "Operations/Logistics",
-        "Operations",
-        "Analysis"
-      ],
-      "description": "Comprehensive Operations/Logistics course covering from basics to advanced.",
-      "rating": 4.1,
-      "free": true,
-      "url": "https://example.com/course_088"
-    },
-    {
-      "id": "course_089",
-      "title": "Operations/Logistics Mastery: Course 4",
-      "platform": "LinkedIn Learning",
-      "duration_hrs": 27,
-      "difficulty": "Advanced",
-      "skills_covered": [
-        "Operations/Logistics",
-        "Analysis",
-        "Development"
-      ],
-      "description": "Comprehensive Operations/Logistics course covering from basics to advanced.",
-      "rating": 4.9,
-      "free": true,
-      "url": "https://example.com/course_089"
-    },
-    {
-      "id": "course_090",
-      "title": "Operations/Logistics Mastery: Course 5",
-      "platform": "edX",
-      "duration_hrs": 17,
-      "difficulty": "Beginner",
-      "skills_covered": [
-        "Operations/Logistics",
-        "Development",
-        "Operations"
-      ],
-      "description": "Comprehensive Operations/Logistics course covering from basics to advanced.",
-      "rating": 4.7,
-      "free": false,
-      "url": "https://example.com/course_090"
-    },
-    {
-      "id": "course_091",
-      "title": "Leadership Mastery: Course 1",
-      "platform": "Udacity",
-      "duration_hrs": 11,
-      "difficulty": "Intermediate",
-      "skills_covered": [
-        "Leadership",
-        "Development",
-        "Fundamentals"
-      ],
-      "description": "Comprehensive Leadership course covering from basics to advanced.",
-      "rating": 4.3,
-      "free": false,
-      "url": "https://example.com/course_091"
-    },
-    {
-      "id": "course_092",
-      "title": "Leadership Mastery: Course 2",
-      "platform": "Pluralsight",
-      "duration_hrs": 25,
-      "difficulty": "Advanced",
-      "skills_covered": [
-        "Leadership",
-        "Development",
-        "Analysis"
-      ],
-      "description": "Comprehensive Leadership course covering from basics to advanced.",
-      "rating": 4.7,
-      "free": false,
-      "url": "https://example.com/course_092"
-    },
-    {
-      "id": "course_093",
-      "title": "Leadership Mastery: Course 3",
-      "platform": "Pluralsight",
-      "duration_hrs": 27,
-      "difficulty": "Intermediate",
-      "skills_covered": [
-        "Leadership",
-        "Development",
-        "Fundamentals"
-      ],
-      "description": "Comprehensive Leadership course covering from basics to advanced.",
-      "rating": 4.2,
-      "free": true,
-      "url": "https://example.com/course_093"
-    },
-    {
-      "id": "course_094",
-      "title": "Leadership Mastery: Course 4",
-      "platform": "edX",
-      "duration_hrs": 15,
-      "difficulty": "Beginner",
-      "skills_covered": [
-        "Leadership",
-        "Fundamentals",
-        "Leadership"
-      ],
-      "description": "Comprehensive Leadership course covering from basics to advanced.",
-      "rating": 4.2,
-      "free": true,
-      "url": "https://example.com/course_094"
-    },
-    {
-      "id": "course_095",
-      "title": "Leadership Mastery: Course 5",
-      "platform": "Udacity",
-      "duration_hrs": 16,
-      "difficulty": "Advanced",
-      "skills_covered": [
-        "Leadership",
-        "Analysis",
-        "Development"
-      ],
-      "description": "Comprehensive Leadership course covering from basics to advanced.",
-      "rating": 4.8,
-      "free": true,
-      "url": "https://example.com/course_095"
+      "url": "https://www.datacamp.com/courses/intro-to-numpy"
     }
   ]
 }

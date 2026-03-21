@@ -1,13 +1,13 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useAppStore } from '../store/useAppStore';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion as Motion, AnimatePresence } from 'framer-motion';
 import { RadialBarChart, RadialBar, PolarAngleAxis, ResponsiveContainer } from 'recharts';
 import { Lock, CheckCircle2, ChevronDown, Zap, ExternalLink, Brain } from 'lucide-react';
 
 export default function Roadmap() {
   const navigate = useNavigate();
-  const { roadmap, overallReadinessPct } = useAppStore();
+  const { roadmap, overallReadinessPct, setCurrentMonth } = useAppStore();
   const [expandedMonth, setExpandedMonth] = useState(1);
 
   if (!roadmap || roadmap.length === 0) {
@@ -30,7 +30,7 @@ export default function Roadmap() {
             const isExpanded = expandedMonth === month.month;
 
             return (
-              <motion.div 
+              <Motion.div 
                 key={month.month}
                 initial={{ opacity: 0, x: -20 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: month.month * 0.1 }}
                 className={`relative flex items-start gap-6 ${isLocked ? 'filter grayscale opacity-40 pointer-events-none' : ''}`}
@@ -90,7 +90,7 @@ export default function Roadmap() {
 
                   <AnimatePresence>
                     {isExpanded && (
-                      <motion.div 
+                      <Motion.div 
                         initial={{ height: 0, opacity: 0 }}
                         animate={{ height: "auto", opacity: 1 }}
                         exit={{ height: 0, opacity: 0 }}
@@ -144,7 +144,10 @@ export default function Roadmap() {
                           {isInProgress && (
                             <div className="mt-8 flex justify-end">
                               <button 
-                                onClick={() => navigate('/test')}
+                                onClick={() => {
+                                  setCurrentMonth(month.month);
+                                  navigate('/test');
+                                }}
                                 className="px-6 py-3 bg-white text-background rounded-xl font-bold hover:bg-gray-200 transition-colors"
                               >
                                 Take Month-End Test →
@@ -152,11 +155,11 @@ export default function Roadmap() {
                             </div>
                           )}
                         </div>
-                      </motion.div>
-                    )}
+                      </Motion.div>
+                  )}
                   </AnimatePresence>
                 </div>
-              </motion.div>
+              </Motion.div>
             );
           })}
         </div>
@@ -168,8 +171,8 @@ export default function Roadmap() {
           
           <h3 className="font-headline font-bold text-lg mb-6 text-on-surface relative z-10">Overall Readiness</h3>
           
-          <div className="h-48 w-full relative mb-4">
-            <ResponsiveContainer width="100%" height="100%">
+          <div className="w-full relative mb-4" style={{ height: '200px', minHeight: '200px' }}>
+            <ResponsiveContainer width="100%" height={200}>
               <RadialBarChart cx="50%" cy="50%" innerRadius="70%" outerRadius="100%" barSize={10} data={data} startAngle={90} endAngle={-270}>
                 <PolarAngleAxis type="number" domain={[0, 100]} angleAxisId={0} tick={false} />
                 <RadialBar minAngle={15} background={{ fill: '#24252b' }} clockWise dataKey="value" cornerRadius={10} />

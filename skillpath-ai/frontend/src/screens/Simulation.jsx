@@ -208,8 +208,8 @@ export default function Simulation() {
              {scenarioFeedback && (
                <motion.div initial={{ opacity: 0, height: 0 }} animate={{ opacity: 1, height: 'auto' }} className="overflow-hidden">
                  <div className="mt-8 bg-surface-container rounded-2xl p-6 border border-white/5 flex gap-6">
-                    <div className="w-24 h-24 shrink-0 relative">
-                      <ResponsiveContainer width="100%" height="100%">
+                    <div className="w-24 h-24 shrink-0 relative" style={{ minWidth: '96px', minHeight: '96px' }}>
+                      <ResponsiveContainer width={96} height={96}>
                         <RadialBarChart cx="50%" cy="50%" innerRadius="70%" outerRadius="100%" barSize={8} data={[{ value: (scenarioFeedback.score/3)*100, fill: '#f673b7' }]} startAngle={90} endAngle={-270}>
                           <PolarAngleAxis type="number" domain={[0, 100]} angleAxisId={0} tick={false} />
                           <RadialBar minAngle={15} background={{ fill: '#24252b' }} clockWise dataKey="value" cornerRadius={10} />

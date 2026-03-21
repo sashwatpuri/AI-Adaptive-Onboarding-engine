@@ -1,6 +1,7 @@
 import time
 from fastapi import APIRouter, HTTPException
 from pydantic import BaseModel
+from models.course import Course
 from services.gap_analyzer import compute_gap_map
 from services.roadmap_generator import generate_roadmap
 from services.rag_retriever import retrieve_courses
@@ -26,7 +27,7 @@ async def create_roadmap(req: RoadmapRequest):
         for plan in roadmap[:2]:
             for skill in plan.skills:
                 courses = retrieve_courses(skill, top_k=2, session_id=req.session_id)
-                plan.courses.extend(courses)
+                plan.courses.extend(Course(**course) for course in courses)
                 
         sess["gap_map"] = gap_map
         sess["roadmap"] = roadmap
@@ -38,5 +39,7 @@ async def create_roadmap(req: RoadmapRequest):
             "session_id": req.session_id,
             "ms": int((time.time() - start_time) * 1000)
         }
+    except HTTPException:
+        raise
     except Exception as e:
         raise HTTPException(status_code=500, detail=str(e))
