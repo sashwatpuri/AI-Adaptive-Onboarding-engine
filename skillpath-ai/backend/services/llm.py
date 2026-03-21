@@ -34,7 +34,10 @@ def _fallback_response(system_prompt: str, user_prompt: str) -> dict:
   if "multiple-choice questions" in system_lower:
     skills = _extract_skills(user_prompt)
     questions = []
-    for idx, skill in enumerate(skills[:8], start=1):
+    idx = 1
+
+    # Generate 2 questions per skill
+    for skill in skills[:8]:
       questions.append({
         "id": f"q{idx}",
         "question": f"What is a core best practice when working with {skill}?",
@@ -49,6 +52,46 @@ def _fallback_response(system_prompt: str, user_prompt: str) -> dict:
         "type": "mcq",
         "explanation": f"Reliable {skill} work depends on validation, testing, and maintainable structure."
       })
+      idx += 1
+      questions.append({
+        "id": f"q{idx}",
+        "question": f"What is the most effective way to improve your {skill} proficiency?",
+        "options": [
+          "Only read documentation without practicing",
+          f"Build real projects that apply {skill} concepts",
+          "Memorize syntax without understanding concepts",
+          "Avoid peer code reviews"
+        ],
+        "correct_index": 1,
+        "skill_tag": skill,
+        "type": "mcq",
+        "explanation": f"Hands-on projects are the most effective way to deepen {skill} understanding."
+      })
+      idx += 1
+
+    # Pad to at least 6 questions with generic ones
+    generic_qs = [
+      {"question": "What is the best first step when requirements are ambiguous?",
+       "options": ["Code immediately", "Clarify expected outcomes", "Ignore edge cases", "Skip validation"],
+       "correct_index": 1, "explanation": "Clarifying outcomes reduces rework and defects."},
+      {"question": "Which practice most improves maintainability?",
+       "options": ["Long functions", "Hardcoded values", "Readable modular code", "Skipping tests"],
+       "correct_index": 2, "explanation": "Readable modular code is easier to change safely."},
+      {"question": "What helps most when debugging a complex issue?",
+       "options": ["Randomly changing code", "Systematic elimination of causes", "Ignoring error messages", "Restarting the project"],
+       "correct_index": 1, "explanation": "Systematic debugging isolates the root cause efficiently."},
+    ]
+    gi = 0
+    while len(questions) < 6:
+      g = generic_qs[gi % len(generic_qs)]
+      questions.append({
+        "id": f"q{idx}", "question": g["question"], "options": g["options"],
+        "correct_index": g["correct_index"],
+        "skill_tag": skills[0] if skills else "General",
+        "type": "mcq", "explanation": g["explanation"]
+      })
+      idx += 1
+      gi += 1
     return {"questions": questions}
 
   if "hands-on simulation task" in system_lower:

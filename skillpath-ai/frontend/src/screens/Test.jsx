@@ -9,7 +9,11 @@ import { Zap, ArrowRight, ArrowLeft, CheckCircle2 } from 'lucide-react';
 
 const DUMMY_QUESTIONS = [
   { id: 'q1', question: "What is the primary benefit of Python's GIL?", options: ['Multi-core parallelism', 'Memory management protection', 'Faster disk I/O', 'Network speed'], correct_index: 1, skill_tag: 'Python' },
-  { id: 'q2', question: 'Which SQL statement is used to extract data from a base table?', options: ['EXTRACT', 'SELECT', 'GET', 'PULL'], correct_index: 1, skill_tag: 'SQL' }
+  { id: 'q2', question: 'Which SQL statement is used to extract data from a base table?', options: ['EXTRACT', 'SELECT', 'GET', 'PULL'], correct_index: 1, skill_tag: 'SQL' },
+  { id: 'q3', question: 'Which Python data structure ensures unique elements?', options: ['List', 'Tuple', 'Set', 'Dictionary'], correct_index: 2, skill_tag: 'Python' },
+  { id: 'q4', question: 'What does JOIN do in SQL?', options: ['Deletes rows', 'Combines rows from two or more tables', 'Creates an index', 'Drops a column'], correct_index: 1, skill_tag: 'SQL' },
+  { id: 'q5', question: 'Which keyword is used to handle exceptions in Python?', options: ['catch', 'except', 'handle', 'rescue'], correct_index: 1, skill_tag: 'Python' },
+  { id: 'q6', question: 'What does the GROUP BY clause do in SQL?', options: ['Sorts results', 'Groups rows sharing a property', 'Limits output rows', 'Filters duplicates'], correct_index: 1, skill_tag: 'SQL' },
 ];
 
 export default function Test() {
@@ -50,16 +54,17 @@ export default function Test() {
 
     if (!sessionId) {
       setPhase('testing');
+      setLoading(false);
       return;
     }
 
     const loadKey = `${sessionId}:${monthNumber}`;
     if (lastLoadedKey.current === loadKey) {
+      // Already loaded this exact test — just show it, and ensure loader is off
       setPhase('testing');
+      setLoading(false);
       return;
     }
-
-    lastLoadedKey.current = loadKey;
 
     const prepareTest = async () => {
       try {
@@ -67,11 +72,13 @@ export default function Test() {
         setLoading(true, `Generating month ${monthNumber} assessment...`);
         const generated = await generateTest(monthNumber, sessionId);
         if (cancelled) return;
+        lastLoadedKey.current = loadKey;
         setTestData({ ...generated, month: monthNumber, fallback: false });
         setLoadError('');
         setPhase('testing');
       } catch (error) {
         if (cancelled) return;
+        lastLoadedKey.current = loadKey;
         setTestData({ questions: DUMMY_QUESTIONS, simulation_task: null, month: monthNumber, fallback: true });
         setLoadError(error.response?.data?.detail || error.message || 'Unable to generate the assessment.');
         setPhase('testing');
@@ -86,6 +93,8 @@ export default function Test() {
 
     return () => {
       cancelled = true;
+      // Always clear loading on cleanup so the GlobalLoader is never stuck
+      setLoading(false);
     };
   }, [sessionId, monthNumber, setLoading, setTestData]);
 
@@ -113,11 +122,43 @@ export default function Test() {
           setRoadmap(gapMap, res.updated_roadmap, overallReadinessPct);
         }
       } else {
+        // Compute actual scores from user answers in demo mode
+        const skillBuckets = {};
+        for (const q of questions) {
+          const tag = q.skill_tag || 'General';
+          if (!skillBuckets[tag]) skillBuckets[tag] = { total: 0, correct: 0 };
+          skillBuckets[tag].total += 1;
+          if (answers[q.id] !== undefined) {
+            const ansIdx = q.options.indexOf(answers[q.id]);
+            if (ansIdx === q.correct_index) {
+              skillBuckets[tag].correct += 1;
+            }
+          }
+        }
+        const totalCorrect = Object.values(skillBuckets).reduce((s, b) => s + b.correct, 0);
+        const totalQs = Object.values(skillBuckets).reduce((s, b) => s + b.total, 0);
+        const overallScore = totalQs > 0 ? Math.round((totalCorrect / totalQs) * 100) : 0;
+        const skillScores = {};
+        for (const [skill, counts] of Object.entries(skillBuckets)) {
+          skillScores[skill] = counts.total > 0 ? Math.round((counts.correct / counts.total) * 100) : 0;
+        }
+        const action = overallScore >= 80 ? 'FAST_TRACK' : overallScore >= 60 ? 'PROCEED' : 'REINFORCE';
+        const reroutingActions = [];
+        if (action === 'FAST_TRACK') {
+          reroutingActions.push('Mastered skills removed from upcoming months. Accelerated timeline activated.');
+        } else if (action === 'REINFORCE') {
+          const weakSkills = Object.entries(skillScores).filter(([, s]) => s < 60).map(([sk]) => sk);
+          reroutingActions.push(`Weak performance in ${weakSkills.join(', ')}. Extra reinforcement added to next sprint.`);
+        } else {
+          reroutingActions.push('Proceeding with standard pace. Your progress is on track.');
+        }
+
         const mockResults = {
-          overall_score: 85,
-          skill_scores: { Python: 100, SQL: 50 },
-          rerouting: 'FAST_TRACK',
-          updated_roadmap: []
+          overall_score: overallScore,
+          skill_scores: skillScores,
+          rerouting: action,
+          rerouting_actions: reroutingActions,
+          updated_roadmap: roadmap.length > 0 ? roadmap : [],
         };
         setLocalResults(mockResults);
         setTestResults(mockResults);
