@@ -28,7 +28,7 @@ async def upload_documents(
             raise HTTPException(status_code=400, detail="Must provide JD file or text")
 
         session_id = str(uuid.uuid4())
-        from main import sessions
+        from sessions import sessions
         sessions[session_id] = {
             "resume_text": parsed_resume,
             "jd_text": parsed_jd,
@@ -98,7 +98,7 @@ async def get_random_dataset_resume(category: str):
         parsed_jd = f"Required experience for {safe_cat}: Minimum 3 years. We are looking for an expert in {safe_cat} who can handle core industry responsibilities, manage teams, and utilize standard industry software. The ideal candidate will have strong communication skills, advanced problem solving abilities, and deep domain knowledge. Also requires intermediate skill in Process Mapping and Leadership."
 
         session_id = str(uuid.uuid4())
-        from main import sessions
+        from sessions import sessions
         sessions[session_id] = {
             "resume_text": parsed_resume,
             "jd_text": parsed_jd,

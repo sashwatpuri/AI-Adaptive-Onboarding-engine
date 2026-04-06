@@ -15,7 +15,7 @@ class RoadmapRequest(BaseModel):
 async def create_roadmap(req: RoadmapRequest):
     start_time = time.time()
     try:
-        from main import sessions
+        from sessions import sessions
         if req.session_id not in sessions:
             raise HTTPException(status_code=404, detail="Session not found")
         

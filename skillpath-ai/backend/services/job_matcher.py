@@ -74,7 +74,7 @@ _model = None
 _job_embeddings = None
 _jobs_data = None
 _initialized = False
-_semantic_enabled = os.getenv("ENABLE_SEMANTIC_JOB_MATCHER", "").lower() == "true"
+_semantic_enabled = config.ENABLE_EMBEDDINGS
 
 
 def _empty_jobs_frame():

@@ -1,7 +1,7 @@
 from datetime import datetime
 
 def log_reasoning(session_id: str, entry: dict):
-    from main import sessions
+    from sessions import sessions
     if session_id not in sessions:
         sessions[session_id] = {"trace": []}
     if "trace" not in sessions[session_id]:
@@ -13,5 +13,5 @@ def log_reasoning(session_id: str, entry: dict):
     })
 
 def get_trace(session_id: str) -> list:
-    from main import sessions
+    from sessions import sessions
     return sessions.get(session_id, {}).get("trace", [])

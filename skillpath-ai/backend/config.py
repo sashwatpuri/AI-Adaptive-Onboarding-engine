@@ -49,5 +49,13 @@ class Config:
     FAST_TRACK_THRESHOLD = int(os.getenv("FAST_TRACK_THRESHOLD", 80))
     MAX_RESUME_CHARS = int(os.getenv("MAX_RESUME_CHARS", 8000))
 
+    # TigerGraph
+    TG_HOST = os.getenv("TG_HOST", "")
+    TG_GRAPHNAME = os.getenv("TG_GRAPHNAME", "SkillPath")
+    TG_SECRET = os.getenv("TG_SECRET", "")
+    TG_USERNAME = os.getenv("TG_USERNAME", "tigergraph")
+    TG_PASSWORD = os.getenv("TG_PASSWORD", "")
+    ENABLE_TIGERGRAPH = os.getenv("ENABLE_TIGERGRAPH", "0") == "1"
+
 
 config = Config()

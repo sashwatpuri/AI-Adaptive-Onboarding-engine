@@ -44,10 +44,12 @@ export default function Test() {
   const currentQ = questions[currentIndex] || questions[0];
 
   useEffect(() => {
-    setCurrentIndex(0);
-    setAnswers({});
-    setLocalResults(null);
-  }, [monthNumber]);
+    if (phase !== 'results') {
+      setCurrentIndex(0);
+      setAnswers({});
+      setLocalResults(null);
+    }
+  }, [monthNumber, phase]);
 
   useEffect(() => {
     let cancelled = false;
@@ -104,7 +106,8 @@ export default function Test() {
   };
 
   const handleNext = () => {
-    if (currentIndex < questions.length - 1) setCurrentIndex(c => c + 1);
+    const totalContent = questions.length + (testData?.simulation_task ? 1 : 0);
+    if (currentIndex < totalContent - 1) setCurrentIndex(c => c + 1);
   };
 
   const handlePrev = () => {
@@ -117,7 +120,8 @@ export default function Test() {
       let finalResults = null;
 
       if (sessionId && !testData?.fallback) {
-        const res = await submitTest(monthNumber, answers, '', sessionId);
+        const simRes = answers['simulation_response'] || '';
+        const res = await submitTest(monthNumber, answers, simRes, sessionId);
         finalResults = res;
         setTestResults(res);
         if (res.updated_roadmap) {
@@ -283,7 +287,7 @@ export default function Test() {
       <div className="mb-12">
         <div className="flex justify-between text-xs font-bold text-on-surface-variant uppercase tracking-widest mb-4">
           <span>Sprint Assessment</span>
-          <span>Month {monthNumber} - Question {currentIndex + 1} of {questions.length}</span>
+          <span>Month {monthNumber} - {currentIndex < questions.length ? `Question ${currentIndex + 1} of ${questions.length}` : 'Practical Simulation'}</span>
         </div>
         <div className="h-2 w-full bg-surface-container-highest rounded-full overflow-hidden">
           <Motion.div
@@ -296,38 +300,76 @@ export default function Test() {
       </div>
 
       <AnimatePresence mode="wait">
-          <Motion.div
-            key={currentIndex}
-            initial={{ opacity: 0, x: 20 }}
-            animate={{ opacity: 1, x: 0 }}
-            exit={{ opacity: 0, x: -20 }}
-            transition={{ duration: 0.2 }}
+        <Motion.div
+          key={currentIndex === questions.length ? 'simulation' : currentIndex}
+          initial={{ opacity: 0, x: 20 }}
+          animate={{ opacity: 1, x: 0 }}
+          exit={{ opacity: 0, x: -20 }}
+          transition={{ duration: 0.2 }}
         >
           <div className="bg-surface-container rounded-3xl p-8 md:p-12 border border-white/5 mb-8">
-            <span className="inline-block px-3 py-1 rounded bg-surface-container-highest text-primary text-xs font-bold mb-6">
-              {currentQ.skill_tag}
-            </span>
-            <h3 className="font-headline font-extrabold text-2xl md:text-3xl text-on-surface leading-snug mb-10">
-              {currentQ.question}
-            </h3>
+            {currentIndex < questions.length ? (
+              <>
+                <span className="inline-block px-3 py-1 rounded bg-surface-container-highest text-primary text-xs font-bold mb-6">
+                  {currentQ.skill_tag}
+                </span>
+                <h3 className="font-headline font-extrabold text-2xl md:text-3xl text-on-surface leading-snug mb-10">
+                  {currentQ.question}
+                </h3>
 
-            <div className="space-y-4">
-              {currentQ.options.map((opt, i) => {
-                const isSelected = answers[currentQ.id] === opt;
-                return (
-                  <button
-                    key={i}
-                    onClick={() => handleSelect(opt)}
-                    className={`w-full text-left p-5 rounded-2xl border-2 transition-all font-medium flex items-center ${isSelected ? 'bg-primary/10 border-primary text-on-surface shadow-[0_0_15px_rgba(186,158,255,0.15)] scale-[1.01]' : 'bg-surface-container-low border-white/5 text-on-surface-variant hover:border-primary/30 hover:bg-surface-container-high'}`}
-                  >
-                    <div className={`w-6 h-6 rounded-full border-2 mr-4 flex items-center justify-center flex-shrink-0 ${isSelected ? 'border-primary' : 'border-white/20'}`}>
-                      {isSelected && <div className="w-3 h-3 bg-primary rounded-full"></div>}
+                <div className="space-y-4">
+                  {currentQ.options.map((opt, i) => {
+                    const isSelected = answers[currentQ.id] === opt;
+                    return (
+                      <button
+                        key={i}
+                        onClick={() => handleSelect(opt)}
+                        className={`w-full text-left p-5 rounded-2xl border-2 transition-all font-medium flex items-center ${isSelected ? 'bg-primary/10 border-primary text-on-surface shadow-[0_0_15px_rgba(186,158,255,0.15)] scale-[1.01]' : 'bg-surface-container-low border-white/5 text-on-surface-variant hover:border-primary/30 hover:bg-surface-container-high'}`}
+                      >
+                        <div className={`w-6 h-6 rounded-full border-2 mr-4 flex items-center justify-center flex-shrink-0 ${isSelected ? 'border-primary' : 'border-white/20'}`}>
+                          {isSelected && <div className="w-3 h-3 bg-primary rounded-full"></div>}
+                        </div>
+                        {opt}
+                      </button>
+                    );
+                  })}
+                </div>
+              </>
+            ) : (
+              // Simulation View
+              <div className="space-y-6">
+                <div className="flex items-center justify-between mb-4">
+                  <span className="px-3 py-1 rounded bg-tertiary/20 text-tertiary text-xs font-bold">
+                    HANDS-ON SIMULATION
+                  </span>
+                  <span className="text-xs text-on-surface-variant italic">
+                    Tests weighted higher than MCQs
+                  </span>
+                </div>
+                <h3 className="font-headline font-extrabold text-2xl md:text-3xl text-on-surface mb-4">
+                  {testData?.simulation_task?.title || 'Applied Scenario'}
+                </h3>
+                <p className="text-on-surface-variant leading-relaxed mb-6">
+                  {testData?.simulation_task?.description}
+                </p>
+                <div className="bg-black/40 rounded-2xl p-6 border border-white/10">
+                   <p className="text-sm font-bold text-primary mb-3">TASK: {testData?.simulation_task?.question}</p>
+                   <textarea
+                     value={answers['simulation_response'] || ''}
+                     onChange={(e) => setAnswers({...answers, 'simulation_response': e.target.value})}
+                     placeholder="Enter your implementation or solution plan here..."
+                     className="w-full h-40 bg-transparent text-on-surface font-mono text-sm focus:outline-none resize-none"
+                   />
+                </div>
+                <div className="grid grid-cols-3 gap-4">
+                  {testData?.simulation_task?.evaluation_criteria?.map((c, i) => (
+                    <div key={i} className="px-3 py-2 bg-surface-container-highest rounded-lg text-[10px] text-on-surface-variant uppercase text-center font-bold">
+                      {c}
                     </div>
-                    {opt}
-                  </button>
-                );
-              })}
-            </div>
+                  ))}
+                </div>
+              </div>
+            )}
           </div>
         </Motion.div>
       </AnimatePresence>
@@ -341,11 +383,11 @@ export default function Test() {
           <ArrowLeft size={18} className="mr-2" /> Prev
         </button>
 
-        {currentIndex === questions.length - 1 ? (
+        {currentIndex >= (questions.length + (testData?.simulation_task ? 1 : 0) - 1) ? (
           <button
             onClick={handleSubmit}
-            disabled={!hasAnswered}
-            className={`flex items-center space-x-2 px-10 py-4 bg-gradient-to-r from-primary to-primary-dim text-white rounded-xl font-bold transition-all ${hasAnswered ? 'hover:shadow-[0_0_20px_rgba(186,158,255,0.4)] hover:-translate-y-1' : 'opacity-50 cursor-not-allowed'}`}
+            disabled={!hasAnswered && currentIndex < questions.length}
+            className={`flex items-center space-x-2 px-10 py-4 bg-gradient-to-r from-primary to-primary-dim text-white rounded-xl font-bold transition-all ${(hasAnswered || currentIndex >= questions.length) ? 'hover:shadow-[0_0_20px_rgba(186,158,255,0.4)] hover:-translate-y-1' : 'opacity-50 cursor-not-allowed'}`}
           >
             <span>Submit Assessment</span> <CheckCircle2 size={18} />
           </button>

@@ -5,11 +5,10 @@ import asyncio
 import threading
 from services.rag_retriever import build_index
 
-# In-memory session store (shared across routers)
-sessions = {}
+from sessions import sessions
 
 from routers import (upload, skills, roadmap, 
-  courses, test, simulation, reasoning, job_matcher)
+  courses, test, simulation, reasoning, job_matcher, tigergraph)
 
 def _build_index_bg():
   print("Building RAG index in background...")
@@ -50,3 +49,4 @@ app.include_router(job_matcher.router, prefix="/api")
 app.include_router(test.router,       prefix="/api")
 app.include_router(simulation.router, prefix="/api")
 app.include_router(reasoning.router,  prefix="/api")
+app.include_router(tigergraph.router)

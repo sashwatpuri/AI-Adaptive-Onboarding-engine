@@ -23,19 +23,28 @@ This repository contains the main app, supporting datasets, design explorations,
 - Job matching from local dataset files
 - Learning roadmap generation
 - Course recommendation flow
+- TigerGraph integration for relational skill matching
 - Adaptive test and simulation support
 - Reasoning and trace visibility in the UI
 
 ## Tech Stack
 
 - Frontend: React, Vite, Tailwind CSS, Zustand, Recharts
-- Backend: FastAPI, Pydantic, Uvicorn
+- Backend: FastAPI, Pydantic, Uvicorn, pyTigerGraph
 - AI / NLP: sentence-transformers, FAISS, Google Gemini integration
+- Database: TigerGraph (Graph-based matching)
 - Data processing: pandas, numpy, PyMuPDF, pdfplumber, python-docx
 
 ## Getting Started
 
-### Prerequisites
+### One-Click Start (Windows)
+
+For the easiest experience, use the new automated startup script:
+
+- **Launch all:** Double-click `Start_App.bat`. This automatically handles dependencies, model training, and launches both services.
+- **Stop App:** Simply close the terminal windows that open.
+
+### Manual Setup (Prerequisites)
 
 - Python 3.10+
 - Node.js 18+

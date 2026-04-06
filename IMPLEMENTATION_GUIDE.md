@@ -283,6 +283,25 @@ Cancel with Ctrl+C and retry if needed.
 | Accuracy | High | Good |
 | Setup | Minutes | 5 min train |
 
+## TigerGraph Integration (Advanced)
+
+For relational skill matching and complex career pathing, the system now includes an optional **TigerGraph** layer.
+
+### Why TigerGraph?
+- **Relational Awareness:** Traces first and second-degree skill connections.
+- **Career Bridges:** Identifies "bridge skills" that connect disparate job roles.
+- **Scalability:** Handles million-node skill-job graphs with sub-second latency.
+
+### Setup
+1. **Enable it:** Set `ENABLE_TIGERGRAPH=1` in your `.env`.
+2. **Credentials:** Provide `TG_HOST`, `TG_GRAPHNAME`, and `TG_SECRET`.
+3. **Initialize:** Call `POST /api/tigergraph/setup` to create the schema.
+4. **Ingest:** Call `POST /api/tigergraph/ingest` to populate the graph from your CSV.
+
+### API Endpoints
+- `GET /api/tigergraph/status`: Check connection.
+- `POST /api/tigergraph/match`: Perform graph-based skill matching.
+
 ## Migration Checklist
 
 - [x] Created job_matcher.py service

@@ -12,3 +12,4 @@ httpx
 python-dotenv
 numpy
 pandas
+pyTigerGraph

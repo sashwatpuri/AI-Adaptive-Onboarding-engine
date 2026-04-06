@@ -22,7 +22,7 @@ class SubmitTestRequest(BaseModel):
 async def generate_test(req: GenerateTestRequest):
     start_time = time.time()
     try:
-        from main import sessions
+        from sessions import sessions
         if req.session_id not in sessions:
             raise HTTPException(status_code=404, detail="Session not found")
         
@@ -59,7 +59,7 @@ async def generate_test(req: GenerateTestRequest):
 async def submit_test(req: SubmitTestRequest):
     start_time = time.time()
     try:
-        from main import sessions
+        from sessions import sessions
         if req.session_id not in sessions:
             raise HTTPException(status_code=404, detail="Session not found")
             

@@ -136,11 +136,21 @@ def generate_month_test(skills: list, month: int, has_simulation: bool):
         """
 You are an expert technical interviewer.
 Generate 8 multiple-choice questions testing these skills.
+Each question MUST have: "id" (string), "question", "options" (list of 4 strings), "correct_index" (0-3), and "skill_tag".
 Return ONLY valid JSON with a `questions` array.
 """,
         f"Skills: {skills_text}",
     )
-    questions = mcq_result.get("questions", []) or _fallback_questions(skills)
+    questions = mcq_result.get("questions", [])
+    if not questions:
+        questions = _fallback_questions(skills)
+    else:
+        # Ensure every question has an id and skill_tag
+        for i, q in enumerate(questions):
+            if "id" not in q:
+                q["id"] = f"llm_q_{i}_{month}"
+            if "skill_tag" not in q:
+                q["skill_tag"] = skills[0] if skills else "General"
 
     simulation_task = None
     if has_simulation:
